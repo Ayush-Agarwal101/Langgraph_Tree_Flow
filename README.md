@@ -1,0 +1,1 @@
+command to run - python main_runner.py --json-file Web_Dev_Only.json --start-node "Core Application & Web Stacks"

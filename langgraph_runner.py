@@ -53,7 +53,7 @@ class LangGraphRecorder:
         # Add edges with small labels
         for (a, b) in self.edges:
             label = self.edge_prompts.get((a, b), "")
-            short_label = (label[:60] + "...") if label and len(label) > 60 else label
+            short_label = label
             dot.edge(a, b, label=short_label)
 
         outpath = dot.render(filename, cleanup=True)
