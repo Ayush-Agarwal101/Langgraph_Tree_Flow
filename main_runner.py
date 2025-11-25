@@ -1,3 +1,5 @@
+# command to run: python main_runner.py --json-file Web_Dev_Only.json --start-node "Core Application & Web Stacks"
+
 """
 Universal LLM-driven Decision-Tree Workflow Engine
 Files produced in this textdoc:
@@ -47,7 +49,7 @@ class LLMClient:
             return []
 
         full_prompt = (
-            "Reply ONLY with a JSON array of chosen option names.\n"
+            "Reply ONLY with a JSON Object containing a list of choices.\n"
             f"Options: {options}\n"
             f"Prompt: {prompt}\n"
         )
@@ -161,7 +163,7 @@ class BranchState:
 
 def build_step_prompt(base_prompt: str, selections: List[str], current_step: str, options: List[str]) -> str:
     sel_text = " using " + " + ".join(selections) if selections else ""
-    composed = f"{base_prompt}{sel_text}.\nCurrent step: {current_step}.\nOptions: {', '.join(options)}."
+    composed = f"{base_prompt}{sel_text}.\nCurrent step: {current_step}.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: {', '.join(options)}."
     return composed
 
 

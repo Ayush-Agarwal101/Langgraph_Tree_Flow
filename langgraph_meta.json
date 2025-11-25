@@ -1,5 +1,14 @@
 {
-  "completed_branches": [],
+  "completed_branches": [
+    [
+      "Web Development",
+      "Backend",
+      "REST",
+      "JavaScript/TypeScript",
+      "Express.js",
+      "Apache HTTP Server"
+    ]
+  ],
   "nodes": {
     "Core Application & Web Stacks": {
       "prompts": [
@@ -9,60 +18,148 @@
     },
     "Web Development": {
       "prompts": [
-        "Build a clothing e-commerce website backend. using Web Development.\nCurrent step: Choose Web Development.\nOptions: Frontend, Backend, Deployment & Hosting."
-      ],
-      "is_leaf": false
-    },
-    "Frontend": {
-      "prompts": [
-        "Build a clothing e-commerce website backend. using Web Development + Frontend.\nCurrent step: Choose Frontend.\nOptions: Client-Side Rendering (CSR), Server-Side Rendering (SSR), Progressive Web App (PWA), Static Site Generation (SSG), WebAssembly (Wasm), Incremental Static Regeneration (ISR), Cross Platform Frontend Languages, Transpiled-to-JavaScript Languages."
+        "Build a clothing e-commerce website backend. using Web Development.\nCurrent step: Choose Web Development.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Frontend, Backend, Deployment & Hosting."
       ],
       "is_leaf": false
     },
     "Backend": {
       "prompts": [
-        "Build a clothing e-commerce website backend. using Web Development + Backend.\nCurrent step: Choose Backend.\nOptions: REST, GraphQL, gRPC, WebSockets, Server-Sent Events (SSE), WebRTC."
+        "Build a clothing e-commerce website backend. using Web Development + Backend.\nCurrent step: Choose Backend.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: REST, GraphQL, gRPC, WebSockets, Server-Sent Events (SSE), WebRTC."
+      ],
+      "is_leaf": false
+    },
+    "Deployment & Hosting": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Deployment & Hosting.\nCurrent step: Choose Deployment & Hosting.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Static & Frontend, Platform as a Service (PaaS)."
       ],
       "is_leaf": false
     },
     "REST": {
       "prompts": [
-        "Build a clothing e-commerce website backend. using Web Development + Backend + REST.\nCurrent step: Choose REST.\nOptions: JavaScript/TypeScript, Python, Java, PHP, Go, C#, Ruby, Rust, Elixir, Kotlin, Scala, Dart, Haskell, Crystal, Lua, R, C/C++."
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST.\nCurrent step: Choose REST.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: JavaScript/TypeScript, Python, Java, PHP, Go, C#, Ruby, Rust, Elixir, Kotlin, Scala, Dart, Haskell, Crystal, Lua, R, C/C++."
       ],
       "is_leaf": false
     },
     "GraphQL": {
       "prompts": [
-        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL.\nCurrent step: Choose GraphQL.\nOptions: JavaScript/TypeScript, Python, Java, Kotlin, Scala, Ruby, Go."
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL.\nCurrent step: Choose GraphQL.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: JavaScript/TypeScript, Python, Java, Kotlin, Scala, Ruby, Go."
       ],
       "is_leaf": false
+    },
+    "Static & Frontend": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Deployment & Hosting + Static & Frontend.\nCurrent step: Choose Static & Frontend.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Vercel, Netlify, GitHub Pages, Cloudflare Pages, AWS Amplify."
+      ],
+      "is_leaf": false
+    },
+    "JavaScript/TypeScript": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript.\nCurrent step: Choose JavaScript/TypeScript.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Express.js, NestJS, Fastify, Koa.js, Hapi.js, AdonisJS."
+      ],
+      "is_leaf": false
+    },
+    "Python": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + Python.\nCurrent step: Choose Python.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Django, Flask, FastAPI, Sanic, Tornado."
+      ],
+      "is_leaf": false
+    },
+    "Express.js": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + Express.js.\nCurrent step: Choose Express.js.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: NGINX, Apache HTTP Server, Caddy, PM2."
+      ],
+      "is_leaf": false
+    },
+    "NestJS": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + NestJS.\nCurrent step: Choose NestJS.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: NGINX, Apache HTTP Server, Caddy, PM2."
+      ],
+      "is_leaf": false
+    },
+    "Django": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + Python + Django.\nCurrent step: Choose Django.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Gunicorn, NGINX, Apache HTTP Server, Caddy."
+      ],
+      "is_leaf": false
+    },
+    "Flask": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + Python + Flask.\nCurrent step: Choose Flask.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Gunicorn, NGINX, Apache HTTP Server, Caddy."
+      ],
+      "is_leaf": false
+    },
+    "Apache HTTP Server": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + Express.js + Apache HTTP Server.\nCurrent step: Choose Apache HTTP Server.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: ."
+      ],
+      "is_leaf": true
     }
   },
   "edges": [
     {
       "from": "Core Application & Web Stacks",
       "to": "Web Development",
-      "prompt": "Build a clothing e-commerce website backend. using Web Development.\nCurrent step: Choose Web Development.\nOptions: Frontend, Backend, Deployment & Hosting."
-    },
-    {
-      "from": "Web Development",
-      "to": "Frontend",
-      "prompt": "Build a clothing e-commerce website backend. using Web Development + Frontend.\nCurrent step: Choose Frontend.\nOptions: Client-Side Rendering (CSR), Server-Side Rendering (SSR), Progressive Web App (PWA), Static Site Generation (SSG), WebAssembly (Wasm), Incremental Static Regeneration (ISR), Cross Platform Frontend Languages, Transpiled-to-JavaScript Languages."
+      "prompt": "Build a clothing e-commerce website backend. using Web Development.\nCurrent step: Choose Web Development.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Frontend, Backend, Deployment & Hosting."
     },
     {
       "from": "Web Development",
       "to": "Backend",
-      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend.\nCurrent step: Choose Backend.\nOptions: REST, GraphQL, gRPC, WebSockets, Server-Sent Events (SSE), WebRTC."
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend.\nCurrent step: Choose Backend.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: REST, GraphQL, gRPC, WebSockets, Server-Sent Events (SSE), WebRTC."
+    },
+    {
+      "from": "Web Development",
+      "to": "Deployment & Hosting",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Deployment & Hosting.\nCurrent step: Choose Deployment & Hosting.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Static & Frontend, Platform as a Service (PaaS)."
     },
     {
       "from": "Backend",
       "to": "REST",
-      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST.\nCurrent step: Choose REST.\nOptions: JavaScript/TypeScript, Python, Java, PHP, Go, C#, Ruby, Rust, Elixir, Kotlin, Scala, Dart, Haskell, Crystal, Lua, R, C/C++."
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST.\nCurrent step: Choose REST.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: JavaScript/TypeScript, Python, Java, PHP, Go, C#, Ruby, Rust, Elixir, Kotlin, Scala, Dart, Haskell, Crystal, Lua, R, C/C++."
     },
     {
       "from": "Backend",
       "to": "GraphQL",
-      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL.\nCurrent step: Choose GraphQL.\nOptions: JavaScript/TypeScript, Python, Java, Kotlin, Scala, Ruby, Go."
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL.\nCurrent step: Choose GraphQL.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: JavaScript/TypeScript, Python, Java, Kotlin, Scala, Ruby, Go."
+    },
+    {
+      "from": "Deployment & Hosting",
+      "to": "Static & Frontend",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Deployment & Hosting + Static & Frontend.\nCurrent step: Choose Static & Frontend.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Vercel, Netlify, GitHub Pages, Cloudflare Pages, AWS Amplify."
+    },
+    {
+      "from": "REST",
+      "to": "JavaScript/TypeScript",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript.\nCurrent step: Choose JavaScript/TypeScript.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Express.js, NestJS, Fastify, Koa.js, Hapi.js, AdonisJS."
+    },
+    {
+      "from": "REST",
+      "to": "Python",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + Python.\nCurrent step: Choose Python.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Django, Flask, FastAPI, Sanic, Tornado."
+    },
+    {
+      "from": "JavaScript/TypeScript",
+      "to": "Express.js",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + Express.js.\nCurrent step: Choose Express.js.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: NGINX, Apache HTTP Server, Caddy, PM2."
+    },
+    {
+      "from": "JavaScript/TypeScript",
+      "to": "NestJS",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + NestJS.\nCurrent step: Choose NestJS.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: NGINX, Apache HTTP Server, Caddy, PM2."
+    },
+    {
+      "from": "Python",
+      "to": "Django",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + Python + Django.\nCurrent step: Choose Django.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Gunicorn, NGINX, Apache HTTP Server, Caddy."
+    },
+    {
+      "from": "Python",
+      "to": "Flask",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + Python + Flask.\nCurrent step: Choose Flask.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Gunicorn, NGINX, Apache HTTP Server, Caddy."
+    },
+    {
+      "from": "Express.js",
+      "to": "Apache HTTP Server",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + Express.js + Apache HTTP Server.\nCurrent step: Choose Apache HTTP Server.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: ."
     }
   ]
 }
