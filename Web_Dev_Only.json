@@ -1,0 +1,1564 @@
+{
+    "Core Application & Web Stacks": {
+        "Web Development": {
+            "Frontend": {
+                "Client-Side Rendering (CSR)": {
+                    "HTML/CSS/JavaScript": {
+                        "none": {
+                            "Static Hosting": [
+                                "GitHub Pages",
+                                "Netlify",
+                                "Vercel (Static Mode)",
+                                "Firebase Hosting",
+                                "Surge",
+                                "Render (Static Hosting)",
+                                "Cloudflare Pages",
+                                "AWS S3 + CloudFront",
+                                "Google Cloud Storage + CDN",
+                                "Azure Static Web Apps",
+                                "DigitalOcean App Platform (Static)",
+                                "Heroku (Static Site via Buildpack)",
+                                "IPFS / Filecoin Hosting",
+                                "Self-Hosted Nginx/Apache"
+                            ],
+                            "Backend Integration": {
+                                "Direct API Calls (AJAX/Fetch)": [
+                                    "REST API (Node.js, Django, Flask, Spring Boot, etc.)",
+                                    "GraphQL API (Apollo, Hasura, Yoga, etc.)",
+                                    "gRPC-Web",
+                                    "Supabase APIs",
+                                    "Firebase Realtime Database / Firestore",
+                                    "PocketBase",
+                                    "Appwrite",
+                                    "Backendless",
+                                    "Direct WebSocket Server"
+                                ],
+                                "Serverless Functions (FaaS)": [
+                                    "Netlify Functions",
+                                    "Vercel Serverless Functions",
+                                    "Firebase Cloud Functions",
+                                    "AWS Lambda (via API Gateway)",
+                                    "Azure Functions",
+                                    "Google Cloud Functions",
+                                    "Cloudflare Workers",
+                                    "Deno Deploy"
+                                ],
+                                "Full Backend Services (Headless CMS / BaaS)": [
+                                    "Contentful",
+                                    "Strapi",
+                                    "Sanity",
+                                    "Ghost (as Headless)",
+                                    "Directus",
+                                    "Prismic",
+                                    "Supabase (Auth + DB)",
+                                    "Appwrite (Auth + DB + Storage)",
+                                    "PocketBase (Lightweight Backend)"
+                                ]
+                            }
+                        },
+                        "vite": {
+                            "Backend Integration (Serving from a backend)": {
+                                "Node.js": {
+                                    "No Container (PaaS)": [
+                                        "Heroku",
+                                        "Render",
+                                        "Fly.io",
+                                        "DigitalOcean App Platform",
+                                        "AWS Elastic Beanstalk",
+                                        "Google App Engine",
+                                        "Azure App Service"
+                                    ],
+                                    "Containerization (Docker)": [
+                                        "AWS (ECS, EKS, Fargate, App Runner)",
+                                        "Google Cloud (GKE, Cloud Run)",
+                                        "Azure (AKS, Container Apps)",
+                                        "DigitalOcean (Kubernetes, App Platform)",
+                                        "Heroku",
+                                        "Render",
+                                        "Fly.io",
+                                        "Self-Hosted (VPS, On-Premise)"
+                                    ]
+                                }
+                            },
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        },
+                        "Webpack": {
+                            "Backend Integration (Serving from a backend)": {
+                                "Node.js": {
+                                    "No Container (PaaS)": [
+                                        "Heroku",
+                                        "Render",
+                                        "Fly.io",
+                                        "DigitalOcean App Platform",
+                                        "AWS Elastic Beanstalk",
+                                        "Google App Engine",
+                                        "Azure App Service"
+                                    ],
+                                    "Containerization (Docker)": [
+                                        "AWS (ECS, EKS, Fargate, App Runner)",
+                                        "Google Cloud (GKE, Cloud Run)",
+                                        "Azure (AKS, Container Apps)",
+                                        "DigitalOcean (Kubernetes, App Platform)",
+                                        "Heroku",
+                                        "Render",
+                                        "Fly.io",
+                                        "Self-Hosted (VPS, On-Premise)"
+                                    ]
+                                }
+                            },
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        },
+                        "Parcel": {
+                            "Backend Integration (Serving from a backend)": {
+                                "Node.js": {
+                                    "No Container (PaaS)": [
+                                        "Heroku",
+                                        "Render",
+                                        "Fly.io",
+                                        "DigitalOcean App Platform",
+                                        "AWS Elastic Beanstalk",
+                                        "Google App Engine",
+                                        "Azure App Service"
+                                    ],
+                                    "Containerization (Docker)": [
+                                        "AWS (ECS, EKS, Fargate, App Runner)",
+                                        "Google Cloud (GKE, Cloud Run)",
+                                        "Azure (AKS, Container Apps)",
+                                        "DigitalOcean (Kubernetes, App Platform)",
+                                        "Heroku",
+                                        "Render",
+                                        "Fly.io",
+                                        "Self-Hosted (VPS, On-Premise)"
+                                    ]
+                                }
+                            },
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        }
+                    },
+                    "JavaScript/TypeScript": {
+                        "React": {
+                            "Vite": {
+                                "Static Hosting": {
+                                    "No Container": [
+                                        "Vercel",
+                                        "Netlify",
+                                        "Cloudflare Pages",
+                                        "GitHub Pages",
+                                        "AWS S3 & CloudFront",
+                                        "Azure Static Web Apps",
+                                        "Google Firebase Hosting",
+                                        "Render",
+                                        "DigitalOcean App Platform"
+                                    ],
+                                    "Containerization (Docker)": {
+                                        "NGINX": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ],
+                                        "Caddy": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ]
+                                    }
+                                },
+                                "Backend Integration (Serving from a backend)": {
+                                    "Node.js": {
+                                        "No Container (PaaS)": [
+                                            "Heroku",
+                                            "Render",
+                                            "Fly.io",
+                                            "DigitalOcean App Platform",
+                                            "AWS Elastic Beanstalk",
+                                            "Google App Engine",
+                                            "Azure App Service"
+                                        ],
+                                        "Containerization (Docker)": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Heroku",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ]
+                                    }
+                                },
+                                "Deployment Undecided": [
+                                    "None"
+                                ]
+                            },
+                            "Webpack / Create React App": {
+                                "Static Hosting": {
+                                    "No Container": [
+                                        "Vercel",
+                                        "Netlify",
+                                        "Cloudflare Pages",
+                                        "GitHub Pages",
+                                        "AWS S3 & CloudFront",
+                                        "Azure Static Web Apps",
+                                        "Google Firebase Hosting",
+                                        "Render",
+                                        "DigitalOcean App Platform"
+                                    ],
+                                    "Containerization (Docker)": {
+                                        "NGINX": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ],
+                                        "Caddy": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ]
+                                    }
+                                },
+                                "Backend Integration (Serving from a backend)": {
+                                    "Node.js": {
+                                        "No Container (PaaS)": [
+                                            "Heroku",
+                                            "Render",
+                                            "Fly.io",
+                                            "DigitalOcean App Platform",
+                                            "AWS Elastic Beanstalk",
+                                            "Google App Engine",
+                                            "Azure App Service"
+                                        ],
+                                        "Containerization (Docker)": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Heroku",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ]
+                                    }
+                                },
+                                "Deployment Undecided": [
+                                    "None"
+                                ]
+                            }
+                        },
+                        "Angular": {
+                            "Static Hosting": {
+                                "No Container": [
+                                    "Vercel",
+                                    "Netlify",
+                                    "Cloudflare Pages",
+                                    "GitHub Pages",
+                                    "AWS S3 & CloudFront",
+                                    "Azure Static Web Apps",
+                                    "Google Firebase Hosting",
+                                    "Render",
+                                    "DigitalOcean App Platform"
+                                ],
+                                "Containerization (Docker)": {
+                                    "NGINX": [
+                                        "AWS (ECS, EKS, Fargate, App Runner)",
+                                        "Google Cloud (GKE, Cloud Run)",
+                                        "Azure (AKS, Container Apps)",
+                                        "DigitalOcean (Kubernetes, App Platform)",
+                                        "Render",
+                                        "Fly.io",
+                                        "Self-Hosted (VPS, On-Premise)"
+                                    ],
+                                    "Caddy": [
+                                        "AWS (ECS, EKS, Fargate, App Runner)",
+                                        "Google Cloud (GKE, Cloud Run)",
+                                        "Azure (AKS, Container Apps)",
+                                        "DigitalOcean (Kubernetes, App Platform)",
+                                        "Render",
+                                        "Fly.io",
+                                        "Self-Hosted (VPS, On-Premise)"
+                                    ]
+                                }
+                            },
+                            "Backend Integration (Serving from a backend)": {
+                                "Node.js": {
+                                    "No Container (PaaS)": [
+                                        "Heroku",
+                                        "Render",
+                                        "Fly.io",
+                                        "DigitalOcean App Platform",
+                                        "AWS Elastic Beanstalk",
+                                        "Google App Engine",
+                                        "Azure App Service"
+                                    ],
+                                    "Containerization (Docker)": [
+                                        "AWS (ECS, EKS, Fargate, App Runner)",
+                                        "Google Cloud (GKE, Cloud Run)",
+                                        "Azure (AKS, Container Apps)",
+                                        "DigitalOcean (Kubernetes, App Platform)",
+                                        "Heroku",
+                                        "Render",
+                                        "Fly.io",
+                                        "Self-Hosted (VPS, On-Premise)"
+                                    ]
+                                }
+                            },
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        },
+                        "Vue": {
+                            "Vite": {
+                                "Static Hosting": {
+                                    "No Container": [
+                                        "Vercel",
+                                        "Netlify",
+                                        "Cloudflare Pages",
+                                        "GitHub Pages",
+                                        "AWS S3 & CloudFront",
+                                        "Azure Static Web Apps",
+                                        "Google Firebase Hosting",
+                                        "Render",
+                                        "DigitalOcean App Platform"
+                                    ],
+                                    "Containerization (Docker)": {
+                                        "NGINX": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ],
+                                        "Caddy": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ]
+                                    }
+                                },
+                                "Backend Integration (Serving from a backend)": {
+                                    "Node.js": {
+                                        "No Container (PaaS)": [
+                                            "Heroku",
+                                            "Render",
+                                            "Fly.io",
+                                            "DigitalOcean App Platform",
+                                            "AWS Elastic Beanstalk",
+                                            "Google App Engine",
+                                            "Azure App Service"
+                                        ],
+                                        "Containerization (Docker)": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Heroku",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ]
+                                    }
+                                },
+                                "Deployment Undecided": [
+                                    "None"
+                                ]
+                            }
+                        },
+                        "Svelte": {
+                            "Vite": {
+                                "Static Hosting": {
+                                    "No Container": [
+                                        "Vercel",
+                                        "Netlify",
+                                        "Cloudflare Pages",
+                                        "GitHub Pages",
+                                        "AWS S3 & CloudFront",
+                                        "Azure Static Web Apps",
+                                        "Google Firebase Hosting",
+                                        "Render",
+                                        "DigitalOcean App Platform"
+                                    ],
+                                    "Containerization (Docker)": {
+                                        "NGINX": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ],
+                                        "Caddy": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ]
+                                    }
+                                },
+                                "Backend Integration (Serving from a backend)": {
+                                    "Node.js": {
+                                        "No Container (PaaS)": [
+                                            "Heroku",
+                                            "Render",
+                                            "Fly.io",
+                                            "DigitalOcean App Platform",
+                                            "AWS Elastic Beanstalk",
+                                            "Google App Engine",
+                                            "Azure App Service"
+                                        ],
+                                        "Containerization (Docker)": [
+                                            "AWS (ECS, EKS, Fargate, App Runner)",
+                                            "Google Cloud (GKE, Cloud Run)",
+                                            "Azure (AKS, Container Apps)",
+                                            "DigitalOcean (Kubernetes, App Platform)",
+                                            "Heroku",
+                                            "Render",
+                                            "Fly.io",
+                                            "Self-Hosted (VPS, On-Premise)"
+                                        ]
+                                    }
+                                },
+                                "Deployment Undecided": [
+                                    "None"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "Server-Side Rendering (SSR)": {
+                    "Next.js (React)": {
+                        "Static Export": {
+                            "No Container": [
+                                "Vercel",
+                                "Netlify",
+                                "Cloudflare Pages",
+                                "GitHub Pages",
+                                "AWS S3 & CloudFront",
+                                "Azure Static Web Apps",
+                                "Google Firebase Hosting"
+                            ],
+                            "Containerization (Docker)": {
+                                "NGINX": [
+                                    "AWS (ECS, EKS, Fargate, App Runner)",
+                                    "Google Cloud (GKE, Cloud Run)",
+                                    "Azure (AKS, Container Apps)",
+                                    "DigitalOcean (Kubernetes, App Platform)",
+                                    "Self-Hosted (VPS, On-Premise)"
+                                ]
+                            }
+                        },
+                        "Integrated Server (Node.js)": {
+                            "No Container (PaaS/Serverless)": [
+                                "Vercel",
+                                "Netlify",
+                                "AWS Amplify",
+                                "Heroku",
+                                "Render",
+                                "Fly.io",
+                                "DigitalOcean App Platform",
+                                "AWS Elastic Beanstalk",
+                                "Google App Engine",
+                                "Azure App Service"
+                            ],
+                            "Containerization (Docker)": [
+                                "AWS (ECS, EKS, Fargate, App Runner)",
+                                "Google Cloud (GKE, Cloud Run)",
+                                "Azure (AKS, Container Apps)",
+                                "DigitalOcean (Kubernetes, App Platform)",
+                                "Heroku",
+                                "Render",
+                                "Fly.io",
+                                "Self-Hosted (VPS, On-Premise)"
+                            ]
+                        },
+                        "Deployment Undecided": [
+                            "None"
+                        ]
+                    },
+                    "Nuxt.js (Vue)": {
+                        "Static Export": {
+                            "No Container": [
+                                "Vercel",
+                                "Netlify",
+                                "Cloudflare Pages",
+                                "GitHub Pages",
+                                "AWS S3 & CloudFront",
+                                "Azure Static Web Apps",
+                                "Google Firebase Hosting"
+                            ],
+                            "Containerization (Docker)": {
+                                "NGINX": [
+                                    "AWS (ECS, EKS, Fargate, App Runner)",
+                                    "Google Cloud (GKE, Cloud Run)",
+                                    "Azure (AKS, Container Apps)",
+                                    "DigitalOcean (Kubernetes, App Platform)",
+                                    "Self-Hosted (VPS, On-Premise)"
+                                ]
+                            }
+                        },
+                        "Integrated Server (Node.js)": {
+                            "No Container (PaaS/Serverless)": [
+                                "Vercel",
+                                "Netlify",
+                                "Heroku",
+                                "Render",
+                                "Fly.io",
+                                "DigitalOcean App Platform",
+                                "AWS Elastic Beanstalk",
+                                "Google App Engine",
+                                "Azure App Service"
+                            ],
+                            "Containerization (Docker)": [
+                                "AWS (ECS, EKS, Fargate, App Runner)",
+                                "Google Cloud (GKE, Cloud Run)",
+                                "Azure (AKS, Container Apps)",
+                                "DigitalOcean (Kubernetes, App Platform)",
+                                "Heroku",
+                                "Render",
+                                "Fly.io",
+                                "Self-Hosted (VPS, On-Premise)"
+                            ]
+                        },
+                        "Deployment Undecided": [
+                            "None"
+                        ]
+                    },
+                    "SvelteKit (Svelte)": {
+                        "Static Export (Adapter Static)": {
+                            "No Container": [
+                                "Vercel",
+                                "Netlify",
+                                "Cloudflare Pages",
+                                "GitHub Pages",
+                                "AWS S3 & CloudFront",
+                                "Azure Static Web Apps",
+                                "Google Firebase Hosting"
+                            ],
+                            "Containerization (Docker)": {
+                                "NGINX": [
+                                    "AWS (ECS, EKS, Fargate, App Runner)",
+                                    "Google Cloud (GKE, Cloud Run)",
+                                    "Azure (AKS, Container Apps)",
+                                    "DigitalOcean (Kubernetes, App Platform)",
+                                    "Self-Hosted (VPS, On-Premise)"
+                                ]
+                            }
+                        },
+                        "Integrated Server (Adapter Node)": {
+                            "No Container (PaaS/Serverless)": [
+                                "Vercel (Adapter Vercel)",
+                                "Netlify (Adapter Netlify)",
+                                "Cloudflare Workers (Adapter Cloudflare)",
+                                "Heroku",
+                                "Render",
+                                "Fly.io",
+                                "DigitalOcean App Platform"
+                            ],
+                            "Containerization (Docker)": [
+                                "AWS (ECS, EKS, Fargate, App Runner)",
+                                "Google Cloud (GKE, Cloud Run)",
+                                "Azure (AKS, Container Apps)",
+                                "DigitalOcean (Kubernetes, App Platform)",
+                                "Heroku",
+                                "Render",
+                                "Fly.io",
+                                "Self-Hosted (VPS, On-Premise)"
+                            ]
+                        },
+                        "Deployment Undecided": [
+                            "None"
+                        ]
+                    }
+                },
+                "Progressive Web App (PWA)": {
+                    "JavaScript/TypeScript": {
+                        "React + Workbox": {
+                            "No Container": [
+                                "Vercel",
+                                "Netlify",
+                                "Cloudflare Pages",
+                                "GitHub Pages",
+                                "AWS S3 & CloudFront",
+                                "Azure Static Web Apps",
+                                "Google Firebase Hosting",
+                                "Render"
+                            ],
+                            "Containerization (Docker)": {
+                                "NGINX": [
+                                    "AWS (ECS, EKS, Fargate, App Runner)",
+                                    "Google Cloud (GKE, Cloud Run)",
+                                    "Azure (AKS, Container Apps)",
+                                    "DigitalOcean (Kubernetes, App Platform)",
+                                    "Self-Hosted (VPS, On-Premise)"
+                                ]
+                            },
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        },
+                        "Angular PWA": {
+                            "No Container": [
+                                "Vercel",
+                                "Netlify",
+                                "Cloudflare Pages",
+                                "GitHub Pages",
+                                "AWS S3 & CloudFront",
+                                "Azure Static Web Apps",
+                                "Google Firebase Hosting"
+                            ],
+                            "Containerization (Docker)": {
+                                "NGINX": [
+                                    "AWS (ECS, EKS, Fargate, App Runner)",
+                                    "Google Cloud (GKE, Cloud Run)",
+                                    "Azure (AKS, Container Apps)",
+                                    "DigitalOcean (Kubernetes, App Platform)",
+                                    "Self-Hosted (VPS, On-Premise)"
+                                ]
+                            },
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        },
+                        "Vue PWA": {
+                            "No Container": [
+                                "Vercel",
+                                "Netlify",
+                                "Cloudflare Pages",
+                                "GitHub Pages",
+                                "AWS S3 & CloudFront",
+                                "Azure Static Web Apps",
+                                "Google Firebase Hosting"
+                            ],
+                            "Containerization (Docker)": {
+                                "NGINX": [
+                                    "AWS (ECS, EKS, Fargate, App Runner)",
+                                    "Google Cloud (GKE, Cloud Run)",
+                                    "Azure (AKS, Container Apps)",
+                                    "DigitalOcean (Kubernetes, App Platform)",
+                                    "Self-Hosted (VPS, On-Premise)"
+                                ]
+                            },
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        }
+                    },
+                    "Dart": {
+                        "Static Hosting": {
+                            "No Container": [
+                                "Firebase Hosting",
+                                "Vercel",
+                                "Netlify",
+                                "AWS Amplify",
+                                "Azure Static Web Apps",
+                                "Cloudflare Pages"
+                            ],
+                            "Containerization (Docker)": {
+                                "NGINX": [
+                                    "AWS (ECS, EKS, Fargate, App Runner)",
+                                    "Google Cloud (GKE, Cloud Run)",
+                                    "Azure (AKS, Container Apps)",
+                                    "DigitalOcean (Kubernetes, App Platform)",
+                                    "Self-Hosted (VPS, On-Premise)"
+                                ],
+                                "Caddy": [
+                                    "AWS (ECS, EKS, Fargate, App Runner)",
+                                    "Google Cloud (GKE, Cloud Run)",
+                                    "Azure (AKS, Container Apps)",
+                                    "DigitalOcean (Kubernetes, App Platform)",
+                                    "Self-Hosted (VPS, On-Premise)"
+                                ]
+                            }
+                        },
+                        "Backend Integration": {
+                            "Direct API Calls (AJAX/HTTP Requests)": [
+                                "REST API (Node.js, Django, Flask, Spring Boot, etc.)",
+                                "GraphQL API (Apollo, Hasura, Yoga, etc.)",
+                                "Firebase Realtime Database / Firestore",
+                                "Supabase APIs",
+                                "PocketBase",
+                                "Appwrite",
+                                "Backendless",
+                                "Direct WebSocket Server"
+                            ],
+                            "Serverless Functions (FaaS)": [
+                                "Firebase Cloud Functions",
+                                "AWS Lambda (via API Gateway)",
+                                "Vercel Serverless Functions",
+                                "Netlify Functions",
+                                "Azure Functions",
+                                "Google Cloud Functions",
+                                "Cloudflare Workers",
+                                "Deno Deploy"
+                            ],
+                            "Full Backend Services (BaaS / Headless CMS)": [
+                                "Supabase (Auth + DB)",
+                                "Appwrite (Auth + DB + Storage)",
+                                "PocketBase (Lightweight Backend)",
+                                "Strapi",
+                                "Contentful",
+                                "Sanity",
+                                "Ghost (Headless)",
+                                "Directus",
+                                "Prismic",
+                                "Backendless"
+                            ]
+                        },
+                        "Deployment Undecided": [
+                            "None"
+                        ]
+                    }
+                },
+                "Static Site Generation (SSG)": {
+                    "JavaScript/TypeScript": {
+                        "Gatsby": {
+                            "No Container": [
+                                "Vercel",
+                                "Netlify",
+                                "Cloudflare Pages",
+                                "GitHub Pages",
+                                "AWS S3 & CloudFront",
+                                "Azure Static Web Apps",
+                                "Google Firebase Hosting",
+                                "Render"
+                            ],
+                            "Containerization (Docker)": {
+                                "NGINX": [
+                                    "AWS (ECS, EKS, Fargate, App Runner)",
+                                    "Google Cloud (GKE, Cloud Run)",
+                                    "Azure (AKS, Container Apps)",
+                                    "DigitalOcean (Kubernetes, App Platform)",
+                                    "Self-Hosted (VPS, On-Premise)"
+                                ]
+                            },
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        },
+                        "Next.js (SSG)": {
+                            "No Container": [
+                                "Vercel",
+                                "Netlify",
+                                "Cloudflare Pages",
+                                "GitHub Pages",
+                                "AWS S3 & CloudFront",
+                                "Azure Static Web Apps",
+                                "Google Firebase Hosting"
+                            ],
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        },
+                        "Nuxt.js (SSG)": {
+                            "No Container": [
+                                "Vercel",
+                                "Netlify",
+                                "Cloudflare Pages",
+                                "GitHub Pages",
+                                "AWS S3 & CloudFront",
+                                "Azure Static Web Apps",
+                                "Google Firebase Hosting"
+                            ],
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        }
+                    },
+                    "Python": {
+                        "Pelican": {
+                            "No Container": [
+                                "Netlify",
+                                "GitHub Pages",
+                                "NGINX"
+                            ],
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        },
+                        "MkDocs": {
+                            "No Container": [
+                                "Netlify",
+                                "GitHub Pages",
+                                "NGINX"
+                            ],
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        }
+                    },
+                    "Go": {
+                        "Hugo": {
+                            "No Container": [
+                                "Netlify",
+                                "Cloudflare Pages",
+                                "GitHub Pages"
+                            ],
+                            "Deployment Undecided": [
+                                "None"
+                            ]
+                        }
+                    }
+                },
+                "WebAssembly (Wasm)": {
+                    "C#": [
+                        "Azure Static Web Apps",
+                        "Netlify",
+                        "Vercel",
+                        "Self-Hosted"
+                    ],
+                    "Python (Transpiled)": {
+                        "Transcrypt / Brython": [
+                            "Netlify",
+                            "Vercel",
+                            "GitHub Pages"
+                        ],
+                        "Pyodide (WASM)": [
+                            "Netlify",
+                            "Cloudflare Pages"
+                        ]
+                    },
+                    "Java (Transpiled)": [
+                        "Netlify",
+                        "Vercel",
+                        "Self-Hosted"
+                    ],
+                    "Rust": {
+                        "No Container": [
+                            "Vercel",
+                            "Netlify",
+                            "Cloudflare Pages",
+                            "GitHub Pages",
+                            "AWS S3 & CloudFront"
+                        ],
+                        "Containerization (Docker)": {
+                            "NGINX": [
+                                "AWS (ECS, EKS, Fargate, App Runner)",
+                                "Google Cloud (GKE, Cloud Run)",
+                                "Azure (AKS, Container Apps)",
+                                "DigitalOcean (Kubernetes, App Platform)",
+                                "Self-Hosted (VPS, On-Premise)"
+                            ]
+                        },
+                        "Deployment Undecided": [
+                            "None"
+                        ]
+                    },
+                    "C++": {
+                        "No Container": [
+                            "Vercel",
+                            "Netlify",
+                            "Cloudflare Pages",
+                            "GitHub Pages",
+                            "AWS S3 & CloudFront"
+                        ],
+                        "Containerization (Docker)": {
+                            "NGINX": [
+                                "AWS (ECS, EKS, Fargate, App Runner)",
+                                "Google Cloud (GKE, Cloud Run)",
+                                "Azure (AKS, Container Apps)",
+                                "DigitalOcean (Kubernetes, App Platform)",
+                                "Self-Hosted (VPS, On-Premise)"
+                            ]
+                        },
+                        "Deployment Undecided": [
+                            "None"
+                        ]
+                    }
+                },
+                "Incremental Static Regeneration (ISR)": {
+                    "Next.js (React)": {
+                        "ISR (getStaticProps with revalidate)": {
+                            "No Container (PaaS/Serverless)": [
+                                "Vercel (Native ISR Support)",
+                                "Netlify (Next.js ISR Plugin)",
+                                "AWS Amplify (Revalidation via Lambda)",
+                                "Render",
+                                "Fly.io",
+                                "DigitalOcean App Platform",
+                                "Google App Engine",
+                                "Azure App Service"
+                            ],
+                            "Containerization (Docker)": [
+                                "AWS (ECS, EKS, Fargate, App Runner)",
+                                "Google Cloud (GKE, Cloud Run)",
+                                "Azure (AKS, Container Apps)",
+                                "DigitalOcean (Kubernetes, App Platform)",
+                                "Heroku",
+                                "Render",
+                                "Fly.io",
+                                "Self-Hosted (VPS, On-Premise) with Node.js + ISR Cache"
+                            ]
+                        }
+                    },
+                    "Nuxt.js (Vue)": {
+                        "ISR / On-Demand Revalidation (Nuxt 3)": {
+                            "No Container (PaaS/Serverless)": [
+                                "Vercel (Nitro Adapter)",
+                                "Netlify (Nuxt ISR Plugin)",
+                                "Render",
+                                "Fly.io",
+                                "DigitalOcean App Platform",
+                                "Google App Engine",
+                                "Azure App Service"
+                            ],
+                            "Containerization (Docker)": [
+                                "AWS (ECS, EKS, Fargate, App Runner)",
+                                "Google Cloud (GKE, Cloud Run)",
+                                "Azure (AKS, Container Apps)",
+                                "DigitalOcean (Kubernetes, App Platform)",
+                                "Heroku",
+                                "Render",
+                                "Fly.io",
+                                "Self-Hosted (VPS, On-Premise)"
+                            ]
+                        }
+                    },
+                    "SvelteKit (Svelte)": {
+                        "ISR-like (Adapter Node + Cache Revalidation)": {
+                            "No Container (PaaS/Serverless)": [
+                                "Vercel (Adapter Vercel)",
+                                "Netlify (Adapter Netlify)",
+                                "Cloudflare Workers (Edge ISR Emulation)",
+                                "Render",
+                                "Fly.io"
+                            ],
+                            "Containerization (Docker)": [
+                                "AWS (ECS, EKS, Fargate, App Runner)",
+                                "Google Cloud (GKE, Cloud Run)",
+                                "Azure (AKS, Container Apps)",
+                                "DigitalOcean (Kubernetes, App Platform)",
+                                "Render",
+                                "Fly.io",
+                                "Self-Hosted (VPS, On-Premise)"
+                            ]
+                        }
+                    },
+                    "Astro": {
+                        "Partial ISR (Server-Side Rendering with Cache TTL)": {
+                            "No Container (PaaS/Serverless)": [
+                                "Vercel",
+                                "Netlify",
+                                "Cloudflare Workers (with Cache API)",
+                                "Deno Deploy",
+                                "Fly.io",
+                                "Render"
+                            ],
+                            "Containerization (Docker)": [
+                                "AWS (ECS, EKS, Fargate, App Runner)",
+                                "Google Cloud (GKE, Cloud Run)",
+                                "Azure (AKS, Container Apps)",
+                                "DigitalOcean (Kubernetes, App Platform)",
+                                "Render",
+                                "Fly.io",
+                                "Self-Hosted (VPS, On-Premise)"
+                            ]
+                        }
+                    }
+                },
+                "Cross Platform Frontend Languages": {
+                    "Dart": {
+                        "Flutter Web": [
+                            "Firebase Hosting",
+                            "Vercel",
+                            "Netlify",
+                            "AWS Amplify"
+                        ],
+                        "AngularDart": [
+                            "Google App Engine",
+                            "Firebase Hosting"
+                        ]
+                    },
+                    "Kotlin/JS": [
+                        "Netlify",
+                        "Vercel"
+                    ],
+                    "Haxe": [
+                        "Netlify",
+                        "Vercel",
+                        "Self-Hosted"
+                    ]
+                },
+                "Transpiled-to-JavaScript Languages": {
+                    "CoffeeScript": [
+                        "Netlify",
+                        "Vercel",
+                        "GitHub Pages"
+                    ],
+                    "Elm": {
+                        "Compiler": [
+                            "Netlify",
+                            "Vercel",
+                            "GitHub Pages"
+                        ]
+                    },
+                    "ClojureScript": {
+                        "Re-frame / Shadow-cljs": [
+                            "Netlify",
+                            "Vercel",
+                            "Render"
+                        ]
+                    },
+                    "PureScript": [
+                        "Netlify",
+                        "Vercel"
+                    ],
+                    "ReasonML / ReScript": [
+                        "Netlify",
+                        "Vercel",
+                        "Render"
+                    ],
+                    "Scala.js": [
+                        "Netlify",
+                        "Vercel",
+                        "Self-Hosted"
+                    ]
+                }
+            },
+            "Backend": {
+                "REST": {
+                    "JavaScript/TypeScript": {
+                        "Express.js": [
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy",
+                            "PM2"
+                        ],
+                        "NestJS": [
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy",
+                            "PM2"
+                        ],
+                        "Fastify": [
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy",
+                            "PM2"
+                        ],
+                        "Koa.js": [
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy",
+                            "PM2"
+                        ],
+                        "Hapi.js": [
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy",
+                            "PM2"
+                        ],
+                        "AdonisJS": [
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy",
+                            "PM2"
+                        ]
+                    },
+                    "Python": {
+                        "Django": [
+                            "Gunicorn",
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy"
+                        ],
+                        "Flask": [
+                            "Gunicorn",
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy"
+                        ],
+                        "FastAPI": [
+                            "Uvicorn",
+                            "Gunicorn",
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Sanic": [
+                            "Gunicorn",
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Tornado": [
+                            "Gunicorn",
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Java": {
+                        "Spring Boot": [
+                            "Tomcat",
+                            "Jetty",
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Quarkus": [
+                            "Tomcat",
+                            "Jetty",
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Micronaut": [
+                            "Tomcat",
+                            "Jetty",
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Jakarta EE": [
+                            "Tomcat",
+                            "Jetty",
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "PHP": {
+                        "Laravel": [
+                            "Apache HTTP Server",
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Symfony": [
+                            "Apache HTTP Server",
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "CodeIgniter": [
+                            "Apache HTTP Server",
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Go": {
+                        "Gin": [
+                            "Caddy",
+                            "NGINX"
+                        ],
+                        "Echo": [
+                            "Caddy",
+                            "NGINX"
+                        ],
+                        "Fiber": [
+                            "Caddy",
+                            "NGINX"
+                        ],
+                        "Chi": [
+                            "Caddy",
+                            "NGINX"
+                        ]
+                    },
+                    "C#": {
+                        "ASP.NET Core": [
+                            "Kestrel",
+                            "IIS",
+                            "NGINX",
+                            "Apache HTTP Server"
+                        ]
+                    },
+                    "Ruby": {
+                        "Ruby on Rails": [
+                            "Puma",
+                            "Passenger",
+                            "NGINX",
+                            "Apache HTTP Server"
+                        ],
+                        "Sinatra": [
+                            "Puma",
+                            "Passenger",
+                            "NGINX",
+                            "Apache HTTP Server"
+                        ]
+                    },
+                    "Rust": {
+                        "Actix Web": [
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Rocket": [
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Axum": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Elixir": {
+                        "Phoenix": [
+                            "Cowboy",
+                            "NGINX"
+                        ]
+                    },
+                    "Kotlin": {
+                        "Ktor": [
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy"
+                        ],
+                        "Spring Boot (Kotlin)": [
+                            "Tomcat",
+                            "Jetty",
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Scala": {
+                        "Play Framework": [
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy"
+                        ],
+                        "Akka HTTP": [
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy"
+                        ]
+                    },
+                    "Dart": {
+                        "Aqueduct": [
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Angel": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Haskell": {
+                        "Yesod": [
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Servant": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Crystal": {
+                        "Amber": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Lua": {
+                        "OpenResty": [
+                            "NGINX"
+                        ]
+                    },
+                    "R": {
+                        "Plumber": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "C/C++": {
+                        "Wt (C++)": [
+                            "NGINX",
+                            "Apache HTTP Server",
+                            "Caddy"
+                        ],
+                        "Pistache (C++)": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    }
+                },
+                "GraphQL": {
+                    "JavaScript/TypeScript": {
+                        "Apollo Server": [
+                            "NGINX",
+                            "Caddy",
+                            "PM2"
+                        ],
+                        "NestJS (GraphQL)": [
+                            "NGINX",
+                            "Caddy",
+                            "PM2"
+                        ]
+                    },
+                    "Python": {
+                        "Graphene": [
+                            "Gunicorn",
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Ariadne": [
+                            "Uvicorn",
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Java": {
+                        "Spring Boot (GraphQL)": [
+                            "Tomcat",
+                            "Jetty",
+                            "NGINX"
+                        ]
+                    },
+                    "Kotlin": {
+                        "KGraphQL": [
+                            "Tomcat",
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Scala": {
+                        "Sangria": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Ruby": {
+                        "GraphQL Ruby": [
+                            "Puma",
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Go": {
+                        "GQLGen": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    }
+                },
+                "gRPC": {
+                    "JavaScript/TypeScript": {
+                        "grpc-js": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Python": {
+                        "grpcio": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Java": {
+                        "gRPC-Java": [
+                            "Netty",
+                            "NGINX"
+                        ]
+                    },
+                    "Go": {
+                        "Go gRPC": [
+                            "Caddy",
+                            "NGINX"
+                        ]
+                    },
+                    "C#": {
+                        "gRPC .NET": [
+                            "Kestrel",
+                            "NGINX"
+                        ]
+                    },
+                    "Rust": {
+                        "Tonic": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Kotlin": {
+                        "Kotlin gRPC": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Scala": {
+                        "ScalaPB gRPC": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    }
+                },
+                "WebSockets": {
+                    "JavaScript/TypeScript": {
+                        "Socket.io": [
+                            "NGINX",
+                            "Caddy",
+                            "PM2"
+                        ],
+                        "NestJS (WebSockets)": [
+                            "NGINX",
+                            "Caddy",
+                            "PM2"
+                        ]
+                    },
+                    "Python": {
+                        "Django Channels": [
+                            "Daphne",
+                            "NGINX"
+                        ],
+                        "FastAPI (WebSockets)": [
+                            "Uvicorn",
+                            "NGINX"
+                        ],
+                        "Tornado": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Java": {
+                        "Spring WebFlux": [
+                            "Netty",
+                            "Tomcat (async)",
+                            "Jetty"
+                        ],
+                        "Vert.x": [
+                            "Netty",
+                            "NGINX"
+                        ]
+                    },
+                    "Go": {
+                        "Gorilla WebSocket": [
+                            "Caddy",
+                            "NGINX"
+                        ],
+                        "Fiber (WS)": [
+                            "Caddy",
+                            "NGINX"
+                        ]
+                    },
+                    "Elixir": {
+                        "Phoenix Channels": [
+                            "Cowboy",
+                            "NGINX"
+                        ]
+                    },
+                    "Rust": {
+                        "Tokio": [
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "Actix Web (WS)": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Kotlin": {
+                        "Ktor WebSockets": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Scala": {
+                        "Akka WebSockets": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    }
+                },
+                "Server-Sent Events (SSE)": {
+                    "JavaScript/TypeScript": {
+                        "Express.js SSE": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Python": {
+                        "FastAPI SSE": [
+                            "Uvicorn",
+                            "NGINX"
+                        ]
+                    },
+                    "Go": {
+                        "Gin SSE": [
+                            "Caddy",
+                            "NGINX"
+                        ]
+                    },
+                    "Kotlin": {
+                        "Ktor SSE": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    }
+                },
+                "WebRTC": {
+                    "JavaScript/TypeScript": {
+                        "WebRTC APIs": [
+                            "Caddy",
+                            "NGINX"
+                        ],
+                        "Mediasoup": [
+                            "Caddy",
+                            "NGINX"
+                        ]
+                    },
+                    "Python": {
+                        "aiortc": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Go": {
+                        "Pion WebRTC": [
+                            "Caddy",
+                            "NGINX"
+                        ]
+                    },
+                    "Rust": {
+                        "medea": [
+                            "NGINX",
+                            "Caddy"
+                        ],
+                        "webrtc-rs": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    },
+                    "Kotlin": {
+                        "Kotlin WebRTC": [
+                            "NGINX",
+                            "Caddy"
+                        ]
+                    }
+                }
+            },
+            "Deployment & Hosting": {
+                "Static & Frontend": [
+                    "Vercel",
+                    "Netlify",
+                    "GitHub Pages",
+                    "Cloudflare Pages",
+                    "AWS Amplify"
+                ],
+                "Platform as a Service (PaaS)": [
+                    "Heroku",
+                    "Render",
+                    "Fly.io",
+                    "DigitalOcean App Platform"
+                ]
+            }
+        }
+    }
+}
