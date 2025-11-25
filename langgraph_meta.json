@@ -1,0 +1,270 @@
+{
+  "completed_branches": [
+    [
+      "Web Development",
+      "Backend",
+      "REST",
+      "JavaScript/TypeScript",
+      "Express.js",
+      "NGINX"
+    ],
+    [
+      "Web Development",
+      "Backend",
+      "REST",
+      "JavaScript/TypeScript",
+      "NestJS",
+      "NGINX"
+    ],
+    [
+      "Web Development",
+      "Backend",
+      "REST",
+      "JavaScript/TypeScript",
+      "NestJS",
+      "Apache HTTP Server"
+    ],
+    [
+      "Web Development",
+      "Backend",
+      "GraphQL",
+      "JavaScript/TypeScript",
+      "Apollo Server",
+      "NGINX"
+    ],
+    [
+      "Web Development",
+      "Backend",
+      "GraphQL",
+      "JavaScript/TypeScript",
+      "NestJS (GraphQL)",
+      "NGINX"
+    ],
+    [
+      "Web Development",
+      "Backend",
+      "GraphQL",
+      "JavaScript/TypeScript",
+      "NestJS (GraphQL)",
+      "Caddy"
+    ],
+    [
+      "Web Development",
+      "Backend",
+      "GraphQL",
+      "Python",
+      "Graphene",
+      "Gunicorn"
+    ]
+  ],
+  "nodes": {
+    "Core Application & Web Stacks": {
+      "prompts": [
+        "Build a clothing e-commerce website backend."
+      ],
+      "is_leaf": false
+    },
+    "Web Development": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development.\nCurrent step: Choose Web Development.\nOptions: Frontend, Backend, Deployment & Hosting."
+      ],
+      "is_leaf": false
+    },
+    "Frontend": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Frontend.\nCurrent step: Choose Frontend.\nOptions: Client-Side Rendering (CSR), Server-Side Rendering (SSR), Progressive Web App (PWA), Static Site Generation (SSG), WebAssembly (Wasm), Incremental Static Regeneration (ISR), Cross Platform Frontend Languages, Transpiled-to-JavaScript Languages."
+      ],
+      "is_leaf": false
+    },
+    "Backend": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend.\nCurrent step: Choose Backend.\nOptions: REST, GraphQL, gRPC, WebSockets, Server-Sent Events (SSE), WebRTC."
+      ],
+      "is_leaf": false
+    },
+    "REST": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST.\nCurrent step: Choose REST.\nOptions: JavaScript/TypeScript, Python, Java, PHP, Go, C#, Ruby, Rust, Elixir, Kotlin, Scala, Dart, Haskell, Crystal, Lua, R, C/C++."
+      ],
+      "is_leaf": false
+    },
+    "GraphQL": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL.\nCurrent step: Choose GraphQL.\nOptions: JavaScript/TypeScript, Python, Java, Kotlin, Scala, Ruby, Go."
+      ],
+      "is_leaf": false
+    },
+    "JavaScript/TypeScript": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript.\nCurrent step: Choose JavaScript/TypeScript.\nOptions: Express.js, NestJS, Fastify, Koa.js, Hapi.js, AdonisJS.",
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript.\nCurrent step: Choose JavaScript/TypeScript.\nOptions: Apollo Server, NestJS (GraphQL)."
+      ],
+      "is_leaf": false
+    },
+    "Python": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + Python.\nCurrent step: Choose Python.\nOptions: Graphene, Ariadne."
+      ],
+      "is_leaf": false
+    },
+    "Express.js": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + Express.js.\nCurrent step: Choose Express.js.\nOptions: NGINX, Apache HTTP Server, Caddy, PM2."
+      ],
+      "is_leaf": false
+    },
+    "NestJS": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + NestJS.\nCurrent step: Choose NestJS.\nOptions: NGINX, Apache HTTP Server, Caddy, PM2."
+      ],
+      "is_leaf": false
+    },
+    "Apollo Server": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript + Apollo Server.\nCurrent step: Choose Apollo Server.\nOptions: NGINX, Caddy, PM2."
+      ],
+      "is_leaf": false
+    },
+    "NestJS (GraphQL)": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript + NestJS (GraphQL).\nCurrent step: Choose NestJS (GraphQL).\nOptions: NGINX, Caddy, PM2."
+      ],
+      "is_leaf": false
+    },
+    "Graphene": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + Python + Graphene.\nCurrent step: Choose Graphene.\nOptions: Gunicorn, NGINX, Caddy."
+      ],
+      "is_leaf": false
+    },
+    "NGINX": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + Express.js + NGINX.\nCurrent step: Choose NGINX.\nOptions: .",
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + NestJS + NGINX.\nCurrent step: Choose NGINX.\nOptions: .",
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript + Apollo Server + NGINX.\nCurrent step: Choose NGINX.\nOptions: .",
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript + NestJS (GraphQL) + NGINX.\nCurrent step: Choose NGINX.\nOptions: ."
+      ],
+      "is_leaf": true
+    },
+    "Apache HTTP Server": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + NestJS + Apache HTTP Server.\nCurrent step: Choose Apache HTTP Server.\nOptions: ."
+      ],
+      "is_leaf": true
+    },
+    "Caddy": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript + NestJS (GraphQL) + Caddy.\nCurrent step: Choose Caddy.\nOptions: ."
+      ],
+      "is_leaf": true
+    },
+    "Gunicorn": {
+      "prompts": [
+        "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + Python + Graphene + Gunicorn.\nCurrent step: Choose Gunicorn.\nOptions: ."
+      ],
+      "is_leaf": true
+    }
+  },
+  "edges": [
+    {
+      "from": "Core Application & Web Stacks",
+      "to": "Web Development",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development.\nCurrent step: Choose Web Development.\nOptions: Frontend, Backend, Deployment & Hosting."
+    },
+    {
+      "from": "Web Development",
+      "to": "Frontend",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Frontend.\nCurrent step: Choose Frontend.\nOptions: Client-Side Rendering (CSR), Server-Side Rendering (SSR), Progressive Web App (PWA), Static Site Generation (SSG), WebAssembly (Wasm), Incremental Static Regeneration (ISR), Cross Platform Frontend Languages, Transpiled-to-JavaScript Languages."
+    },
+    {
+      "from": "Web Development",
+      "to": "Backend",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend.\nCurrent step: Choose Backend.\nOptions: REST, GraphQL, gRPC, WebSockets, Server-Sent Events (SSE), WebRTC."
+    },
+    {
+      "from": "Backend",
+      "to": "REST",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST.\nCurrent step: Choose REST.\nOptions: JavaScript/TypeScript, Python, Java, PHP, Go, C#, Ruby, Rust, Elixir, Kotlin, Scala, Dart, Haskell, Crystal, Lua, R, C/C++."
+    },
+    {
+      "from": "Backend",
+      "to": "GraphQL",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL.\nCurrent step: Choose GraphQL.\nOptions: JavaScript/TypeScript, Python, Java, Kotlin, Scala, Ruby, Go."
+    },
+    {
+      "from": "REST",
+      "to": "JavaScript/TypeScript",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript.\nCurrent step: Choose JavaScript/TypeScript.\nOptions: Express.js, NestJS, Fastify, Koa.js, Hapi.js, AdonisJS."
+    },
+    {
+      "from": "GraphQL",
+      "to": "JavaScript/TypeScript",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript.\nCurrent step: Choose JavaScript/TypeScript.\nOptions: Apollo Server, NestJS (GraphQL)."
+    },
+    {
+      "from": "GraphQL",
+      "to": "Python",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + Python.\nCurrent step: Choose Python.\nOptions: Graphene, Ariadne."
+    },
+    {
+      "from": "JavaScript/TypeScript",
+      "to": "Express.js",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + Express.js.\nCurrent step: Choose Express.js.\nOptions: NGINX, Apache HTTP Server, Caddy, PM2."
+    },
+    {
+      "from": "JavaScript/TypeScript",
+      "to": "NestJS",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + NestJS.\nCurrent step: Choose NestJS.\nOptions: NGINX, Apache HTTP Server, Caddy, PM2."
+    },
+    {
+      "from": "JavaScript/TypeScript",
+      "to": "Apollo Server",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript + Apollo Server.\nCurrent step: Choose Apollo Server.\nOptions: NGINX, Caddy, PM2."
+    },
+    {
+      "from": "JavaScript/TypeScript",
+      "to": "NestJS (GraphQL)",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript + NestJS (GraphQL).\nCurrent step: Choose NestJS (GraphQL).\nOptions: NGINX, Caddy, PM2."
+    },
+    {
+      "from": "Python",
+      "to": "Graphene",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + Python + Graphene.\nCurrent step: Choose Graphene.\nOptions: Gunicorn, NGINX, Caddy."
+    },
+    {
+      "from": "Express.js",
+      "to": "NGINX",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + Express.js + NGINX.\nCurrent step: Choose NGINX.\nOptions: ."
+    },
+    {
+      "from": "NestJS",
+      "to": "NGINX",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + NestJS + NGINX.\nCurrent step: Choose NGINX.\nOptions: ."
+    },
+    {
+      "from": "NestJS",
+      "to": "Apache HTTP Server",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + REST + JavaScript/TypeScript + NestJS + Apache HTTP Server.\nCurrent step: Choose Apache HTTP Server.\nOptions: ."
+    },
+    {
+      "from": "Apollo Server",
+      "to": "NGINX",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript + Apollo Server + NGINX.\nCurrent step: Choose NGINX.\nOptions: ."
+    },
+    {
+      "from": "NestJS (GraphQL)",
+      "to": "NGINX",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript + NestJS (GraphQL) + NGINX.\nCurrent step: Choose NGINX.\nOptions: ."
+    },
+    {
+      "from": "NestJS (GraphQL)",
+      "to": "Caddy",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + JavaScript/TypeScript + NestJS (GraphQL) + Caddy.\nCurrent step: Choose Caddy.\nOptions: ."
+    },
+    {
+      "from": "Graphene",
+      "to": "Gunicorn",
+      "prompt": "Build a clothing e-commerce website backend. using Web Development + Backend + GraphQL + Python + Graphene + Gunicorn.\nCurrent step: Choose Gunicorn.\nOptions: ."
+    }
+  ]
+}
