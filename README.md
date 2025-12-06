@@ -82,7 +82,7 @@ No setup required. Deterministic heuristic will be used if no LLM is available.
 
 ## Usage
 ```bash
-python main_runner.py --json-file Web_Dev_Only.json --start-node "Core Application & Web Stacks" --initial-prompt "Build a clothing e-commerce website backend."
+python main_runner.py --json-file Web_Dev_Only.json --start-node "Core Application & Web Stacks" --initial-prompt "Build a clothing e-commerce website."
 ```
 
 ### Command-line arguments

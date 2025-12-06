@@ -1,6 +1,11 @@
 import ollama
 import sys
 import json
+import os
+from langchain_nvidia_ai_endpoints import ChatNVIDIA
+
+from dotenv import load_dotenv
+load_dotenv()
 
 def call_llm(prompt, model="llama2"):
     """
@@ -38,6 +43,46 @@ def call_llm(prompt, model="llama2"):
 
     except Exception as e:
         print(f"\n[LLM] Error: {e}", file=sys.stderr)
+        return "[]"
+
+# NVIDIA LLM Call
+
+
+def call_nvidia_llm(prompt, model="meta/llama-3.3-70b-instruct"):
+    """
+    Calls NVIDIA NIM model using langchain-nvidia-ai-endpoints.
+    Streams output to console and returns final full response.
+    """
+    print(f"\n[LLM] Calling NVIDIA model {model}...", file=sys.stderr)
+
+    api_key = os.getenv("NVIDIA_API_KEY")
+    if not api_key:
+        raise ValueError("NVIDIA_API_KEY missing in .env")
+
+    try:
+        llm = ChatNVIDIA(
+            model=model,
+            api_key=api_key,
+            temperature=0.0,
+            max_tokens=4096,
+            stream=True,
+        )
+
+        stream = llm.stream(prompt)
+
+        full_response = ""
+
+        for chunk in stream:
+            text = chunk.content
+            sys.stderr.write(text)
+            sys.stderr.flush()
+            full_response += text
+
+        print("", file=sys.stderr)
+        return full_response
+
+    except Exception as e:
+        print(f"[LLM] NVIDIA Error: {e}", file=sys.stderr)
         return "[]"
 
 # # Test block

@@ -1,4 +1,4 @@
-# command to run: python main_runner.py --json-file Web_Dev_Only.json --start-node "Core Application & Web Stacks"
+# command to run: python main_runner.py --json-file Web_Dev_Only.json --start-node "Core Application & Web Stacks" --initial-prompt "I run an offline bakery shop and want to take it online so more people can discover and order from me."
 
 """
 Universal LLM-driven Decision-Tree Workflow Engine
@@ -36,7 +36,7 @@ import requests
 
 # Visualization helper (separate module below)
 from langgraph_runner import LangGraphRecorder
-from local_llama_client import call_llm
+from local_llama_client import call_llm, call_nvidia_llm
 
 # ---------------- LLM Client ----------------
 @dataclass
@@ -56,6 +56,7 @@ class LLMClient:
 
         try:
             output = call_llm(full_prompt, model="llama2")
+            # output = call_nvidia_llm(full_prompt, model="meta/llama3-70b")
             choices = self._extract_json_array(output)
             if choices:
                 return choices[:max_choices]
@@ -159,6 +160,9 @@ class BranchState:
     node_value: Any
     prompt: str
     history: List[Tuple[str, List[str]]] = field(default_factory=list)
+    merge_mode: bool = False
+    merged_choices: List[str] = field(default_factory=list)
+    selected_children: List[str] = field(default_factory=list) # store multiple web servers
 
 
 def build_step_prompt(base_prompt: str, selections: List[str], current_step: str, options: List[str]) -> str:
@@ -168,6 +172,82 @@ def build_step_prompt(base_prompt: str, selections: List[str], current_step: str
 
 
 def traverse(tree: Any, start_node_name: str, llm: LLMClient, base_prompt: str, max_branch_choices: int = 2) -> Tuple[List[BranchState], LangGraphRecorder]:
+
+    FRAMEWORK_NODES = {
+        # Frontend Frameworks
+        "React",
+        "Vue",
+        "Angular",
+        "Svelte",
+        
+        # Meta Frameworks (SSR/SSG)
+        "Next.js",
+        "Next.js (React)",
+        "Next.js (SSG)",
+        "Nuxt.js",
+        "Nuxt.js (Vue)",
+        "Nuxt.js (SSG)",
+        "SvelteKit",
+        "SvelteKit (Svelte)",
+        "Gatsby",
+        "Astro",
+        "ISR / On-Demand Revalidation (Nuxt 3)",
+        
+        # PWA variants
+        "React + Workbox",
+        "Vue PWA",
+        "Angular PWA",
+        "AngularDart",
+        "Flutter Web",
+        
+        # Build Tools
+        "Vite",
+        "vite",
+        "Webpack",
+        "Webpack / Create React App",
+        "Parcel",
+        "none",  # For plain HTML/CSS/JS
+        
+        # Backend Frameworks - Python
+        "Django",
+        "Django Channels",
+        "Flask",
+        "FastAPI",
+        "FastAPI (WebSockets)",
+        "FastAPI SSE",
+        
+        # Backend Frameworks - Node.js
+        "Express.js",
+        "Express.js SSE",
+        "NestJS",
+        "NestJS (GraphQL)",
+        "NestJS (WebSockets)",
+        "Koa.js",
+        "Hapi.js",
+        
+        # Backend Frameworks - Go
+        "Gin",
+        "Gin SSE",
+        "Echo",
+        "Fiber",
+        "Fiber (WS)",
+        "Chi",
+        
+        # Backend Frameworks - Java/Kotlin
+        "Spring Boot",
+        "Spring Boot (GraphQL)",
+        "Spring Boot (Kotlin)",
+        "Spring WebFlux",
+        
+        # Backend Frameworks - PHP
+        "Laravel",
+        "Symfony",
+        
+        # Backend Frameworks - Ruby
+        "Ruby on Rails",
+        "Sinatra",
+    }
+    
     # locate start node anywhere in the tree
     found = find_key_recursive(tree, start_node_name)
     if not found:
@@ -198,35 +278,173 @@ def traverse(tree: Any, start_node_name: str, llm: LLMClient, base_prompt: str, 
             completed.append(branch)
             continue
 
+        # Special handling for fixed choices
+        FIXED_CHOICES = {
+            "Core Application & Web Stacks": ["Web Development"],
+            "Web Development": ["Frontend", "Backend"]
+        }
+
         # Ask LLM to pick among child_names
         updated_prompt_for_choice = branch.prompt + f"\nStep: choose {node_name}. Options: {', '.join(child_names)}"
-        chosen = llm.choose_options(updated_prompt_for_choice, child_names, max_choices=max_branch_choices)
+
+        if node_name in FIXED_CHOICES:
+            chosen = [c for c in FIXED_CHOICES[node_name] if c in child_names]
+        else:
+            chosen = llm.choose_options(updated_prompt_for_choice, child_names, max_choices=max_branch_choices)
+        
         if not chosen:
             chosen = [child_names[0]]
 
         recorder.add_choice(node_name, chosen)
 
+        # ---- MERGE MODE: We're inside a framework, collecting all subsequent choices ----
+        if getattr(branch, "merge_mode", False):
+            # Collect all chosen options into this framework's list
+            branch.selected_children.extend(chosen)
+            
+            # Check if we can go deeper (are there grandchildren?)
+            has_grandchildren = False
+            for choice in chosen:
+                matched = next(((n, v) for (n, v) in children if n == choice), None)
+                if not matched:
+                    matched = next(((n, v) for (n, v) in children if n.lower() == choice.lower()), None)
+                if matched:
+                    _, child_value = matched
+                    grandchildren = extract_children_from_value(child_value)
+                    if grandchildren:
+                        has_grandchildren = True
+                        break
+            
+            # If there are more levels, continue collecting
+            if has_grandchildren:
+                for choice in chosen:
+                    matched = next(((n, v) for (n, v) in children if n == choice), None)
+                    if not matched:
+                        matched = next(((n, v) for (n, v) in children if n.lower() == choice.lower()), None)
+                    if not matched:
+                        continue
+                    
+                    child_name, child_value = matched
+                    new_selections = branch.path + [child_name]
+                    current_step_label = f"Choose {child_name}"
+                    options_for_next = [c[0] for c in extract_children_from_value(child_value)]
+                    new_prompt = branch.prompt  # Keep the same prompt, we're just collecting
+
+                    new_branch = BranchState(
+                        path=new_selections,
+                        node_name=child_name,
+                        node_value=child_value,
+                        prompt=new_prompt,
+                        history=branch.history + [(node_name, chosen)],
+                        merge_mode=True,
+                        merged_choices=branch.merged_choices,
+                        selected_children=branch.selected_children.copy()
+                    )
+
+                    recorder.add_edge(node_name, child_name)
+                    recorder.add_prompt_to_edge(node_name, child_name, f"Collecting options for {branch.merged_choices[0]}")
+                    active.append(new_branch)
+            else:
+                # No more children - FINALIZE this framework branch with ONE prompt
+                framework_name = branch.merged_choices[0]
+                all_selections = " → ".join(branch.selected_children)
+                
+                # Create a special FINAL leaf node to show the complete prompt
+                final_node_name = f"{framework_name}_FINAL"
+                
+                final_prompt = (
+                    f"{'='*5}\n"
+                    + f"FRAMEWORK: {framework_name}\n"
+                    + f"SELECTED COMPONENTS: {all_selections}\n"
+                    + f"{'='*5}\n"
+                )
+
+                # Add edge from current node to FINAL node with the complete prompt
+                recorder.add_edge(node_name, final_node_name)
+                recorder.add_prompt_to_edge(node_name, final_node_name, final_prompt)
+                
+                # Mark the FINAL node
+                recorder.add_node(final_node_name)
+                recorder.mark_framework(final_node_name)
+                recorder.mark_leaf(final_node_name)
+                
+                completed.append(
+                    BranchState(
+                        path=branch.path + [final_node_name],
+                        node_name=final_node_name,
+                        node_value={},
+                        prompt=final_prompt,
+                        history=branch.history + [(node_name, chosen)],
+                        merge_mode=True,
+                        merged_choices=branch.merged_choices,
+                        selected_children=branch.selected_children
+                    )
+                )
+            
+            continue
+
+        # ---- CHECK IF CHOSEN CHILDREN ARE FRAMEWORKS (if yes, enable merge mode) ----
+        framework_children = [c for c in chosen if c in FRAMEWORK_NODES]
+        
+        if framework_children:
+            # One or more frameworks selected - create separate branch for EACH
+            for framework_choice in framework_children:
+                matched = next(((n, v) for (n, v) in children if n == framework_choice), None)
+                if not matched:
+                    matched = next(((n, v) for (n, v) in children if n.lower() == framework_choice.lower()), None)
+                if not matched:
+                    continue
+                
+                child_name, child_value = matched
+                new_selections = branch.path + [child_name]
+                
+                framework_prompt = (
+                    base_prompt 
+                    + f"\n\n--- Starting framework branch: {child_name} ---"
+                )
+
+                # ENABLE MERGE MODE for this framework
+                new_branch = BranchState(
+                    path=new_selections,
+                    node_name=child_name,
+                    node_value=child_value,
+                    prompt=framework_prompt,
+                    history=branch.history + [(node_name, [child_name])],
+                    merge_mode=True,
+                    merged_choices=[child_name],  # Store the framework name
+                    selected_children=[]  # Will collect all subsequent choices
+                )
+
+                recorder.add_edge(node_name, child_name)
+                recorder.add_prompt_to_edge(node_name, child_name, f"Selected framework: {child_name}")
+                active.append(new_branch)
+            
+            continue
+
+        # ---- NORMAL BRANCHING (before reaching frameworks) ----
         for choice in chosen:
-            # find chosen child tuple
             matched = next(((n, v) for (n, v) in children if n == choice), None)
             if not matched:
-                # fallback: try case-insensitive match
                 matched = next(((n, v) for (n, v) in children if n.lower() == choice.lower()), None)
             if not matched:
-                # if still not found, skip
                 continue
+            
             child_name, child_value = matched
-
             new_selections = branch.path + [child_name]
             current_step_label = f"Choose {child_name}"
             options_for_next = [c[0] for c in extract_children_from_value(child_value)]
             new_prompt = build_step_prompt(base_prompt, new_selections, current_step_label, options_for_next)
 
-            new_branch = BranchState(path=new_selections, node_name=child_name, node_value=child_value, prompt=new_prompt, history=branch.history + [(node_name, chosen)])
+            new_branch = BranchState(
+                path=new_selections,
+                node_name=child_name,
+                node_value=child_value,
+                prompt=new_prompt,
+                history=branch.history + [(node_name, chosen)]
+            )
 
             recorder.add_edge(node_name, child_name)
             recorder.add_prompt_to_edge(node_name, child_name, new_prompt)
-
             active.append(new_branch)
 
     return completed, recorder
@@ -252,7 +470,7 @@ if __name__ == "__main__":
     outpath = recorder.render(args.output_image)
     meta = {
         "completed_branches": [b.path for b in completed_branches],
-        "nodes": {n: {"prompts": recorder.nodes[n].prompts, "is_leaf": recorder.nodes[n].is_leaf} for n in recorder.nodes},
+        "nodes": {n: {"is_leaf": recorder.nodes[n].is_leaf, "is_framework": recorder.nodes[n].is_framework} for n in recorder.nodes},
         "edges": [{"from": a, "to": b, "prompt": recorder.edge_prompts.get((a, b), "")} for (a, b) in recorder.edges]
     }
     with open(args.output_meta, "w", encoding="utf-8") as f:
