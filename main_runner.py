@@ -1,30 +1,5 @@
 # command to run: python main_runner.py --json-file Web_Dev_Only.json --start-node "Core Application & Web Stacks" --initial-prompt "I run an offline bakery shop and want to take it online so more people can discover and order from me."
 
-"""
-Universal LLM-driven Decision-Tree Workflow Engine
-Files produced in this textdoc:
- - main_runner.py  (entrypoint)
- - langgraph_runner.py (recorder + renderer)
-
-Features:
- - Works with nested-dict JSON trees (keys = node names; values = dict/list/primitive)
- - No special "name" or "children" fields required
- - Supports branching when the model returns multiple choices
- - Records prompts and edges and renders a Graphviz image
- - Supports three modes of LLM backend:
-     1) Remote Gemini-like HTTP API (GEMINI_API_URL + GEMINI_API_KEY)
-     2) Local Llama-compatible model via llama-cpp-python (LOCAL_LLM_MODEL_PATH)
-     3) Deterministic dry-run fallback when neither is configured
- - Saves full metadata (edge -> full prompt) into a JSON file alongside the image
-
-How to use (short):
-  - Save this file as two files: main_runner.py and langgraph_runner.py (split by the marker)
-  - pip install -r requirements (see instructions below)
-  - python main_runner.py --json-file Web_Dev_Only.json --start-node "Core Application & Web Stacks"
-
-"""
-
-# ---------- main_runner.py ----------
 import os
 import json
 import argparse
@@ -33,12 +8,9 @@ import re
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple
 import requests
-
-# Visualization helper (separate module below)
 from langgraph_runner import LangGraphRecorder
 from local_llama_client import call_llm, call_nvidia_llm
 
-# ---------------- LLM Client ----------------
 @dataclass
 class LLMClient:
     def choose_options(self, prompt: str, options: List[str], max_choices: int = 1, timeout: int = 15) -> List[str]:
@@ -206,7 +178,7 @@ def traverse(tree: Any, start_node_name: str, llm: LLMClient, base_prompt: str, 
         "Webpack",
         "Webpack / Create React App",
         "Parcel",
-        "none",  # For plain HTML/CSS/JS
+        "none",
         
         # Backend Frameworks - Python
         "Django",
@@ -247,8 +219,16 @@ def traverse(tree: Any, start_node_name: str, llm: LLMClient, base_prompt: str, 
         "Ruby on Rails",
         "Sinatra",
     }
+
+    FORCED_CHOICES = {
+        "Core Application & Web Stacks": ["Web Development"],
+        "Web Development": ["Frontend", "Backend"]
+    }
+
+    FIXED_CHOICES = {
+        "Backend": ["REST", "GraphQL"],
+    }
     
-    # locate start node anywhere in the tree
     found = find_key_recursive(tree, start_node_name)
     if not found:
         raise ValueError(f"Start node '{start_node_name}' not found in tree.")
@@ -278,22 +258,57 @@ def traverse(tree: Any, start_node_name: str, llm: LLMClient, base_prompt: str, 
             completed.append(branch)
             continue
 
-        # Special handling for fixed choices
-        FIXED_CHOICES = {
-            "Core Application & Web Stacks": ["Web Development"],
-            "Web Development": ["Frontend", "Backend"]
-        }
-
-        # Ask LLM to pick among child_names
+        # Ask LLM to pick
         updated_prompt_for_choice = branch.prompt + f"\nStep: choose {node_name}. Options: {', '.join(child_names)}"
 
-        if node_name in FIXED_CHOICES:
-            chosen = [c for c in FIXED_CHOICES[node_name] if c in child_names]
+        # Priority 1: FORCED_CHOICES (only these, no LLM)
+        if node_name in FORCED_CHOICES:
+            forced = FORCED_CHOICES[node_name]
+            chosen = [c for c in forced if c in child_names]
+            print(f"FORCED (exclusive) at '{node_name}': {chosen}")
+            print(f"   ↳ Ignored options: {[c for c in child_names if c not in chosen]}")
+
+        # Priority 2: FIXED_CHOICES (always include + LLM adds more)
+        elif node_name in FIXED_CHOICES:
+            fixed = FIXED_CHOICES[node_name]
+            chosen = [c for c in fixed if c in child_names]
+            print(f"FIXED (always included) at '{node_name}': {chosen}")
+            
+            remaining = [c for c in child_names if c not in chosen]
+            
+            if remaining and len(chosen) < max_branch_choices:
+                additional_slots = max_branch_choices - len(chosen)
+                
+                # Update prompt to tell LLM what's already chosen
+                additive_prompt = (
+                    updated_prompt_for_choice 
+                    + f"\n\nNote: {', '.join(chosen)} are already selected (required). "
+                    + f"You may choose up to {additional_slots} additional option(s) from the remaining: {', '.join(remaining)}."
+                    + f"\nIf none of the remaining options are needed, you can choose none."
+                )
+                
+                llm_choices = llm.choose_options(additive_prompt, remaining, max_choices=additional_slots)
+                
+                if llm_choices:
+                    chosen.extend(llm_choices)
+                    print(f"LLM added: {llm_choices}")
+                else:
+                    print(f"LLM chose not to add more")
+            
+            elif remaining:
+                print(f"Max choices ({max_branch_choices}) reached. Remaining ignored: {remaining}")
+            else:
+                print(f"No remaining options to choose from")
+
+        # Priority 3: Normal LLM choice (no fixed or forced)
         else:
             chosen = llm.choose_options(updated_prompt_for_choice, child_names, max_choices=max_branch_choices)
-        
+            print(f"LLM chose at '{node_name}': {chosen}")
+
+        # Fallback if nothing was chosen
         if not chosen:
             chosen = [child_names[0]]
+            print(f"Fallback (nothing chosen) at '{node_name}': {chosen}")
 
         recorder.add_choice(node_name, chosen)
 

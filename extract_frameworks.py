@@ -1,3 +1,6 @@
+# Command : python extract_frameworks.py Web_Dev_Only.json
+ 
+
 # ---------- extract_frameworks.py ----------
 import json
 import sys

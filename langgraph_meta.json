@@ -53,12 +53,21 @@
     [
       "Web Development",
       "Frontend",
-      "Client-Side Rendering (CSR)",
-      "HTML/CSS/JavaScript",
-      "Webpack",
-      "Backend Integration (Serving from a backend)",
-      "Node.js",
-      "Webpack_FINAL"
+      "Progressive Web App (PWA)",
+      "JavaScript/TypeScript",
+      "React + Workbox",
+      "No Container",
+      "React + Workbox_FINAL"
+    ],
+    [
+      "Web Development",
+      "Frontend",
+      "Progressive Web App (PWA)",
+      "JavaScript/TypeScript",
+      "React + Workbox",
+      "Containerization (Docker)",
+      "NGINX",
+      "React + Workbox_FINAL"
     ],
     [
       "Web Development",
@@ -81,6 +90,28 @@
       "Node.js",
       "Containerization (Docker)",
       "vite_FINAL"
+    ],
+    [
+      "Web Development",
+      "Frontend",
+      "Client-Side Rendering (CSR)",
+      "HTML/CSS/JavaScript",
+      "Webpack",
+      "Backend Integration (Serving from a backend)",
+      "Node.js",
+      "No Container (PaaS)",
+      "Webpack_FINAL"
+    ],
+    [
+      "Web Development",
+      "Frontend",
+      "Client-Side Rendering (CSR)",
+      "HTML/CSS/JavaScript",
+      "Webpack",
+      "Backend Integration (Serving from a backend)",
+      "Node.js",
+      "Containerization (Docker)",
+      "Webpack_FINAL"
     ]
   ],
   "nodes": {
@@ -136,6 +167,10 @@
       "is_leaf": false,
       "is_framework": false
     },
+    "React + Workbox": {
+      "is_leaf": false,
+      "is_framework": false
+    },
     "Express.js": {
       "is_leaf": false,
       "is_framework": false
@@ -157,6 +192,14 @@
       "is_framework": false
     },
     "Deployment Undecided": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "No Container": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Containerization (Docker)": {
       "is_leaf": false,
       "is_framework": false
     },
@@ -188,11 +231,15 @@
       "is_leaf": true,
       "is_framework": true
     },
-    "No Container (PaaS)": {
+    "React + Workbox_FINAL": {
+      "is_leaf": true,
+      "is_framework": true
+    },
+    "NGINX": {
       "is_leaf": false,
       "is_framework": false
     },
-    "Containerization (Docker)": {
+    "No Container (PaaS)": {
       "is_leaf": false,
       "is_framework": false
     }
@@ -255,6 +302,13 @@
       ]
     },
     {
+      "from": "Progressive Web App (PWA)",
+      "to": "JavaScript/TypeScript",
+      "prompt": [
+        "I run an offline bakery shop and want to take it online so more people can discover and order from me. using Web Development + Frontend + Progressive Web App (PWA) + JavaScript/TypeScript.\nCurrent step: Choose JavaScript/TypeScript.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: React + Workbox, Angular PWA, Vue PWA."
+      ]
+    },
+    {
       "from": "REST",
       "to": "JavaScript/TypeScript",
       "prompt": [
@@ -280,6 +334,13 @@
       "to": "Webpack",
       "prompt": [
         "Selected framework: Webpack"
+      ]
+    },
+    {
+      "from": "JavaScript/TypeScript",
+      "to": "React + Workbox",
+      "prompt": [
+        "Selected framework: React + Workbox"
       ]
     },
     {
@@ -336,6 +397,20 @@
       "to": "Deployment Undecided",
       "prompt": [
         "Collecting options for Webpack"
+      ]
+    },
+    {
+      "from": "React + Workbox",
+      "to": "No Container",
+      "prompt": [
+        "Collecting options for React + Workbox"
+      ]
+    },
+    {
+      "from": "React + Workbox",
+      "to": "Containerization (Docker)",
+      "prompt": [
+        "Collecting options for React + Workbox"
       ]
     },
     {
@@ -397,24 +472,56 @@
       ]
     },
     {
+      "from": "No Container",
+      "to": "React + Workbox_FINAL",
+      "prompt": [
+        "=====\nFRAMEWORK: React + Workbox\nSELECTED COMPONENTS: No Container → Containerization (Docker) → Vercel → Netlify\n=====\n"
+      ]
+    },
+    {
+      "from": "Containerization (Docker)",
+      "to": "NGINX",
+      "prompt": [
+        "Collecting options for React + Workbox"
+      ]
+    },
+    {
       "from": "Node.js",
       "to": "No Container (PaaS)",
       "prompt": [
-        "Collecting options for vite"
+        "Collecting options for vite",
+        "Collecting options for Webpack"
       ]
     },
     {
       "from": "Node.js",
       "to": "Containerization (Docker)",
       "prompt": [
-        "Collecting options for vite"
+        "Collecting options for vite",
+        "Collecting options for Webpack"
       ]
     },
     {
       "from": "Node.js",
-      "to": "Webpack_FINAL",
+      "to": "No Container (PaaS)",
       "prompt": [
-        "=====\nFRAMEWORK: Webpack\nSELECTED COMPONENTS: Backend Integration (Serving from a backend) → Deployment Undecided → Node.js → {'name': 'No Container (PaaS)', 'description': 'Use a Platform-as-a-Service (PaaS) provider to host your online bakery shop without managing a container.'} → {'name': 'Containerization (Docker)', 'description': 'Use Docker to create and manage containers for your online bakery shop, providing greater flexibility and control over the hosting environment.'}\n=====\n"
+        "Collecting options for vite",
+        "Collecting options for Webpack"
+      ]
+    },
+    {
+      "from": "Node.js",
+      "to": "Containerization (Docker)",
+      "prompt": [
+        "Collecting options for vite",
+        "Collecting options for Webpack"
+      ]
+    },
+    {
+      "from": "NGINX",
+      "to": "React + Workbox_FINAL",
+      "prompt": [
+        "=====\nFRAMEWORK: React + Workbox\nSELECTED COMPONENTS: No Container → Containerization (Docker) → NGINX → AWS (ECS, EKS, Fargate, App Runner) → Google Cloud (GKE, Cloud Run)\n=====\n"
       ]
     },
     {
@@ -429,6 +536,20 @@
       "to": "vite_FINAL",
       "prompt": [
         "=====\nFRAMEWORK: vite\nSELECTED COMPONENTS: Backend Integration (Serving from a backend) → Deployment Undecided → Node.js → No Container (PaaS) → Containerization (Docker) → AWS (ECS, EKS, Fargate, App Runner) → Google Cloud (GKE, Cloud Run)\n=====\n"
+      ]
+    },
+    {
+      "from": "No Container (PaaS)",
+      "to": "Webpack_FINAL",
+      "prompt": [
+        "=====\nFRAMEWORK: Webpack\nSELECTED COMPONENTS: Backend Integration (Serving from a backend) → Deployment Undecided → Node.js → No Container (PaaS) → Containerization (Docker) → Heroku → Render\n=====\n"
+      ]
+    },
+    {
+      "from": "Containerization (Docker)",
+      "to": "Webpack_FINAL",
+      "prompt": [
+        "=====\nFRAMEWORK: Webpack\nSELECTED COMPONENTS: Backend Integration (Serving from a backend) → Deployment Undecided → Node.js → No Container (PaaS) → Containerization (Docker) → AWS (ECS, EKS, Fargate, App Runner) → Google Cloud (GKE, Cloud Run)\n=====\n"
       ]
     }
   ]
