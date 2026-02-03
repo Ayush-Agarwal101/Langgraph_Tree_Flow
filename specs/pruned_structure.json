@@ -1,0 +1,125 @@
+{
+  "name": "project_root",
+  "type": "folder",
+  "description": "Root of the web application project",
+  "children": {
+    "frontend": {
+      "type": "folder",
+      "description": "Frontend application code",
+      "children": {
+        "framework": {
+          "type": "folder",
+          "description": "Frontend framework choice",
+          "children": {
+            "react": {
+              "type": "folder",
+              "description": "React-based frontend implementation",
+              "required_when": "Frontend framework is React",
+              "children": {
+                "build_tool": {
+                  "type": "folder",
+                  "description": "Build tool for React",
+                  "children": {
+                    "vite": {
+                      "type": "folder",
+                      "description": "Vite build tooling for React",
+                      "required_when": "Build tool is Vite",
+                      "children": {
+                        "src": {
+                          "type": "folder",
+                          "description": {
+                            "purpose": "React application source code",
+                            "files": {
+                              "main.tsx": "Application entry point and React DOM mounting",
+                              "App.tsx": "Root component composing providers and routes"
+                            }
+                          },
+                          "children": {},
+                          "name": "src"
+                        }
+                      },
+                      "name": "vite"
+                    }
+                  },
+                  "name": "build_tool"
+                }
+              },
+              "name": "react"
+            }
+          },
+          "name": "framework"
+        },
+        "routing": {
+          "type": "folder",
+          "description": "Client-side routing strategy",
+          "children": {
+            "react_router": {
+              "type": "folder",
+              "description": "React Router based routing",
+              "required_when": "Routing uses React Router",
+              "children": {
+                "routes": {
+                  "type": "folder",
+                  "description": {
+                    "purpose": "Route definitions and guards",
+                    "files": {
+                      "AppRoutes.tsx": "Defines application routes",
+                      "ProtectedRoute.tsx": "Handles route-level authentication"
+                    }
+                  },
+                  "children": {},
+                  "name": "routes"
+                }
+              },
+              "name": "react_router"
+            },
+            "file_based": {
+              "type": "folder",
+              "description": "File-based routing",
+              "required_when": "Routing uses file-based strategy",
+              "children": {},
+              "name": "file_based"
+            }
+          },
+          "name": "routing"
+        },
+        "state_management": {
+          "type": "folder",
+          "description": "Global state management strategy",
+          "children": {
+            "zustand": {
+              "type": "folder",
+              "description": "Zustand based lightweight state management",
+              "required_when": "State management is Zustand",
+              "children": {},
+              "name": "zustand"
+            },
+            "context_only": {
+              "type": "folder",
+              "description": "React Context API only",
+              "required_when": "Only React Context is used",
+              "children": {},
+              "name": "context_only"
+            }
+          },
+          "name": "state_management"
+        },
+        "styling": {
+          "type": "folder",
+          "description": "Styling solution",
+          "children": {
+            "tailwind": {
+              "type": "folder",
+              "description": "Tailwind CSS utility-first styling",
+              "required_when": "Styling uses Tailwind CSS",
+              "children": {},
+              "name": "tailwind"
+            }
+          },
+          "name": "styling"
+        }
+      },
+      "name": "frontend"
+    }
+  }
+}

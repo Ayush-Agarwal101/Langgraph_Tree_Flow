@@ -6,70 +6,115 @@
     "mandatory_rule": "always keep"
   },
   "decisions": {
-    "project_root/frontend/framework/react": {
+    "project_root/frontend/framework/react/build_tool/vite/src": {
+      "decision": "KEEP",
+      "description": {
+        "purpose": "React application source code",
+        "files": {
+          "main.tsx": "Application entry point and React DOM mounting",
+          "App.tsx": "Root component composing providers and routes"
+        }
+      },
+      "reason": "This folder contains the source code of the React application which is a crucial part of the project requirements."
+    },
+    "project_root/frontend/framework/react/build_tool/webpack": {
       "decision": "PRUNE",
-      "description": "React-based frontend implementation",
-      "reason": "Condition not satisfied: Frontend framework is React"
+      "description": "Webpack-based React setup",
+      "reason": "The project requirement states to use Vite as the build tool, which this folder does not comply with."
     },
     "project_root/frontend/framework/vue": {
       "decision": "PRUNE",
       "description": "Vue.js frontend implementation",
-      "reason": "Condition not satisfied: Frontend framework is Vue"
+      "reason": "The project requirement specifies React as the frontend technology, not Vue.js."
     },
-    "project_root/frontend/routing/react_router": {
-      "decision": "PRUNE",
-      "description": "React Router based routing",
-      "reason": "Condition not satisfied: Routing uses React Router"
+    "project_root/frontend/routing/react_router/routes": {
+      "decision": "KEEP",
+      "description": {
+        "purpose": "Route definitions and guards",
+        "files": {
+          "AppRoutes.tsx": "Defines application routes",
+          "ProtectedRoute.tsx": "Handles route-level authentication"
+        }
+      },
+      "reason": "The 'routes' folder is necessary for defining and managing the application routes in a React project, as stated in the project requirements. It contains files like AppRoutes.tsx for defining routes and ProtectedRoute.tsx for handling route-level authentication which are crucial components for a Spotify-like frontend."
     },
     "project_root/frontend/routing/file_based": {
-      "decision": "PRUNE",
+      "decision": "KEEP",
       "description": "File-based routing",
-      "reason": "Condition not satisfied: Routing uses file-based strategy"
+      "reason": "File-based routing is a common approach in React projects, especially for smaller applications where dynamic routing isn't necessary. Keeping this folder allows for the creation of individual pages and routes by defining files."
     },
-    "project_root/frontend/state_management/redux": {
+    "project_root/frontend/state_management/redux/store": {
       "decision": "PRUNE",
-      "description": "Redux Toolkit based state management",
-      "reason": "Condition not satisfied: State management is Redux"
+      "description": {
+        "purpose": "Redux store configuration",
+        "files": {
+          "store.ts": "Creates and configures Redux store",
+          "rootReducer.ts": "Combines application reducers"
+        }
+      },
+      "reason": "The project requirements state the use of React Context for state management, not Redux. This folder is unnecessary as it contains files related to Redux which are not specified in the project's stated tech stack."
     },
     "project_root/frontend/state_management/zustand": {
-      "decision": "PRUNE",
+      "decision": "KEEP",
       "description": "Zustand based lightweight state management",
-      "reason": "Condition not satisfied: State management is Zustand"
+      "reason": "The project requirement states no specific state management library, but provides React Context as a possibility. However, Zustand is a popular React-focused state management library that provides a simpler API than Redux or MobX with similar capabilities. Keeping this folder allows developers to opt for Zustand if they find it more suitable."
     },
     "project_root/frontend/state_management/context_only": {
-      "decision": "PRUNE",
+      "decision": "KEEP",
       "description": "React Context API only",
-      "reason": "Condition not satisfied: Only React Context is used"
+      "reason": "This folder follows the project requirement of using React Context for state management."
     },
-    "project_root/frontend/styling/css_modules": {
+    "project_root/frontend/styling/css_modules/styles": {
       "decision": "PRUNE",
-      "description": "CSS Modules based styling",
-      "reason": "Condition not satisfied: Styling uses CSS Modules"
+      "description": {
+        "purpose": "Scoped component styles",
+        "files": {
+          "App.module.css": "Scoped styles for App component"
+        }
+      },
+      "reason": "Tailwind CSS is being used for styling, and this folder contains CSS modules which contradicts the project requirement of using Tailwind CSS."
     },
     "project_root/frontend/styling/tailwind": {
-      "decision": "PRUNE",
+      "decision": "KEEP",
       "description": "Tailwind CSS utility-first styling",
-      "reason": "Condition not satisfied: Styling uses Tailwind CSS"
+      "reason": "The folder contains Tailwind CSS, which is the specified styling library for this project."
     },
-    "project_root/backend/runtime/node": {
+    "project_root/backend/runtime/node/framework/express/src": {
       "decision": "PRUNE",
-      "description": "Node.js backend",
-      "reason": "Condition not satisfied: Backend runtime is Node.js"
+      "description": {
+        "purpose": "Backend source code",
+        "files": {
+          "server.ts": "Application entry point",
+          "routes.ts": "API route definitions"
+        }
+      },
+      "reason": "Since the project requirement does not include a backend, this folder is unnecessary."
+    },
+    "project_root/backend/runtime/node/framework/fastify": {
+      "decision": "PRUNE",
+      "description": "Fastify framework",
+      "reason": "The project requirement does not include a backend, and the provided folder 'backend/runtime/node/framework/fastify' appears to be related to a backend framework (Fastify). Therefore, it should be pruned."
     },
     "project_root/backend/runtime/django": {
       "decision": "PRUNE",
       "description": "Django backend (Python)",
-      "reason": "Condition not satisfied: Backend runtime is Python"
+      "reason": "This folder is not relevant for a frontend project built with React, Vite, Tailwind CSS and no backend."
     },
-    "project_root/deployment/docker": {
+    "project_root/deployment/docker/docker_files": {
       "decision": "PRUNE",
-      "description": "Docker-based deployment",
-      "reason": "Condition not satisfied: Deployment uses Docker"
+      "description": {
+        "purpose": "Docker configuration files",
+        "files": {
+          "Dockerfile": "Build instructions for container image",
+          "docker-compose.yml": "Local multi-container setup"
+        }
+      },
+      "reason": "This folder is not relevant for a frontend-only project without a backend, as it contains Docker configuration files which are typically used for backend applications."
     },
     "project_root/deployment/serverless": {
       "decision": "PRUNE",
       "description": "Serverless deployment",
-      "reason": "Condition not satisfied: Deployment is serverless"
+      "reason": "This folder is not necessary for a Spotify-like frontend built with React, Vite, Tailwind CSS and React Context as per the project requirements. Since no backend is involved in this project, there is no need for serverless deployment."
     }
   }
 }

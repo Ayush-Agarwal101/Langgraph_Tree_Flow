@@ -1,14 +1,12 @@
 # core/dfs_pruner.py
 
 from typing import Dict, List
-from specs.usage_manifest import record_decision
+import json
+import re
 
-def requirement_satisfied(required_when: str, final_prompt: str) -> bool:
-    """
-    Very simple matcher for testing.
-    Later this can be delegated to LLM council.
-    """
-    return required_when.lower() in final_prompt.lower()
+from specs.usage_manifest import record_decision
+from llm.local_llama_client import call_llm
+
 
 # -----------------------------
 # Helper: detect leaf folder
@@ -28,39 +26,75 @@ def is_leaf_folder(node: Dict) -> bool:
 
 
 # -----------------------------
-# Temporary LLM decision logic
+# LLM decision logic (Ollama)
 # -----------------------------
 def llm_decide_keep_or_prune(path: str, node: Dict, final_prompt: str) -> Dict:
     """
-    Stub decision logic.
-    Replace later with council of LLMs.
+    Uses local Ollama (via call_llm) to decide KEEP or PRUNE.
     """
 
+    # Mandatory shortcut (still deterministic)
     if node.get("mandatory") is True:
         return {
             "decision": "KEEP",
             "reason": "Folder marked as mandatory"
         }
 
-    prompt_lower = final_prompt.lower()
-    path_lower = path.lower()
+    # ---- Build LLM prompt ----
+    decision_prompt = f"""
+You are deciding whether a folder is REQUIRED in a software project.
 
-    if "backend" in path_lower:
+PROJECT REQUIREMENT:
+{final_prompt}
+
+FOLDER PATH:
+{path}
+
+FOLDER DESCRIPTION:
+{json.dumps(node.get("description", ""), indent=2)}
+
+TASK:
+Decide whether this folder should be KEPT or PRUNED.
+
+RULES:
+- Reply ONLY in valid JSON.
+- Do NOT explain outside JSON.
+- Decision must be either "KEEP" or "PRUNE".
+
+RESPONSE FORMAT:
+{{
+  "decision": "KEEP | PRUNE",
+  "reason": "short explanation"
+}}
+"""
+
+    try:
+        raw = call_llm(decision_prompt)
+
+        # ---- Extract JSON safely ----
+        match = re.search(r"\{.*\}", raw, re.DOTALL)
+        if not match:
+            raise ValueError("No JSON found in LLM response")
+
+        data = json.loads(match.group(0))
+
+        decision = data.get("decision", "").upper()
+        reason = data.get("reason", "No reason provided")
+
+        if decision not in ("KEEP", "PRUNE"):
+            raise ValueError("Invalid decision value")
+
         return {
-            "decision": "PRUNE",
-            "reason": "Frontend-only project"
+            "decision": decision,
+            "reason": reason
         }
 
-    if "store" in path_lower and "context" in prompt_lower:
+    except Exception as e:
+        # ---- HARD FAIL SAFE ----
         return {
-            "decision": "PRUNE",
-            "reason": "State handled via React Context"
+            "decision": "KEEP",
+            "reason": f"Fallback KEEP due to LLM error: {str(e)}"
         }
-
-    return {
-        "decision": "KEEP",
-        "reason": "Relevant to project scope"
-    }
 
 
 # -----------------------------
@@ -104,13 +138,13 @@ def dfs_traverse(
             "reason": decision["reason"]
         }
 
-        # ✅ Proper manifest recording
+        # Record in usage manifest
         record_decision(
             manifest=usage_manifest,
             path=current_path,
             decision=decision["decision"],
             reason=decision["reason"],
-            model="mistral"
+            model="ollama"
         )
 
         path_stack.pop()
@@ -123,28 +157,6 @@ def dfs_traverse(
 
         if child.get("type") != "folder":
             continue
-
-        # 🔥 NEW: required_when short-circuit
-        required_when = child.get("required_when")
-        if required_when:
-            if not requirement_satisfied(required_when, final_prompt):
-                full_path = "/".join(path_stack + [child_name])
-
-                prune_decisions["decisions"][full_path] = {
-                    "decision": "PRUNE",
-                    "description": child.get("description", ""),
-                    "reason": f"Condition not satisfied: {required_when}"
-                }
-
-                record_decision(
-                    manifest=usage_manifest,
-                    path=full_path,
-                    decision="PRUNE",
-                    reason=f"Condition not satisfied: {required_when}",
-                    model="mistral"
-                )
-                continue  # ⛔ do NOT go deeper
-
 
         child_copy = dict(child)
         child_copy["name"] = child_name
