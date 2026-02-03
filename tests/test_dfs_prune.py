@@ -1,28 +1,35 @@
 # tests/test_dfs_prune.py
-
-# run - python -m tests.test_dfs_prune
+# run with: python -m tests.test_dfs_prune
 
 import json
 
 from core.dfs_pruner import dfs_traverse
 from specs.usage_manifest import init_manifest, save_manifest
 
+print(">>> test_dfs_prune.py STARTED")
 
 FINAL_PROMPT = """
-Frontend: React + Vite
-Backend: Node.js + Express
-Deployment: Docker
+Build a Spotify-like frontend using React.
+Build tool: Vite
+Styling: Tailwind CSS
+State management: React Context
+No backend.
 """
 
-
-def test_dfs_pruning():
+def run_dfs_pruning():
+    # ---------- LOAD STRUCTURE ----------
     with open("data/folder_structure.json", "r", encoding="utf-8") as f:
-        tree = json.load(f)
+        raw = json.load(f)
 
-    tree["name"] = "project_root"
+    # Wrap into a DFS-compatible root node
+    tree = raw
 
+    print(">>> Tree prepared")
+
+    # ---------- INIT OUTPUTS ----------
     prune_decisions = {
         "metadata": {
+            "final_prompt": FINAL_PROMPT.strip(),
             "strategy": "dfs_leaf_only",
             "leaf_definition": "folder with no subfolders",
             "mandatory_rule": "always keep"
@@ -32,6 +39,9 @@ def test_dfs_pruning():
 
     usage_manifest = init_manifest(FINAL_PROMPT)
 
+    # ---------- RUN DFS ----------
+    print(">>> Calling dfs_traverse")
+
     dfs_traverse(
         node=tree,
         path_stack=[],
@@ -40,13 +50,15 @@ def test_dfs_pruning():
         usage_manifest=usage_manifest
     )
 
-    # Save outputs
+    print(">>> dfs_traverse finished")
+    print(">>> Decisions collected:", len(prune_decisions["decisions"]))
+
+    # ---------- WRITE FILES ----------
     with open("specs/prune_decisions.json", "w", encoding="utf-8") as f:
         json.dump(prune_decisions, f, indent=2)
 
-    save_manifest(usage_manifest, "specs/usage_manifest.json")
+    print(">>> prune_decisions.json written")
 
-    # Generate pruned paths list
     pruned_paths = [
         path
         for path, data in prune_decisions["decisions"].items()
@@ -54,10 +66,15 @@ def test_dfs_pruning():
     ]
 
     with open("specs/pruned_paths.json", "w", encoding="utf-8") as f:
-        json.dump(
-            {"pruned_paths": pruned_paths},
-            f,
-            indent=2
-        )
+        json.dump({"pruned_paths": pruned_paths}, f, indent=2)
 
-    print(f"Pruned paths written: {len(pruned_paths)}")
+    print(">>> pruned_paths.json written")
+
+    save_manifest(usage_manifest, "specs/usage_manifest.json")
+    print(">>> usage_manifest.json written")
+
+
+# ---------- ACTUAL EXECUTION ----------
+run_dfs_pruning()
+
+print(">>> test_dfs_prune.py FINISHED")

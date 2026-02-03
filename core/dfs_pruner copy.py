@@ -3,12 +3,6 @@
 from typing import Dict, List
 from specs.usage_manifest import record_decision
 
-def requirement_satisfied(required_when: str, final_prompt: str) -> bool:
-    """
-    Very simple matcher for testing.
-    Later this can be delegated to LLM council.
-    """
-    return required_when.lower() in final_prompt.lower()
 
 # -----------------------------
 # Helper: detect leaf folder
@@ -123,28 +117,6 @@ def dfs_traverse(
 
         if child.get("type") != "folder":
             continue
-
-        # 🔥 NEW: required_when short-circuit
-        required_when = child.get("required_when")
-        if required_when:
-            if not requirement_satisfied(required_when, final_prompt):
-                full_path = "/".join(path_stack + [child_name])
-
-                prune_decisions["decisions"][full_path] = {
-                    "decision": "PRUNE",
-                    "description": child.get("description", ""),
-                    "reason": f"Condition not satisfied: {required_when}"
-                }
-
-                record_decision(
-                    manifest=usage_manifest,
-                    path=full_path,
-                    decision="PRUNE",
-                    reason=f"Condition not satisfied: {required_when}",
-                    model="mistral"
-                )
-                continue  # ⛔ do NOT go deeper
-
 
         child_copy = dict(child)
         child_copy["name"] = child_name

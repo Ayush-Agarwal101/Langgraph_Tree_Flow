@@ -1,0 +1,17 @@
+{
+  "pruned_paths": [
+    "project_root/frontend/framework/react",
+    "project_root/frontend/framework/vue",
+    "project_root/frontend/routing/react_router",
+    "project_root/frontend/routing/file_based",
+    "project_root/frontend/state_management/redux",
+    "project_root/frontend/state_management/zustand",
+    "project_root/frontend/state_management/context_only",
+    "project_root/frontend/styling/css_modules",
+    "project_root/frontend/styling/tailwind",
+    "project_root/backend/runtime/node",
+    "project_root/backend/runtime/django",
+    "project_root/deployment/docker",
+    "project_root/deployment/serverless"
+  ]
+}

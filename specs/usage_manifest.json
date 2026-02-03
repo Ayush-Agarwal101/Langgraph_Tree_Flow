@@ -1,0 +1,84 @@
+{
+  "final_prompt": "Build a Spotify-like frontend using React.\nBuild tool: Vite\nStyling: Tailwind CSS\nState management: React Context\nNo backend.",
+  "generated_at": "2026-02-03T18:07:10.309611Z",
+  "records": [
+    {
+      "path": "project_root/frontend/framework/react",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Frontend framework is React",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/frontend/framework/vue",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Frontend framework is Vue",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/frontend/routing/react_router",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Routing uses React Router",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/frontend/routing/file_based",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Routing uses file-based strategy",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/frontend/state_management/redux",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: State management is Redux",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/frontend/state_management/zustand",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: State management is Zustand",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/frontend/state_management/context_only",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Only React Context is used",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/frontend/styling/css_modules",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Styling uses CSS Modules",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/frontend/styling/tailwind",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Styling uses Tailwind CSS",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/backend/runtime/node",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Backend runtime is Node.js",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/backend/runtime/django",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Backend runtime is Python",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/deployment/docker",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Deployment uses Docker",
+      "model": "mistral"
+    },
+    {
+      "path": "project_root/deployment/serverless",
+      "decision": "PRUNE",
+      "reason": "Condition not satisfied: Deployment is serverless",
+      "model": "mistral"
+    }
+  ]
+}

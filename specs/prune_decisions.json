@@ -1,20 +1,75 @@
 {
   "metadata": {
-    "final_prompt": "",
+    "final_prompt": "Build a Spotify-like frontend using React.\nBuild tool: Vite\nStyling: Tailwind CSS\nState management: React Context\nNo backend.",
     "strategy": "dfs_leaf_only",
     "leaf_definition": "folder with no subfolders",
     "mandatory_rule": "always keep"
   },
   "decisions": {
-    "project_root/frontend/react/vite/src": {
-      "decision": "KEEP",
-      "description": "React source folder",
-      "reason": "Required for selected frontend"
-    },
-    "project_root/frontend/vue": {
+    "project_root/frontend/framework/react": {
       "decision": "PRUNE",
-      "description": "Vue frontend implementation",
-      "reason": "Not selected in final prompt"
+      "description": "React-based frontend implementation",
+      "reason": "Condition not satisfied: Frontend framework is React"
+    },
+    "project_root/frontend/framework/vue": {
+      "decision": "PRUNE",
+      "description": "Vue.js frontend implementation",
+      "reason": "Condition not satisfied: Frontend framework is Vue"
+    },
+    "project_root/frontend/routing/react_router": {
+      "decision": "PRUNE",
+      "description": "React Router based routing",
+      "reason": "Condition not satisfied: Routing uses React Router"
+    },
+    "project_root/frontend/routing/file_based": {
+      "decision": "PRUNE",
+      "description": "File-based routing",
+      "reason": "Condition not satisfied: Routing uses file-based strategy"
+    },
+    "project_root/frontend/state_management/redux": {
+      "decision": "PRUNE",
+      "description": "Redux Toolkit based state management",
+      "reason": "Condition not satisfied: State management is Redux"
+    },
+    "project_root/frontend/state_management/zustand": {
+      "decision": "PRUNE",
+      "description": "Zustand based lightweight state management",
+      "reason": "Condition not satisfied: State management is Zustand"
+    },
+    "project_root/frontend/state_management/context_only": {
+      "decision": "PRUNE",
+      "description": "React Context API only",
+      "reason": "Condition not satisfied: Only React Context is used"
+    },
+    "project_root/frontend/styling/css_modules": {
+      "decision": "PRUNE",
+      "description": "CSS Modules based styling",
+      "reason": "Condition not satisfied: Styling uses CSS Modules"
+    },
+    "project_root/frontend/styling/tailwind": {
+      "decision": "PRUNE",
+      "description": "Tailwind CSS utility-first styling",
+      "reason": "Condition not satisfied: Styling uses Tailwind CSS"
+    },
+    "project_root/backend/runtime/node": {
+      "decision": "PRUNE",
+      "description": "Node.js backend",
+      "reason": "Condition not satisfied: Backend runtime is Node.js"
+    },
+    "project_root/backend/runtime/django": {
+      "decision": "PRUNE",
+      "description": "Django backend (Python)",
+      "reason": "Condition not satisfied: Backend runtime is Python"
+    },
+    "project_root/deployment/docker": {
+      "decision": "PRUNE",
+      "description": "Docker-based deployment",
+      "reason": "Condition not satisfied: Deployment uses Docker"
+    },
+    "project_root/deployment/serverless": {
+      "decision": "PRUNE",
+      "description": "Serverless deployment",
+      "reason": "Condition not satisfied: Deployment is serverless"
     }
   }
 }
