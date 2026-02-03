@@ -4,7 +4,7 @@
 # ---------- extract_frameworks.py ----------
 import json
 import sys
-from local_llama_client import call_llm
+from llm.local_llama_client import call_llm
 
 def load_json_file(filename: str) -> dict:
     """Load JSON file."""

@@ -1,0 +1,90 @@
+{
+  "project_prompt": "Frontend: React with Vite\nBackend: Node.js with Express\nDeployment: Docker",
+  "generated_at": "2026-02-03T09:40:52.603053Z",
+  "paths": {
+    "project_root/frontend/react/vite/src/main.tsx": {
+      "decision": "KEEP",
+      "reason": "These are standard directories and file structure for a React application with Vite.",
+      "votes": {
+        "mistral": "KEEP"
+      }
+    },
+    "project_root/frontend/react/vite/src/App.tsx": {
+      "decision": "KEEP",
+      "reason": "This path follows a common organization structure for React projects with Vite.",
+      "votes": {
+        "mistral": "KEEP"
+      }
+    },
+    "project_root/frontend/react/vite/vite.config.ts": {
+      "decision": "KEEP",
+      "reason": "The path follows common structure for a React project with Vite and is crucial for its correct functioning.",
+      "votes": {
+        "mistral": "KEEP"
+      }
+    },
+    "project_root/frontend/react/vite/index.html": {
+      "decision": "KEEP",
+      "reason": "This path structure follows common conventions for organizing a project with React and Vite.",
+      "votes": {
+        "mistral": "KEEP"
+      }
+    },
+    "project_root/frontend/react/webpack": {
+      "decision": "PRUNE",
+      "reason": "This path is not required for the given project setup with React and Vite instead of Webpack",
+      "votes": {
+        "mistral": "PRUNE"
+      }
+    },
+    "project_root/frontend/vue": {
+      "decision": "PRUNE",
+      "reason": "The path specifies a Vue.js implementation instead of React which is specified in the project context.",
+      "votes": {
+        "mistral": "PRUNE"
+      }
+    },
+    "project_root/backend/node/express/src/server.ts": {
+      "decision": "KEEP",
+      "reason": "These are common directories and files for a Node.js Express backend project with the specified tech stack.",
+      "votes": {
+        "mistral": "KEEP"
+      }
+    },
+    "project_root/backend/node/express/src/routes.ts": {
+      "decision": "KEEP",
+      "reason": "This path structure follows a common practice for organizing backend Node.js applications with Express and provides clarity for team members.",
+      "votes": {
+        "mistral": "KEEP"
+      }
+    },
+    "project_root/backend/node/express/package.json": {
+      "decision": "KEEP",
+      "reason": "These folders and files are standard for a Node.js backend project with Express.js and Docker deployment.",
+      "votes": {
+        "mistral": "KEEP"
+      }
+    },
+    "project_root/backend/django": {
+      "decision": "PRUNE",
+      "reason": "Project specifies Node.js with Express, not Django (Python)",
+      "votes": {
+        "mistral": "PRUNE"
+      }
+    },
+    "project_root/deployment/docker/Dockerfile": {
+      "decision": "KEEP",
+      "reason": "This structure includes a Dockerfile for deployment, which is necessary for building and containerizing the application.",
+      "votes": {
+        "mistral": "KEEP"
+      }
+    },
+    "project_root/deployment/serverless": {
+      "decision": "PRUNE",
+      "reason": "Serverless deployment is not applicable with the given tech stack, which includes Docker for deployment.",
+      "votes": {
+        "mistral": "PRUNE"
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "name": "project_root",
+  "type": "folder",
+  "description": "Root of the web application project",
+  "children": {
+    "frontend": {
+      "type": "folder",
+      "description": "Frontend application code",
+      "children": {
+        "react": {
+          "type": "folder",
+          "description": "React-based frontend implementation",
+          "required_when": "Frontend framework is React",
+          "children": {
+            "vite": {
+              "type": "folder",
+              "description": "Vite build tooling for React",
+              "required_when": "Build tool is Vite",
+              "children": {
+                "src": {
+                  "type": "folder",
+                  "description": "React source code",
+                  "children": {
+                    "main.tsx": {
+                      "type": "file",
+                      "description": "React entry point"
+                    },
+                    "App.tsx": {
+                      "type": "file",
+                      "description": "Root React component"
+                    }
+                  }
+                },
+                "vite.config.ts": {
+                  "type": "file",
+                  "description": "Vite configuration file"
+                },
+                "index.html": {
+                  "type": "file",
+                  "description": "HTML entry file for Vite"
+                }
+              }
+            },
+            "webpack": {
+              "type": "folder",
+              "description": "Webpack-based React setup",
+              "required_when": "Build tool is Webpack",
+              "children": {}
+            }
+          }
+        },
+        "vue": {
+          "type": "folder",
+          "description": "Vue.js frontend implementation",
+          "required_when": "Frontend framework is Vue",
+          "children": {}
+        }
+      }
+    },
+    "backend": {
+      "type": "folder",
+      "description": "Backend application code",
+      "children": {
+        "node": {
+          "type": "folder",
+          "description": "Node.js backend",
+          "required_when": "Backend runtime is Node.js",
+          "children": {
+            "express": {
+              "type": "folder",
+              "description": "Express.js framework",
+              "required_when": "Backend framework is Express",
+              "children": {
+                "src": {
+                  "type": "folder",
+                  "description": "Backend source code",
+                  "children": {
+                    "server.ts": {
+                      "type": "file",
+                      "description": "Express server entry point"
+                    },
+                    "routes.ts": {
+                      "type": "file",
+                      "description": "API route definitions"
+                    }
+                  }
+                },
+                "package.json": {
+                  "type": "file",
+                  "description": "Node.js dependencies and scripts"
+                }
+              }
+            }
+          }
+        },
+        "django": {
+          "type": "folder",
+          "description": "Django backend (Python)",
+          "required_when": "Backend framework is Django",
+          "children": {}
+        }
+      }
+    },
+    "deployment": {
+      "type": "folder",
+      "description": "Deployment-related configuration",
+      "children": {
+        "docker": {
+          "type": "folder",
+          "description": "Docker-based deployment",
+          "required_when": "Deployment uses Docker",
+          "children": {
+            "Dockerfile": {
+              "type": "file",
+              "description": "Docker build instructions"
+            }
+          }
+        },
+        "serverless": {
+          "type": "folder",
+          "description": "Serverless deployment configuration",
+          "required_when": "Deployment is serverless",
+          "children": {}
+        }
+      }
+    }
+  }
+}

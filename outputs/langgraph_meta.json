@@ -1,0 +1,206 @@
+{
+  "completed_branches": [
+    [
+      "Web Development",
+      "Backend",
+      "GraphQL",
+      "JavaScript/TypeScript",
+      "NestJS (GraphQL)",
+      "NestJS (GraphQL)_FINAL"
+    ],
+    [
+      "Web Development",
+      "Frontend",
+      "Static Site Generation (SSG)",
+      "JavaScript/TypeScript",
+      "Next.js (SSG)",
+      "No Container",
+      "Next.js (SSG)_FINAL"
+    ],
+    [
+      "Web Development",
+      "Frontend",
+      "Static Site Generation (SSG)",
+      "JavaScript/TypeScript",
+      "Next.js (SSG)",
+      "Deployment Undecided",
+      "Next.js (SSG)_FINAL"
+    ]
+  ],
+  "nodes": {
+    "Core Application & Web Stacks": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Web Development": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Frontend": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Backend": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Static Site Generation (SSG)": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "REST": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "GraphQL": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "JavaScript/TypeScript": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Python": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Next.js (SSG)": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "NestJS (GraphQL)": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "No Container": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Deployment Undecided": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "NestJS (GraphQL)_FINAL": {
+      "is_leaf": true,
+      "is_framework": true
+    },
+    "Next.js (SSG)_FINAL": {
+      "is_leaf": true,
+      "is_framework": true
+    }
+  },
+  "edges": [
+    {
+      "from": "Core Application & Web Stacks",
+      "to": "Web Development",
+      "prompt": [
+        "I run an offline bakery shop and want to take it online so more people can discover and order from me. using Web Development.\nCurrent step: Choose Web Development.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Frontend, Backend, Deployment & Hosting."
+      ]
+    },
+    {
+      "from": "Web Development",
+      "to": "Frontend",
+      "prompt": [
+        "I run an offline bakery shop and want to take it online so more people can discover and order from me. using Web Development + Frontend.\nCurrent step: Choose Frontend.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Client-Side Rendering (CSR), Server-Side Rendering (SSR), Progressive Web App (PWA), Static Site Generation (SSG), WebAssembly (Wasm), Incremental Static Regeneration (ISR), Cross Platform Frontend Languages, Transpiled-to-JavaScript Languages."
+      ]
+    },
+    {
+      "from": "Web Development",
+      "to": "Backend",
+      "prompt": [
+        "I run an offline bakery shop and want to take it online so more people can discover and order from me. using Web Development + Backend.\nCurrent step: Choose Backend.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: REST, GraphQL, gRPC, WebSockets, Server-Sent Events (SSE), WebRTC."
+      ]
+    },
+    {
+      "from": "Frontend",
+      "to": "Static Site Generation (SSG)",
+      "prompt": [
+        "I run an offline bakery shop and want to take it online so more people can discover and order from me. using Web Development + Frontend + Static Site Generation (SSG).\nCurrent step: Choose Static Site Generation (SSG).\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: JavaScript/TypeScript, Python, Go."
+      ]
+    },
+    {
+      "from": "Backend",
+      "to": "REST",
+      "prompt": [
+        "I run an offline bakery shop and want to take it online so more people can discover and order from me. using Web Development + Backend + REST.\nCurrent step: Choose REST.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: JavaScript/TypeScript, Python, Java, PHP, Go, C#, Ruby, Rust, Elixir, Kotlin, Scala, Dart, Haskell, Crystal, Lua, R, C/C++."
+      ]
+    },
+    {
+      "from": "Backend",
+      "to": "GraphQL",
+      "prompt": [
+        "I run an offline bakery shop and want to take it online so more people can discover and order from me. using Web Development + Backend + GraphQL.\nCurrent step: Choose GraphQL.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: JavaScript/TypeScript, Python, Java, Kotlin, Scala, Ruby, Go."
+      ]
+    },
+    {
+      "from": "Static Site Generation (SSG)",
+      "to": "JavaScript/TypeScript",
+      "prompt": [
+        "I run an offline bakery shop and want to take it online so more people can discover and order from me. using Web Development + Frontend + Static Site Generation (SSG) + JavaScript/TypeScript.\nCurrent step: Choose JavaScript/TypeScript.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Gatsby, Next.js (SSG), Nuxt.js (SSG)."
+      ]
+    },
+    {
+      "from": "GraphQL",
+      "to": "JavaScript/TypeScript",
+      "prompt": [
+        "I run an offline bakery shop and want to take it online so more people can discover and order from me. using Web Development + Backend + GraphQL + JavaScript/TypeScript.\nCurrent step: Choose JavaScript/TypeScript.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Apollo Server, NestJS (GraphQL)."
+      ]
+    },
+    {
+      "from": "GraphQL",
+      "to": "Python",
+      "prompt": [
+        "I run an offline bakery shop and want to take it online so more people can discover and order from me. using Web Development + Backend + GraphQL + Python.\nCurrent step: Choose Python.\nFrom the following options,you *must* recommend only one if there is a clearly best choice for the current task. If there isn’t a single best option, *then only* give me more options.\nOptions: Graphene, Ariadne."
+      ]
+    },
+    {
+      "from": "JavaScript/TypeScript",
+      "to": "Next.js (SSG)",
+      "prompt": [
+        "Selected framework: Next.js (SSG)"
+      ]
+    },
+    {
+      "from": "JavaScript/TypeScript",
+      "to": "NestJS (GraphQL)",
+      "prompt": [
+        "Selected framework: NestJS (GraphQL)"
+      ]
+    },
+    {
+      "from": "Next.js (SSG)",
+      "to": "No Container",
+      "prompt": [
+        "Collecting options for Next.js (SSG)"
+      ]
+    },
+    {
+      "from": "Next.js (SSG)",
+      "to": "Deployment Undecided",
+      "prompt": [
+        "Collecting options for Next.js (SSG)"
+      ]
+    },
+    {
+      "from": "NestJS (GraphQL)",
+      "to": "NestJS (GraphQL)_FINAL",
+      "prompt": [
+        "=====\nFRAMEWORK: NestJS (GraphQL)\nSELECTED COMPONENTS: NGINX\n=====\n"
+      ]
+    },
+    {
+      "from": "No Container",
+      "to": "Next.js (SSG)_FINAL",
+      "prompt": [
+        "=====\nFRAMEWORK: Next.js (SSG)\nSELECTED COMPONENTS: No Container → Deployment Undecided → Vercel → Netlify\n=====\n"
+      ]
+    },
+    {
+      "from": "Deployment Undecided",
+      "to": "Next.js (SSG)_FINAL",
+      "prompt": [
+        "=====\nFRAMEWORK: Next.js (SSG)\nSELECTED COMPONENTS: No Container → Deployment Undecided → {'name': 'Static Site Generation', 'description': 'Continue with Next.js (SSG) for building your online bakery store.', 'value': 'Next.js (SSG)'} → {'name': 'Server-Side Rendering', 'description': 'Use Next.js (SSR) to render dynamic content on the server before sending it to the client for improved performance.', 'value': 'Next.js (SSR)'}\n=====\n"
+      ]
+    }
+  ]
+}

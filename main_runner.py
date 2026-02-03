@@ -8,8 +8,8 @@ import re
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple
 import requests
-from langgraph_runner import LangGraphRecorder
-from local_llama_client import call_llm, call_nvidia_llm
+from core.langgraph_runner import LangGraphRecorder
+from llm.local_llama_client import call_llm, call_nvidia_llm
 
 @dataclass
 class LLMClient:
@@ -27,7 +27,7 @@ class LLMClient:
         )
 
         try:
-            output = call_llm(full_prompt, model="llama2")
+            output = call_llm(full_prompt, model="mistral")
             # output = call_nvidia_llm(full_prompt, model="meta/llama3-70b")
             choices = self._extract_json_array(output)
             if choices:

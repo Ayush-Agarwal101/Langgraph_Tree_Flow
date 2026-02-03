@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "final_prompt": "",
+    "strategy": "dfs_leaf_only",
+    "leaf_definition": "folder with no subfolders",
+    "mandatory_rule": "always keep"
+  },
+  "decisions": {
+    "project_root/frontend/react/vite/src": {
+      "decision": "KEEP",
+      "description": "React source folder",
+      "reason": "Required for selected frontend"
+    },
+    "project_root/frontend/vue": {
+      "decision": "PRUNE",
+      "description": "Vue frontend implementation",
+      "reason": "Not selected in final prompt"
+    }
+  }
+}

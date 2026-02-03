@@ -7,25 +7,24 @@ from langchain_nvidia_ai_endpoints import ChatNVIDIA
 from dotenv import load_dotenv
 load_dotenv()
 
-def call_llm(prompt, model="llama2"):
+def call_llm(prompt, model="mistral"):
     """
     Uses the official Ollama library with strict JSON enforcement.
     Streams output to console so you see activity, but returns clean text.
     """
     print(f"\n[LLM] Generating JSON with {model}...", file=sys.stderr)
 
-    # We append a specific instruction to ensure Llama2 behaves
+    # We append a specific instruction to ensure Mistral behaves
     json_prompt = prompt + "\nRespond using JSON."
 
     full_response = ""
     
     try:
-        # stream=True allows us to print characters as they arrive
         stream = ollama.chat(
             model=model,
             messages=[{'role': 'user', 'content': json_prompt}],
-            format='json',  # <--- The Magic Switch: Forces valid JSON
-            stream=True,
+            format='json',       # <--- The Magic Switch: Forces valid JSON
+            stream=True,         # stream=True allows us to print characters as they arrive
         )
 
         for chunk in stream:
