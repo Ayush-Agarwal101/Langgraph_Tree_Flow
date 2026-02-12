@@ -1,0 +1,92 @@
+{
+  "tech_stack": [
+    "Web Development",
+    "Backend",
+    "REST",
+    "JavaScript/TypeScript",
+    "Express.js",
+    "NGINX"
+  ],
+  "technology_choices": {
+    "Core Application & Web Stacks -> Web Development": {
+      "rationale": "This choice is for creating a digital platform to sell cakes online.",
+      "purpose": "Enables the creation of a backend system for an online bakery shop."
+    },
+    "Web Development -> Backend": {
+      "rationale": "This choice is necessary to handle operations like inventory management, order processing, and user authentication.",
+      "purpose": "Enables the backend functionality required for an online bakery shop."
+    },
+    "Backend -> REST": {
+      "rationale": "REST is widely supported and well-documented, making it an ideal choice for a simple backend application that needs to handle requests from multiple clients.",
+      "purpose": "Enables the creation of resources, read, update, delete operations, and management of online bakery shop's cakes inventory."
+    },
+    "REST -> JavaScript/TypeScript": {
+      "rationale": "JavaScript/TypeScript is widely used for web development and has a rich ecosystem of libraries for building backends, such as Node.js.",
+      "purpose": "Enables rapid development of scalable, efficient and maintainable backend services."
+    },
+    "JavaScript/TypeScript -> Express.js": {
+      "rationale": "Popular and widely-adopted Node.js framework for building web applications, especially backends.",
+      "purpose": "Enables efficient creation of the online bakery shop backend"
+    },
+    "Express.js -> NGINX": {
+      "rationale": "Widely adopted by web applications, known for high performance and low resource consumption.",
+      "purpose": "Enables serving of multiple concurrent requests efficiently."
+    }
+  },
+  "nodes": {
+    "Core Application & Web Stacks": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Web Development": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Backend": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "REST": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "JavaScript/TypeScript": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "Express.js": {
+      "is_leaf": false,
+      "is_framework": false
+    },
+    "NGINX": {
+      "is_leaf": true,
+      "is_framework": false
+    }
+  },
+  "edges": [
+    [
+      "Core Application & Web Stacks",
+      "Web Development"
+    ],
+    [
+      "Web Development",
+      "Backend"
+    ],
+    [
+      "Backend",
+      "REST"
+    ],
+    [
+      "REST",
+      "JavaScript/TypeScript"
+    ],
+    [
+      "JavaScript/TypeScript",
+      "Express.js"
+    ],
+    [
+      "Express.js",
+      "NGINX"
+    ]
+  ]
+}

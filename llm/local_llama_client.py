@@ -11,6 +11,27 @@ load_dotenv()
 
 def call_llm(prompt, model="mistral"):
     """
+    Clean non-streaming LLM call.
+    No JSON enforcement here.
+    Schema layer handles validation.
+    """
+    print(f"\n[LLM] Calling {model}...", file=sys.stderr)
+
+    try:
+        response = ollama.chat(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+        )
+
+        content = response["message"]["content"]
+        return content
+
+    except Exception as e:
+        raise RuntimeError(f"LLM call failed: {str(e)}")
+
+
+def call_llm_json(prompt, model="mistral"):
+    """
     Uses the official Ollama library with strict JSON enforcement.
     Streams output to console so you see activity, but returns clean text.
     """
@@ -20,7 +41,7 @@ def call_llm(prompt, model="mistral"):
     json_prompt = prompt + "\nRespond using JSON."
 
     full_response = ""
-    
+
     try:
         stream = ollama.chat(
             model=model,
@@ -31,11 +52,11 @@ def call_llm(prompt, model="mistral"):
 
         for chunk in stream:
             content = chunk['message']['content']
-            
+
             # 1. Print to console (so you see it working)
             sys.stderr.write(content)
             sys.stderr.flush()
-            
+
             # 2. Accumulate for the return value
             full_response += content
 
@@ -44,7 +65,10 @@ def call_llm(prompt, model="mistral"):
 
     except Exception as e:
         print(f"\n[LLM] Error: {e}", file=sys.stderr)
-        return "[]"
+        return json.dumps({
+            "error": str(e),
+            "success": False
+        })
 
 # NVIDIA LLM Call
 

@@ -9,6 +9,7 @@ class TraversalNode:
     name: str
     is_leaf: bool = False
     is_framework: bool = False
+    prompt: str = ""
 
 
 class LangGraphRecorder:
@@ -42,6 +43,7 @@ class LangGraphRecorder:
 
     def add_prompt_to_node(self, node_name: str, prompt: str):
         self.add_node(node_name)
+        self.nodes[node_name].prompt = prompt
 
     def mark_leaf(self, node_name: str):
         self.add_node(node_name)

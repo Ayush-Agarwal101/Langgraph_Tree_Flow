@@ -1,0 +1,31 @@
+# Project Specification
+
+## User Requirement
+build a backend for online bakery shop that sells cakes
+
+## Selected Technology Stack
+
+### 1. Web Development
+
+### 2. Backend
+**Why chosen:** This choice is necessary to handle operations like inventory management, order processing, and user authentication.
+**Purpose:** Enables the backend functionality required for an online bakery shop.
+
+### 3. REST
+**Why chosen:** REST is widely supported and well-documented, making it an ideal choice for a simple backend application that needs to handle requests from multiple clients.
+**Purpose:** Enables the creation of resources, read, update, delete operations, and management of online bakery shop's cakes inventory.
+
+### 4. JavaScript/TypeScript
+**Why chosen:** JavaScript/TypeScript is widely used for web development and has a rich ecosystem of libraries for building backends, such as Node.js.
+**Purpose:** Enables rapid development of scalable, efficient and maintainable backend services.
+
+### 5. Express.js
+**Why chosen:** Popular and widely-adopted Node.js framework for building web applications, especially backends.
+**Purpose:** Enables efficient creation of the online bakery shop backend
+
+### 6. NGINX
+**Why chosen:** Widely adopted by web applications, known for high performance and low resource consumption.
+**Purpose:** Enables serving of multiple concurrent requests efficiently.
+
+## Technology Stack Summary
+Web Development → Backend → REST → JavaScript/TypeScript → Express.js → NGINX
