@@ -1,7 +1,7 @@
 # Command : python extract_frameworks.py Web_Dev_Only.json
  
 
-# ---------- extract_frameworks.py ----------
+# core/extract_frameworks.py
 import json
 import sys
 from llm.local_llama_client import call_llm

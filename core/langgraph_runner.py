@@ -1,4 +1,4 @@
-# ---------- langgraph_runner.py ----------
+# core/langgraph_runner.py
 from dataclasses import dataclass, field
 from typing import Dict, List, Tuple
 import graphviz
@@ -17,6 +17,24 @@ class LangGraphRecorder:
         self.edges: List[Tuple[str, str]] = []
         self.edge_prompts: Dict[Tuple[str, str], List[str]] = {}
         self.merge_mode_nodes: Dict[str, str] = {}  # node_name -> framework_name
+        self.choice_rationales: Dict[Tuple[str, str], Dict[str, str]] = {}
+        # Structure: {(parent_node, choice): {"rationale": "...", "purpose": "..."}}
+    
+    def add_choice_rationale(self, parent_node: str, choice: str, rationale: str, purpose: str):
+        """
+        Store the rationale and purpose for a choice.
+        
+        Args:
+            parent_node: The node where choice was made
+            choice: The option that was chosen
+            rationale: Why this choice was made
+            purpose: What this choice will be used for
+        """
+        key = (parent_node, choice)
+        self.choice_rationales[key] = {
+            "rationale": rationale,
+            "purpose": purpose
+        }
 
     def add_node(self, name: str):
         if name not in self.nodes:

@@ -1,3 +1,4 @@
+# main_runner.py
 # command to run: python main_runner.py --json-file Web_Dev_Only.json --start-node "Core Application & Web Stacks" --initial-prompt "I run an offline bakery shop and want to take it online so more people can discover and order from me."
 
 import os
@@ -312,6 +313,64 @@ def traverse(tree: Any, start_node_name: str, llm: LLMClient, base_prompt: str, 
 
         recorder.add_choice(node_name, chosen)
 
+        choice_rationales = {}
+
+        if chosen:  # Only if choices were made
+            rationale_prompt = f"""
+        You are explaining technology choices for the project.
+
+        USER REQUIREMENT:
+        {base_prompt}
+
+        CURRENT DECISION POINT: {node_name}
+        AVAILABLE OPTIONS: {', '.join(child_names)}
+        CHOSEN: {', '.join(chosen)}
+
+        For EACH chosen option, explain in 1-2 sentences:
+        1. WHY was this option selected? (What makes it suitable for this project?)
+        2. WHAT will it be used for? (What is its specific purpose/role?)
+
+        Output as JSON only:
+        {{
+        "choice_name_1": {{
+            "rationale": "Why this was chosen",
+            "purpose": "What it will be used for"
+        }},
+        "choice_name_2": {{ ... }}
+        }}
+        """
+            
+            try:
+                import re
+                rationale_response = llm.choose_options.__self__.call_llm(rationale_prompt, model="mistral")
+                
+                # Extract JSON from response
+                match = re.search(r'\{.*\}', rationale_response, re.DOTALL)
+                if match:
+                    import json
+                    choice_rationales = json.loads(match.group(0))
+                    print(f"  ↳ Generated rationales for {len(choice_rationales)} choices")
+            except Exception as e:
+                print(f"  ↳ Warning: Could not generate rationales: {e}")
+                # Fallback: create simple rationales
+                for choice in chosen:
+                    choice_rationales[choice] = {
+                        "rationale": f"Selected {choice} based on project requirements",
+                        "purpose": f"Used for {node_name} functionality"
+                    }
+
+        # ============================================================
+        # Store rationales in recorder
+        # ============================================================
+        for choice in chosen:
+            if choice in choice_rationales:
+                recorder.add_choice_rationale(
+                    parent_node=node_name,
+                    choice=choice,
+                    rationale=choice_rationales[choice]["rationale"],
+                    purpose=choice_rationales[choice]["purpose"]
+                )
+
         # ---- MERGE MODE: We're inside a framework, collecting all subsequent choices ----
         if getattr(branch, "merge_mode", False):
             # Collect all chosen options into this framework's list
@@ -483,11 +542,77 @@ if __name__ == "__main__":
 
     # render graph and save metadata
     outpath = recorder.render(args.output_image)
+
+    # ============================================================
+    # NEW: Build enhanced meta with rationales
+    # ============================================================
+    enhanced_branches = []
+
+    for branch in completed_branches:
+        # Reconstruct the decision path with rationales
+        selections = []
+        
+        for i in range(len(branch.path)):
+            if i == 0:
+                parent = branch.history[0][0] if branch.history else None
+            else:
+                parent = branch.path[i-1]
+            
+            choice = branch.path[i]
+            
+            # Get rationale if it exists
+            rationale_data = recorder.choice_rationales.get((parent, choice), {})
+            
+            selections.append({
+                "node": parent if parent else "root",
+                "choice": choice,
+                "rationale": rationale_data.get("rationale", "No rationale recorded"),
+                "purpose": rationale_data.get("purpose", "No purpose recorded")
+            })
+        
+        enhanced_branches.append({
+            "path": branch.path,
+            "selections": selections
+        })
+
+    # Build meta with both old format (for compatibility) and new format
     meta = {
+        # Old format (for backward compatibility)
         "completed_branches": [b.path for b in completed_branches],
-        "nodes": {n: {"is_leaf": recorder.nodes[n].is_leaf, "is_framework": recorder.nodes[n].is_framework} for n in recorder.nodes},
-        "edges": [{"from": a, "to": b, "prompt": recorder.edge_prompts.get((a, b), "")} for (a, b) in recorder.edges]
+        
+        # NEW: Enhanced format with rationales
+        "completed_branches_detailed": enhanced_branches,
+        
+        # Extract all choices with their rationales
+        "technology_choices": {},
+        
+        "nodes": {
+            n: {
+                "is_leaf": recorder.nodes[n].is_leaf, 
+                "is_framework": recorder.nodes[n].is_framework
+            } 
+            for n in recorder.nodes
+        },
+        
+        "edges": [
+            {
+                "from": a, 
+                "to": b, 
+                "prompt": recorder.edge_prompts.get((a, b), "")
+            } 
+            for (a, b) in recorder.edges
+        ]
     }
+
+    # Build technology_choices summary
+    for (parent, choice), rationale_data in recorder.choice_rationales.items():
+        if choice not in meta["technology_choices"]:
+            meta["technology_choices"][choice] = {
+                "selected_at": parent,
+                "rationale": rationale_data["rationale"],
+                "purpose": rationale_data["purpose"]
+            }
+
     with open(args.output_meta, "w", encoding="utf-8") as f:
         json.dump(meta, f, indent=2, ensure_ascii=False)
 
