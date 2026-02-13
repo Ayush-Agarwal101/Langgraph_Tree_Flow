@@ -3,34 +3,34 @@
     "Web Development",
     "Backend",
     "REST",
-    "JavaScript/TypeScript",
-    "Express.js",
-    "Caddy"
+    "Java",
+    "Spring Boot",
+    "Tomcat"
   ],
   "technology_choices": {
     "Core Application & Web Stacks -> Web Development": {
-      "rationale": "To create the backend for an online bakery shop, it requires web development to build the necessary logic and infrastructure.",
-      "purpose": "Enables the creation of the back-end system for managing online transactions, inventory, and customer data."
+      "rationale": "This option is chosen because it allows us to build a web application for an online bakery shop, where users can browse and purchase cakes.",
+      "purpose": "Enables creation of the frontend interface for the online bakery shop"
     },
     "Web Development -> Backend": {
-      "rationale": "Back-end is necessary to handle data, manage transactions, and provide the required functionality for an online bakery shop that sells cakes.",
-      "purpose": "Enables managing inventory, processing orders, handling user authentication, and facilitating communication between the frontend and database."
+      "rationale": "As the user requirement is to build a backend for an online bakery shop that sells cakes, it is necessary to focus on the backend development.",
+      "purpose": "This option enables the creation of database models, APIs, and server-side logic essential for managing inventory, processing orders, and facilitating interactions between the frontend application and the database."
     },
     "Backend -> REST": {
-      "rationale": "REST is a popular and well-documented API standard that provides a simple and flexible way to communicate between the backend and frontend, which makes it suitable for building the backend for an online bakery shop.",
-      "purpose": "Enables efficient communication and resource handling"
+      "rationale": "REST is widely adopted and supported by most programming languages, making it easier to find resources for development.",
+      "purpose": "Allows creation of stateless services that can be easily scaled horizontally."
     },
-    "REST -> JavaScript/TypeScript": {
-      "rationale": "JavaScript/TypeScript is widely used for web development and has a rich ecosystem for backend services with Node.js.",
-      "purpose": "Enables the creation of a scalable, fast and flexible backend for an online bakery shop."
+    "REST -> Java": {
+      "rationale": "Java is widely used for large-scale, enterprise applications and has robust libraries for building backends.",
+      "purpose": "Allows for efficient development of a secure and scalable backend solution."
     },
-    "JavaScript/TypeScript -> Express.js": {
-      "rationale": "Widely adopted and well-documented, it provides a fast and simple way to build APIs for our online bakery shop.",
-      "purpose": "Enables quick development of backend services"
+    "Java -> Spring Boot": {
+      "rationale": "Popularity, large community support, and extensive documentation make Spring Boot an ideal choice for a backend application.",
+      "purpose": "Enables rapid development of a robust Java-based RESTful API."
     },
-    "Express.js -> Caddy": {
-      "rationale": "It is a modern, easy-to-use web server with HTTPS support out of the box and automatic TLS.",
-      "purpose": "Enables serving the online bakery shop's website"
+    "Spring Boot -> Tomcat": {
+      "rationale": "Tomcat is a popular and well-documented servlet container for Spring Boot applications.",
+      "purpose": "It enables easy deployment and running of the online bakery shop backend"
     }
   },
   "nodes": {
@@ -50,15 +50,15 @@
       "is_leaf": false,
       "is_framework": false
     },
-    "JavaScript/TypeScript": {
+    "Java": {
       "is_leaf": false,
       "is_framework": false
     },
-    "Express.js": {
+    "Spring Boot": {
       "is_leaf": false,
       "is_framework": false
     },
-    "Caddy": {
+    "Tomcat": {
       "is_leaf": true,
       "is_framework": false
     }
@@ -78,15 +78,15 @@
     ],
     [
       "REST",
-      "JavaScript/TypeScript"
+      "Java"
     ],
     [
-      "JavaScript/TypeScript",
-      "Express.js"
+      "Java",
+      "Spring Boot"
     ],
     [
-      "Express.js",
-      "Caddy"
+      "Spring Boot",
+      "Tomcat"
     ]
   ]
 }

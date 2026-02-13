@@ -11,8 +11,9 @@ from typing import Any, List, Optional, Tuple
 from core.langgraph_runner import LangGraphRecorder
 from core.llm_structured import StructuredLLM
 from core.schemas import NodeDecision
+from dotenv import load_dotenv
+load_dotenv()
 from langsmith import traceable
-
 
 # ============================================================
 # LLM CLIENT
@@ -175,7 +176,31 @@ def traverse(tree: Any, start_node_name: str, llm: LLMClient, base_prompt: str):
 
         child_names = [c[0] for c in children]
 
-        decision = llm.choose_option(branch.prompt, child_names)
+        # Build contextual prompt for this decision
+
+        selected_stack_text = (
+            "None yet"
+            if not branch.path
+            else " → ".join(branch.path)
+        )
+
+        decision_prompt = f"""
+        User Requirement:
+        {base_prompt}
+
+        Selected Stack So Far:
+        {selected_stack_text}
+
+        Current Decision Node:
+        {branch.node_name}
+
+        Available Options:
+        {", ".join(child_names)}
+
+        Choose the single best option for the project.
+        """
+
+        decision = llm.choose_option(decision_prompt, child_names)
 
         chosen_name = decision.choice
 
