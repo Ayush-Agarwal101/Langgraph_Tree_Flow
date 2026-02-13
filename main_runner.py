@@ -11,6 +11,7 @@ from typing import Any, List, Optional, Tuple
 from core.langgraph_runner import LangGraphRecorder
 from core.llm_structured import StructuredLLM
 from core.schemas import NodeDecision
+from langsmith import traceable
 
 
 # ============================================================
@@ -21,6 +22,7 @@ class LLMClient:
     def __init__(self, model: str = "mistral"):
         self.structured = StructuredLLM(model=model)
 
+    @traceable(name="Choose Option")
     def choose_option(self, prompt: str, options: List[str]) -> NodeDecision:
         if not options:
             raise ValueError("No options available for selection.")
@@ -140,7 +142,7 @@ class BranchState:
     node_value: Any
     prompt: str
 
-
+@traceable(name="Decision Traversal")
 def traverse(tree: Any, start_node_name: str, llm: LLMClient, base_prompt: str):
 
     found = find_key_recursive(tree, start_node_name)

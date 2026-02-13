@@ -5,32 +5,32 @@
     "REST",
     "JavaScript/TypeScript",
     "Express.js",
-    "NGINX"
+    "Caddy"
   ],
   "technology_choices": {
     "Core Application & Web Stacks -> Web Development": {
-      "rationale": "This choice is for creating a digital platform to sell cakes online.",
-      "purpose": "Enables the creation of a backend system for an online bakery shop."
+      "rationale": "To create the backend for an online bakery shop, it requires web development to build the necessary logic and infrastructure.",
+      "purpose": "Enables the creation of the back-end system for managing online transactions, inventory, and customer data."
     },
     "Web Development -> Backend": {
-      "rationale": "This choice is necessary to handle operations like inventory management, order processing, and user authentication.",
-      "purpose": "Enables the backend functionality required for an online bakery shop."
+      "rationale": "Back-end is necessary to handle data, manage transactions, and provide the required functionality for an online bakery shop that sells cakes.",
+      "purpose": "Enables managing inventory, processing orders, handling user authentication, and facilitating communication between the frontend and database."
     },
     "Backend -> REST": {
-      "rationale": "REST is widely supported and well-documented, making it an ideal choice for a simple backend application that needs to handle requests from multiple clients.",
-      "purpose": "Enables the creation of resources, read, update, delete operations, and management of online bakery shop's cakes inventory."
+      "rationale": "REST is a popular and well-documented API standard that provides a simple and flexible way to communicate between the backend and frontend, which makes it suitable for building the backend for an online bakery shop.",
+      "purpose": "Enables efficient communication and resource handling"
     },
     "REST -> JavaScript/TypeScript": {
-      "rationale": "JavaScript/TypeScript is widely used for web development and has a rich ecosystem of libraries for building backends, such as Node.js.",
-      "purpose": "Enables rapid development of scalable, efficient and maintainable backend services."
+      "rationale": "JavaScript/TypeScript is widely used for web development and has a rich ecosystem for backend services with Node.js.",
+      "purpose": "Enables the creation of a scalable, fast and flexible backend for an online bakery shop."
     },
     "JavaScript/TypeScript -> Express.js": {
-      "rationale": "Popular and widely-adopted Node.js framework for building web applications, especially backends.",
-      "purpose": "Enables efficient creation of the online bakery shop backend"
+      "rationale": "Widely adopted and well-documented, it provides a fast and simple way to build APIs for our online bakery shop.",
+      "purpose": "Enables quick development of backend services"
     },
-    "Express.js -> NGINX": {
-      "rationale": "Widely adopted by web applications, known for high performance and low resource consumption.",
-      "purpose": "Enables serving of multiple concurrent requests efficiently."
+    "Express.js -> Caddy": {
+      "rationale": "It is a modern, easy-to-use web server with HTTPS support out of the box and automatic TLS.",
+      "purpose": "Enables serving the online bakery shop's website"
     }
   },
   "nodes": {
@@ -58,7 +58,7 @@
       "is_leaf": false,
       "is_framework": false
     },
-    "NGINX": {
+    "Caddy": {
       "is_leaf": true,
       "is_framework": false
     }
@@ -86,7 +86,7 @@
     ],
     [
       "Express.js",
-      "NGINX"
+      "Caddy"
     ]
   ]
 }

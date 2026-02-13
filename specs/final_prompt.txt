@@ -8,24 +8,24 @@ build a backend for online bakery shop that sells cakes
 ### 1. Web Development
 
 ### 2. Backend
-**Why chosen:** This choice is necessary to handle operations like inventory management, order processing, and user authentication.
-**Purpose:** Enables the backend functionality required for an online bakery shop.
+**Why chosen:** Back-end is necessary to handle data, manage transactions, and provide the required functionality for an online bakery shop that sells cakes.
+**Purpose:** Enables managing inventory, processing orders, handling user authentication, and facilitating communication between the frontend and database.
 
 ### 3. REST
-**Why chosen:** REST is widely supported and well-documented, making it an ideal choice for a simple backend application that needs to handle requests from multiple clients.
-**Purpose:** Enables the creation of resources, read, update, delete operations, and management of online bakery shop's cakes inventory.
+**Why chosen:** REST is a popular and well-documented API standard that provides a simple and flexible way to communicate between the backend and frontend, which makes it suitable for building the backend for an online bakery shop.
+**Purpose:** Enables efficient communication and resource handling
 
 ### 4. JavaScript/TypeScript
-**Why chosen:** JavaScript/TypeScript is widely used for web development and has a rich ecosystem of libraries for building backends, such as Node.js.
-**Purpose:** Enables rapid development of scalable, efficient and maintainable backend services.
+**Why chosen:** JavaScript/TypeScript is widely used for web development and has a rich ecosystem for backend services with Node.js.
+**Purpose:** Enables the creation of a scalable, fast and flexible backend for an online bakery shop.
 
 ### 5. Express.js
-**Why chosen:** Popular and widely-adopted Node.js framework for building web applications, especially backends.
-**Purpose:** Enables efficient creation of the online bakery shop backend
+**Why chosen:** Widely adopted and well-documented, it provides a fast and simple way to build APIs for our online bakery shop.
+**Purpose:** Enables quick development of backend services
 
-### 6. NGINX
-**Why chosen:** Widely adopted by web applications, known for high performance and low resource consumption.
-**Purpose:** Enables serving of multiple concurrent requests efficiently.
+### 6. Caddy
+**Why chosen:** It is a modern, easy-to-use web server with HTTPS support out of the box and automatic TLS.
+**Purpose:** Enables serving the online bakery shop's website
 
 ## Technology Stack Summary
-Web Development → Backend → REST → JavaScript/TypeScript → Express.js → NGINX
+Web Development → Backend → REST → JavaScript/TypeScript → Express.js → Caddy

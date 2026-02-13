@@ -4,6 +4,7 @@ import json
 from typing import Type, TypeVar
 from pydantic import BaseModel, ValidationError
 from llm.local_llama_client import call_llm
+from langsmith import traceable
 
 T = TypeVar("T", bound=BaseModel)
 
@@ -12,6 +13,7 @@ class StructuredLLM:
     def __init__(self, model: str = "mistral"):
         self.model = model
 
+    @traceable(name="Structured LLM Call")
     def call(self, prompt: str, schema: Type[T], max_retries: int = 2) -> T:
         system_prompt = """
         You must respond ONLY with valid JSON.
