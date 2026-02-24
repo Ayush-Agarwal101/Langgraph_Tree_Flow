@@ -4,7 +4,7 @@ from core.schemas import PruneDecision
 
 class PruningSession:
 
-    def __init__(self, system_context, model="mistral"):
+    def __init__(self, system_context, model=None):
         self.messages = [
             {"role": "system", "content": system_context}
         ]

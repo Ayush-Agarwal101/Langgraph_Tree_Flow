@@ -11,12 +11,29 @@ python main_runner.py ^
 
 echo.
 echo ================================
+echo Generating Stack Graph
+echo ================================
+
+python core/folder_graph_builder.py ^
+ --json-file data/folder_structure.json ^
+ --output stack_graph
+
+echo.
+echo ================================
 echo Running Pruning Phase
 echo ================================
 
-python core/folder_graph_builder.py
 python main_prune_runner.py
-python core/folder_graph_builder_pruned.py
+
+echo.
+echo ================================
+echo Generating Pruned Graph
+echo ================================
+
+python core/folder_graph_builder_pruned.py ^
+ --json-file data/pruned_structure.json ^
+ --output pruned_structure_graph
+
 echo.
 echo ================================
 echo FULL PIPELINE COMPLETE

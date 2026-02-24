@@ -1,5 +1,6 @@
 # core/llm_structured.py
 
+import os
 import json
 from typing import Type, TypeVar
 from pydantic import BaseModel, ValidationError
@@ -14,7 +15,16 @@ T = TypeVar("T", bound=BaseModel)
 
 class StructuredLLM:
     def __init__(self, model: str = None):
-        self.model = model or os.getenv("DEFAULT_LLM_MODEL", "mistral")
+
+        provider = os.getenv("LLM_PROVIDER", "ollama")
+
+        if model:
+            self.model = model
+        else:
+            if provider == "nvidia":
+                self.model = os.getenv("NVIDIA_DEFAULT_MODEL", "meta/llama3-70b-instruct")
+            else:
+                self.model = os.getenv("OLLAMA_DEFAULT_MODEL", "mistral")
 
     @traceable(name="Structured LLM Call")
     def call(self, prompt: str, schema: Type[T], max_retries: int = 2) -> T:
@@ -29,6 +39,7 @@ class StructuredLLM:
         full_prompt = system_prompt + "\n\n" + prompt
 
         for attempt in range(max_retries + 1):
+            print("DEBUG MODEL USED:", self.model)
             raw_output = call_llm(full_prompt, model=self.model)
 
             try:

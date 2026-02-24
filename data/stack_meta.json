@@ -4,35 +4,35 @@
     "Web Development",
     "Backend",
     "REST",
-    "Java",
-    "Spring Boot",
-    "Jetty"
+    "JavaScript/TypeScript",
+    "NestJS",
+    "NGINX"
   ],
-  "tech_stack_summary": "Web Development \u2192 Backend \u2192 REST \u2192 Java \u2192 Spring Boot \u2192 Jetty",
+  "tech_stack_summary": "Web Development \u2192 Backend \u2192 REST \u2192 JavaScript/TypeScript \u2192 NestJS \u2192 NGINX",
   "technology_choices": {
     "Core Application & Web Stacks -> Web Development": {
-      "rationale": "The chosen option, Web Development, is suitable for building a backend for an online bakery shop as it provides a platform to create and maintain digital assets that are network-accessible, making it possible to build the necessary features for an e-commerce website.",
-      "purpose": "Enables creation of a dynamic and interactive web application with user-friendly interfaces for users to browse products, place orders, manage accounts, and more."
+      "rationale": "To build a backend for an online bakery shop, a web development stack is necessary to create a web application that can interact with users and provide a user interface.",
+      "purpose": "Enables building a web application for the online bakery shop"
     },
     "Web Development -> Backend": {
-      "rationale": "The user requirement is to build a backend for an online bakery shop, which involves managing data and server operations.",
-      "purpose": "This option enables the development of the necessary serverside logic and database management for the online bakery application."
+      "rationale": "To build a backend for online bakery shop",
+      "purpose": "Enables creation of server-side logic and API"
     },
     "Backend -> REST": {
-      "rationale": "REST is widely used and understood in the web development community, making it easier for developers to work on and maintain.",
-      "purpose": "REST enables the creation of stateless API endpoints to handle requests and responses between the backend and frontend."
+      "rationale": "most widely adopted and easy to implement",
+      "purpose": "enables building a scalable and maintainable API"
     },
-    "REST -> Java": {
-      "rationale": "Java is a versatile, robust, and scalable language with a rich ecosystem of libraries for building web applications and APIs.",
-      "purpose": "enables development of the backend for the online bakery shop"
+    "REST -> JavaScript/TypeScript": {
+      "rationale": "Modern and popular choice for building scalable and maintainable RESTful APIs",
+      "purpose": "Enables building a fast, secure, and efficient backend for the online bakery shop"
     },
-    "Java -> Spring Boot": {
-      "rationale": "Popularity, extensive community support and rich ecosystem make Spring Boot an excellent choice for building the backend for an online bakery shop.",
-      "purpose": "Enables rapid development of production-ready spring-based applications"
+    "JavaScript/TypeScript -> NestJS": {
+      "rationale": "Robust, scalable, and maintainable framework with strong typing",
+      "purpose": "Enables building a robust and scalable backend for the online bakery shop"
     },
-    "Spring Boot -> Jetty": {
-      "rationale": "Jetty is lightweight and easy to integrate with Spring Boot, providing a simple and efficient solution for running our application.",
-      "purpose": "Enables deployment of the online bakery shop backend application."
+    "NestJS -> NGINX": {
+      "rationale": "NGINX is a popular and widely-used web server that can efficiently handle high traffic and is well-suited for a production environment.",
+      "purpose": "To serve as a reverse proxy and handle incoming HTTP requests"
     }
   },
   "nodes": {
@@ -57,22 +57,22 @@
     "REST": {
       "is_leaf": false,
       "choices": [
-        "Java"
+        "JavaScript/TypeScript"
       ]
     },
-    "Java": {
+    "JavaScript/TypeScript": {
       "is_leaf": false,
       "choices": [
-        "Spring Boot"
+        "NestJS"
       ]
     },
-    "Spring Boot": {
+    "NestJS": {
       "is_leaf": false,
       "choices": [
-        "Jetty"
+        "NGINX"
       ]
     },
-    "Jetty": {
+    "NGINX": {
       "is_leaf": true,
       "choices": []
     }
@@ -92,15 +92,15 @@
     ],
     [
       "REST",
-      "Java"
+      "JavaScript/TypeScript"
     ],
     [
-      "Java",
-      "Spring Boot"
+      "JavaScript/TypeScript",
+      "NestJS"
     ],
     [
-      "Spring Boot",
-      "Jetty"
+      "NestJS",
+      "NGINX"
     ]
   ]
 }
