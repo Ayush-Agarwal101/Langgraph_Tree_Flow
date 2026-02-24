@@ -20,7 +20,7 @@ from langsmith import traceable
 # ============================================================
 
 class LLMClient:
-    def __init__(self, model: str = "mistral"):
+    def __init__(self, model: str = None):
         self.structured = StructuredLLM(model=model)
 
     @traceable(name="Choose Option")

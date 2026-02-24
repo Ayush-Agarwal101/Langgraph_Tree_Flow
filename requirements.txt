@@ -1,0 +1,6 @@
+pydantic>=2.0
+python-dotenv
+graphviz
+langsmith
+ollama
+langchain-nvidia-ai-endpoints
