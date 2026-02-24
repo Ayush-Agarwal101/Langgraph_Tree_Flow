@@ -102,83 +102,6 @@
               "is_leaf": false,
               "children": [
                 {
-                  "type": "folder",
-                  "name": "assets",
-                  "extension": "NA",
-                  "mandatory": "no",
-                  "description": "Images, icons, fonts",
-                  "full_path": "project_blueprint/frontend/react_vite/src/assets",
-                  "children_names": [],
-                  "is_leaf": false,
-                  "children": []
-                },
-                {
-                  "type": "folder",
-                  "name": "components",
-                  "extension": "NA",
-                  "mandatory": "no",
-                  "description": "Reusable UI components",
-                  "full_path": "project_blueprint/frontend/react_vite/src/components",
-                  "children_names": [],
-                  "is_leaf": false,
-                  "children": []
-                },
-                {
-                  "type": "folder",
-                  "name": "pages",
-                  "extension": "NA",
-                  "mandatory": "no",
-                  "description": "Route-based pages",
-                  "full_path": "project_blueprint/frontend/react_vite/src/pages",
-                  "children_names": [],
-                  "is_leaf": false,
-                  "children": []
-                },
-                {
-                  "type": "folder",
-                  "name": "hooks",
-                  "extension": "NA",
-                  "mandatory": "no",
-                  "description": "Custom React hooks",
-                  "full_path": "project_blueprint/frontend/react_vite/src/hooks",
-                  "children_names": [],
-                  "is_leaf": false,
-                  "children": []
-                },
-                {
-                  "type": "folder",
-                  "name": "services",
-                  "extension": "NA",
-                  "mandatory": "no",
-                  "description": "API communication layer",
-                  "full_path": "project_blueprint/frontend/react_vite/src/services",
-                  "children_names": [],
-                  "is_leaf": false,
-                  "children": []
-                },
-                {
-                  "type": "folder",
-                  "name": "context",
-                  "extension": "NA",
-                  "mandatory": "no",
-                  "description": "React Context providers",
-                  "full_path": "project_blueprint/frontend/react_vite/src/context",
-                  "children_names": [],
-                  "is_leaf": false,
-                  "children": []
-                },
-                {
-                  "type": "folder",
-                  "name": "utils",
-                  "extension": "NA",
-                  "mandatory": "no",
-                  "description": "Utility functions",
-                  "full_path": "project_blueprint/frontend/react_vite/src/utils",
-                  "children_names": [],
-                  "is_leaf": false,
-                  "children": []
-                },
-                {
                   "type": "file",
                   "name": "App",
                   "extension": ".tsx",
@@ -236,21 +159,6 @@
               "children": []
             }
           ]
-        },
-        {
-          "type": "folder",
-          "name": "nextjs",
-          "extension": "NA",
-          "mandatory": "no",
-          "description": "Next.js template",
-          "full_path": "project_blueprint/frontend/nextjs",
-          "children_names": [
-            "app",
-            "public",
-            "package"
-          ],
-          "is_leaf": false,
-          "children": []
         }
       ]
     },
@@ -269,20 +177,6 @@
       ],
       "is_leaf": false,
       "children": [
-        {
-          "type": "folder",
-          "name": "python",
-          "extension": "NA",
-          "mandatory": "no",
-          "description": "Python backend templates",
-          "full_path": "project_blueprint/backend/python",
-          "children_names": [
-            "fastapi",
-            "django"
-          ],
-          "is_leaf": false,
-          "children": []
-        },
         {
           "type": "folder",
           "name": "node",
@@ -309,27 +203,6 @@
               ],
               "is_leaf": false,
               "children": [
-                {
-                  "type": "folder",
-                  "name": "src",
-                  "extension": "NA",
-                  "mandatory": "no",
-                  "description": "Express source code",
-                  "full_path": "project_blueprint/backend/node/express/src",
-                  "children_names": [
-                    "routes",
-                    "controllers",
-                    "services",
-                    "models",
-                    "middlewares",
-                    "config",
-                    "utils",
-                    "app",
-                    "server"
-                  ],
-                  "is_leaf": false,
-                  "children": []
-                },
                 {
                   "type": "file",
                   "name": "package",
@@ -459,105 +332,12 @@
                               "children_names": [],
                               "is_leaf": true,
                               "children": []
-                            },
-                            {
-                              "type": "folder",
-                              "name": "dto",
-                              "extension": "NA",
-                              "mandatory": "no",
-                              "description": "Data transfer objects",
-                              "full_path": "project_blueprint/backend/node/nestjs/src/modules/user/dto",
-                              "children_names": [],
-                              "is_leaf": false,
-                              "children": []
-                            },
-                            {
-                              "type": "folder",
-                              "name": "entities",
-                              "extension": "NA",
-                              "mandatory": "no",
-                              "description": "Database entities",
-                              "full_path": "project_blueprint/backend/node/nestjs/src/modules/user/entities",
-                              "children_names": [],
-                              "is_leaf": false,
-                              "children": []
                             }
                           ]
-                        },
-                        {
-                          "type": "folder",
-                          "name": "auth",
-                          "extension": "NA",
-                          "mandatory": "no",
-                          "description": "Authentication module",
-                          "full_path": "project_blueprint/backend/node/nestjs/src/modules/auth",
-                          "children_names": [
-                            "auth.module",
-                            "auth.controller",
-                            "auth.service",
-                            "strategies",
-                            "guards"
-                          ],
-                          "is_leaf": false,
-                          "children": []
                         }
                       ]
-                    },
-                    {
-                      "type": "folder",
-                      "name": "common",
-                      "extension": "NA",
-                      "mandatory": "no",
-                      "description": "Shared utilities across modules",
-                      "full_path": "project_blueprint/backend/node/nestjs/src/common",
-                      "children_names": [
-                        "guards",
-                        "interceptors",
-                        "filters",
-                        "decorators"
-                      ],
-                      "is_leaf": false,
-                      "children": []
-                    },
-                    {
-                      "type": "folder",
-                      "name": "config",
-                      "extension": "NA",
-                      "mandatory": "no",
-                      "description": "Configuration files",
-                      "full_path": "project_blueprint/backend/node/nestjs/src/config",
-                      "children_names": [],
-                      "is_leaf": false,
-                      "children": []
-                    },
-                    {
-                      "type": "folder",
-                      "name": "database",
-                      "extension": "NA",
-                      "mandatory": "no",
-                      "description": "Database configuration and connection setup",
-                      "full_path": "project_blueprint/backend/node/nestjs/src/database",
-                      "children_names": [
-                        "database.module"
-                      ],
-                      "is_leaf": false,
-                      "children": []
                     }
                   ]
-                },
-                {
-                  "type": "folder",
-                  "name": "test",
-                  "extension": "NA",
-                  "mandatory": "no",
-                  "description": "Unit and e2e tests",
-                  "full_path": "project_blueprint/backend/node/nestjs/test",
-                  "children_names": [
-                    "unit",
-                    "e2e"
-                  ],
-                  "is_leaf": false,
-                  "children": []
                 },
                 {
                   "type": "file",
@@ -580,78 +360,12 @@
                   "children_names": [],
                   "is_leaf": true,
                   "children": []
-                },
-                {
-                  "type": "file",
-                  "name": "nest-cli",
-                  "extension": ".json",
-                  "mandatory": "no",
-                  "description": "Nest CLI configuration",
-                  "full_path": "project_blueprint/backend/node/nestjs/nest-cli.json",
-                  "children_names": [],
-                  "is_leaf": true,
-                  "children": []
                 }
               ]
             }
           ]
-        },
-        {
-          "type": "folder",
-          "name": "java",
-          "extension": "NA",
-          "mandatory": "no",
-          "description": "Java backend templates",
-          "full_path": "project_blueprint/backend/java",
-          "children_names": [
-            "springboot"
-          ],
-          "is_leaf": false,
-          "children": []
-        },
-        {
-          "type": "folder",
-          "name": "go",
-          "extension": "NA",
-          "mandatory": "no",
-          "description": "Go backend template",
-          "full_path": "project_blueprint/backend/go",
-          "children_names": [],
-          "is_leaf": false,
-          "children": []
         }
       ]
-    },
-    {
-      "type": "folder",
-      "name": "database",
-      "extension": "NA",
-      "mandatory": "no",
-      "description": "Database templates",
-      "full_path": "project_blueprint/database",
-      "children_names": [
-        "postgresql",
-        "mysql",
-        "mongodb",
-        "redis"
-      ],
-      "is_leaf": false,
-      "children": []
-    },
-    {
-      "type": "folder",
-      "name": "devops",
-      "extension": "NA",
-      "mandatory": "no",
-      "description": "DevOps configuration templates",
-      "full_path": "project_blueprint/devops",
-      "children_names": [
-        "docker",
-        "ci_cd",
-        "nginx"
-      ],
-      "is_leaf": false,
-      "children": []
     }
   ]
 }

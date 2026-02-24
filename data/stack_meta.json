@@ -1,0 +1,106 @@
+{
+  "user_initial_prompt": "build a backend for online bakery shop",
+  "tech_stack": [
+    "Web Development",
+    "Backend",
+    "REST",
+    "Java",
+    "Spring Boot",
+    "Jetty"
+  ],
+  "tech_stack_summary": "Web Development \u2192 Backend \u2192 REST \u2192 Java \u2192 Spring Boot \u2192 Jetty",
+  "technology_choices": {
+    "Core Application & Web Stacks -> Web Development": {
+      "rationale": "The chosen option, Web Development, is suitable for building a backend for an online bakery shop as it provides a platform to create and maintain digital assets that are network-accessible, making it possible to build the necessary features for an e-commerce website.",
+      "purpose": "Enables creation of a dynamic and interactive web application with user-friendly interfaces for users to browse products, place orders, manage accounts, and more."
+    },
+    "Web Development -> Backend": {
+      "rationale": "The user requirement is to build a backend for an online bakery shop, which involves managing data and server operations.",
+      "purpose": "This option enables the development of the necessary serverside logic and database management for the online bakery application."
+    },
+    "Backend -> REST": {
+      "rationale": "REST is widely used and understood in the web development community, making it easier for developers to work on and maintain.",
+      "purpose": "REST enables the creation of stateless API endpoints to handle requests and responses between the backend and frontend."
+    },
+    "REST -> Java": {
+      "rationale": "Java is a versatile, robust, and scalable language with a rich ecosystem of libraries for building web applications and APIs.",
+      "purpose": "enables development of the backend for the online bakery shop"
+    },
+    "Java -> Spring Boot": {
+      "rationale": "Popularity, extensive community support and rich ecosystem make Spring Boot an excellent choice for building the backend for an online bakery shop.",
+      "purpose": "Enables rapid development of production-ready spring-based applications"
+    },
+    "Spring Boot -> Jetty": {
+      "rationale": "Jetty is lightweight and easy to integrate with Spring Boot, providing a simple and efficient solution for running our application.",
+      "purpose": "Enables deployment of the online bakery shop backend application."
+    }
+  },
+  "nodes": {
+    "Core Application & Web Stacks": {
+      "is_leaf": false,
+      "choices": [
+        "Web Development"
+      ]
+    },
+    "Web Development": {
+      "is_leaf": false,
+      "choices": [
+        "Backend"
+      ]
+    },
+    "Backend": {
+      "is_leaf": false,
+      "choices": [
+        "REST"
+      ]
+    },
+    "REST": {
+      "is_leaf": false,
+      "choices": [
+        "Java"
+      ]
+    },
+    "Java": {
+      "is_leaf": false,
+      "choices": [
+        "Spring Boot"
+      ]
+    },
+    "Spring Boot": {
+      "is_leaf": false,
+      "choices": [
+        "Jetty"
+      ]
+    },
+    "Jetty": {
+      "is_leaf": true,
+      "choices": []
+    }
+  },
+  "edges": [
+    [
+      "Core Application & Web Stacks",
+      "Web Development"
+    ],
+    [
+      "Web Development",
+      "Backend"
+    ],
+    [
+      "Backend",
+      "REST"
+    ],
+    [
+      "REST",
+      "Java"
+    ],
+    [
+      "Java",
+      "Spring Boot"
+    ],
+    [
+      "Spring Boot",
+      "Jetty"
+    ]
+  ]
+}

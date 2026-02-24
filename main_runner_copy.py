@@ -317,21 +317,18 @@ if __name__ == "__main__":
 
     # Save meta JSON
     meta = {
-        "user_initial_prompt": args.initial_prompt,
         "tech_stack": tech_stack,
-        "tech_stack_summary": " → ".join(tech_stack),
         "technology_choices": formatted_choices,
         "nodes": {
             n: {
                 "is_leaf": recorder.nodes[n].is_leaf,
-                "choices": recorder.node_choices.get(n, [])
             }
             for n in recorder.nodes
         },
         "edges": recorder.edges
     }
 
-    with open("data/stack_meta.json", "w", encoding="utf-8") as f:
+    with open(args.output_meta, "w", encoding="utf-8") as f:
         json.dump(meta, f, indent=2)
 
     print("\nFINAL PROMPT SAVED TO specs/final_prompt.txt")

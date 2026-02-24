@@ -1,5 +1,5 @@
 # core/folder_graph_builder.py
-# command to run: python core/folder_graph_builder.py --json-file data/folder_structure.json --output structure_graph
+# command to run: python core/folder_graph_builder.py --json-file pruned_structure.json --output specs/pruned_structure_graph
 
 import json
 import graphviz

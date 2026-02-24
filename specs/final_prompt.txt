@@ -1,31 +1,31 @@
 # Project Specification
 
 ## User Requirement
-build a backend for online bakery shop that sells cakes
+build a backend for online bakery shop
 
 ## Selected Technology Stack
 
 ### 1. Web Development
 
 ### 2. Backend
-**Why chosen:** As the user requirement is to build a backend for an online bakery shop that sells cakes, it is necessary to focus on the backend development.
-**Purpose:** This option enables the creation of database models, APIs, and server-side logic essential for managing inventory, processing orders, and facilitating interactions between the frontend application and the database.
+**Why chosen:** The user requirement is to build a backend for an online bakery shop, which involves managing data and server operations.
+**Purpose:** This option enables the development of the necessary serverside logic and database management for the online bakery application.
 
 ### 3. REST
-**Why chosen:** REST is widely adopted and supported by most programming languages, making it easier to find resources for development.
-**Purpose:** Allows creation of stateless services that can be easily scaled horizontally.
+**Why chosen:** REST is widely used and understood in the web development community, making it easier for developers to work on and maintain.
+**Purpose:** REST enables the creation of stateless API endpoints to handle requests and responses between the backend and frontend.
 
 ### 4. Java
-**Why chosen:** Java is widely used for large-scale, enterprise applications and has robust libraries for building backends.
-**Purpose:** Allows for efficient development of a secure and scalable backend solution.
+**Why chosen:** Java is a versatile, robust, and scalable language with a rich ecosystem of libraries for building web applications and APIs.
+**Purpose:** enables development of the backend for the online bakery shop
 
 ### 5. Spring Boot
-**Why chosen:** Popularity, large community support, and extensive documentation make Spring Boot an ideal choice for a backend application.
-**Purpose:** Enables rapid development of a robust Java-based RESTful API.
+**Why chosen:** Popularity, extensive community support and rich ecosystem make Spring Boot an excellent choice for building the backend for an online bakery shop.
+**Purpose:** Enables rapid development of production-ready spring-based applications
 
-### 6. Tomcat
-**Why chosen:** Tomcat is a popular and well-documented servlet container for Spring Boot applications.
-**Purpose:** It enables easy deployment and running of the online bakery shop backend
+### 6. Jetty
+**Why chosen:** Jetty is lightweight and easy to integrate with Spring Boot, providing a simple and efficient solution for running our application.
+**Purpose:** Enables deployment of the online bakery shop backend application.
 
 ## Technology Stack Summary
-Web Development → Backend → REST → Java → Spring Boot → Tomcat
+Web Development → Backend → REST → Java → Spring Boot → Jetty
