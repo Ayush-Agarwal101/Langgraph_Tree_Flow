@@ -1,3 +1,5 @@
+# pruning/pruning_session.py
+
 from core.llm_structured import StructuredLLM
 from core.schemas import PruneDecision
 
@@ -5,16 +7,13 @@ from core.schemas import PruneDecision
 class PruningSession:
 
     def __init__(self, system_context, model=None):
-        self.messages = [
-            {"role": "system", "content": system_context}
-        ]
+        self.system_context = system_context
         self.llm = StructuredLLM(model=model)
 
     def evaluate_leaf(self, leaf_meta):
         prompt = f"""
     You are a strict pruning decision engine.
 
-    Your task:
     Return ONLY a JSON object in this exact format:
 
     {{
@@ -24,7 +23,9 @@ class PruningSession:
 
     Rules:
     - If Mandatory is "yes" → decision MUST be KEEP.
-    - If Mandatory is "no" → decide intelligently.
+    - You MUST ALWAYS include a short reason field.
+    - If Mandatory is "yes", explain that it is mandatory.
+    - If Mandatory is "no", decide intelligently.
     - Do NOT output folder structure.
     - Do NOT output extra fields.
     - Do NOT output markdown.
@@ -43,9 +44,8 @@ class PruningSession:
         for p in leaf_meta.parents:
             prompt += f"- {p.name}: {p.description}\n"
 
-        decision = self.llm.call(
+        return self.llm.call(
             prompt=prompt,
-            schema=PruneDecision
+            schema=PruneDecision,
+            system_context= self.system_context
         )
-
-        return decision

@@ -1,0 +1,24 @@
+file: project_blueprint
+functions:
+- name: validateUserCredentials
+  parameters:
+  - name: username
+    type: string
+  - name: password
+    type: string
+  return_type: User object or null
+  description: Validates user credentials against the database and returns a corresponding
+    User object if valid; otherwise returns null.
+- name: getAllProducts
+  parameters: []
+  return_type: List of Product objects
+  description: Retrieves all products from the database and returns them as a list.
+- name: createOrder
+  parameters:
+  - name: User
+    type: object
+  - name: Cart
+    type: '[string]'
+  return_type: Order object
+  description: Creates a new order for the specified user using the products in their
+    cart and saves it to the database.

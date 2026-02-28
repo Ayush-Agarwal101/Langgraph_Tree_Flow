@@ -1,0 +1,7 @@
+file: project_blueprint/frontend/react_vite/public/index.html
+functions:
+- name: renderApp
+  parameters: []
+  return_type: string
+  description: Renders the root React component and returns the resulting HTML markup,
+    which is injected into the page's main content.

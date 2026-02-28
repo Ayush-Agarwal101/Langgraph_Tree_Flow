@@ -4,35 +4,35 @@
     "Web Development",
     "Backend",
     "REST",
-    "JavaScript/TypeScript",
-    "NestJS",
-    "NGINX"
+    "Java",
+    "Spring Boot",
+    "Tomcat"
   ],
-  "tech_stack_summary": "Web Development \u2192 Backend \u2192 REST \u2192 JavaScript/TypeScript \u2192 NestJS \u2192 NGINX",
+  "tech_stack_summary": "Web Development \u2192 Backend \u2192 REST \u2192 Java \u2192 Spring Boot \u2192 Tomcat",
   "technology_choices": {
     "Core Application & Web Stacks -> Web Development": {
-      "rationale": "To build a backend for an online bakery shop, a web development stack is necessary to create a web application that can interact with users and provide a user interface.",
-      "purpose": "Enables building a web application for the online bakery shop"
+      "rationale": "Chosen for building user interfaces and handling HTTP requests for an online bakery shop.",
+      "purpose": "Enables creation of a functional backend that can handle interactions with users, manage orders, inventory and more."
     },
     "Web Development -> Backend": {
-      "rationale": "To build a backend for online bakery shop",
-      "purpose": "Enables creation of server-side logic and API"
+      "rationale": "Since the user requirement is to build a backend for an online bakery shop, the Backend option is necessary.",
+      "purpose": "This option enables the development of server-side logic, database management, and API creation."
     },
     "Backend -> REST": {
-      "rationale": "most widely adopted and easy to implement",
-      "purpose": "enables building a scalable and maintainable API"
+      "rationale": "REST is a well-established and widely-adopted standard for APIs, making it easier to integrate with other systems and services.",
+      "purpose": "Enables communication between the backend and various frontend applications using HTTP requests"
     },
-    "REST -> JavaScript/TypeScript": {
-      "rationale": "Modern and popular choice for building scalable and maintainable RESTful APIs",
-      "purpose": "Enables building a fast, secure, and efficient backend for the online bakery shop"
+    "REST -> Java": {
+      "rationale": "Java is widely used for building large-scale, enterprise-grade applications, which makes it suitable for this online bakery shop backend.",
+      "purpose": "Java enables development of robust, scalable and secure backends."
     },
-    "JavaScript/TypeScript -> NestJS": {
-      "rationale": "Robust, scalable, and maintainable framework with strong typing",
-      "purpose": "Enables building a robust and scalable backend for the online bakery shop"
+    "Java -> Spring Boot": {
+      "rationale": "Popularity, extensive community support, and a wide range of pre-built solutions make it an ideal choice for beginners.",
+      "purpose": "Enables fast and easy development of RESTful services in Java."
     },
-    "NestJS -> NGINX": {
-      "rationale": "NGINX is a popular and widely-used web server that can efficiently handle high traffic and is well-suited for a production environment.",
-      "purpose": "To serve as a reverse proxy and handle incoming HTTP requests"
+    "Spring Boot -> Tomcat": {
+      "rationale": "Tomcat is widely used and well-documented with Spring Boot, making it a stable option for this project.",
+      "purpose": "Enables the deployment of the Spring Boot backend application."
     }
   },
   "nodes": {
@@ -57,22 +57,22 @@
     "REST": {
       "is_leaf": false,
       "choices": [
-        "JavaScript/TypeScript"
+        "Java"
       ]
     },
-    "JavaScript/TypeScript": {
+    "Java": {
       "is_leaf": false,
       "choices": [
-        "NestJS"
+        "Spring Boot"
       ]
     },
-    "NestJS": {
+    "Spring Boot": {
       "is_leaf": false,
       "choices": [
-        "NGINX"
+        "Tomcat"
       ]
     },
-    "NGINX": {
+    "Tomcat": {
       "is_leaf": true,
       "choices": []
     }
@@ -92,15 +92,15 @@
     ],
     [
       "REST",
-      "JavaScript/TypeScript"
+      "Java"
     ],
     [
-      "JavaScript/TypeScript",
-      "NestJS"
+      "Java",
+      "Spring Boot"
     ],
     [
-      "NestJS",
-      "NGINX"
+      "Spring Boot",
+      "Tomcat"
     ]
   ]
 }

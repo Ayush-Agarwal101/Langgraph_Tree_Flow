@@ -1,0 +1,15 @@
+file: project_blueprint\frontend\react_vite\public
+functions:
+- name: serveStaticAssets
+  parameters:
+  - name: assetName
+    type: string
+  return_type: string
+  description: Retrieves a static asset from within the public folder and serves it
+    to the client. This function may also perform any necessary transformations (such
+    as compressing images) before serving them.
+- name: serveIndexHtml
+  parameters: []
+  return_type: string
+  description: Serves the main HTML file (usually index.html) responsible for bootstrapping
+    and rendering the React application.

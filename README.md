@@ -1,156 +1,275 @@
-# Universal LLM-driven Decision-Tree Workflow Engine
+# 🧠 AI Architecture & Specification Pipeline
 
-A Python engine for traversing hierarchical JSON decision trees using a large language model (LLM). It supports branching, records prompts and edges, and renders an interactive graph of the traversal.
+This project is a multi-stage AI-powered architecture compiler that converts a high-level user requirement into a structured project blueprint and detailed function specifications.
 
----
-
-## Features
-
-- Works with **nested JSON trees** of arbitrary depth and irregular structure.
-- No special `name` or `children` fields required; any dict key can serve as a node.
-- Supports **branching** when the LLM returns multiple choices.
-- Records **prompts** for each node and edge.
-- Generates **graphical visualization** of the traversal using Graphviz.
-- Supports three LLM backends:
-  1. **Remote Gemini-like API** (via `GEMINI_API_URL` + `GEMINI_API_KEY` environment variables)
-  2. **Local Llama-compatible model** via `llama-cpp-python` or Ollama (`LOCAL_LLM_MODEL_PATH`)
-  3. **Deterministic dry-run fallback** if no LLM is configured.
-- Saves **metadata** (nodes, prompts, edges, leaf nodes, completed paths) in JSON.
+The pipeline is modular and deterministic after specification generation.
 
 ---
 
-## Requirements
+# 🚀 Pipeline Overview
 
-- Python 3.9+
-- Install Python dependencies:
+The system works in the following major stages:
 
-```bash
-pip install -r requirements.txt
+---
+
+## 🔹 Step 1 — Stack Selection
+
+### 🔍 Description
+
+Selects the most appropriate technology stack by navigating a predefined decision tree using an LLM.
+
+The model selects one option per node until it reaches a leaf stack.
+
+### 📥 Inputs
+
+* `data/Web_Dev_Only.json` (technology decision tree)
+* User initial prompt (project requirement)
+
+### 📤 Outputs
+
+* `data/stack_meta.json`
+  Contains:
+
+  * User requirement
+  * Selected tech stack
+  * Choice rationales
+  * Traversal metadata
+* `outputs/langgraph_output.png` (visual stack path)
+* `specs/final_prompt.txt` (human-readable stack summary)
+
+---
+
+## 🔹 Step 2 — Structure Pruning
+
+### 🔍 Description
+
+Prunes a global folder blueprint based on:
+
+* User requirement
+* Selected tech stack
+
+Each file/folder is evaluated by the LLM to decide whether to KEEP or PRUNE.
+
+Mandatory nodes are always kept.
+
+### 📥 Inputs
+
+* `data/folder_structure.json` (global template)
+* `data/stack_meta.json`
+
+### 📤 Outputs
+
+* `data/pruned_structure.json` (filtered structure)
+* `outputs/pruned_structure_graph.png` (visual structure graph)
+
+---
+
+## 🔹 Step 3 — Global Architecture Description
+
+### 🔍 Description
+
+Generates a detailed high-level architectural description of the entire pruned project.
+
+This defines:
+
+* System design
+* Core modules
+* Responsibilities
+* Data flow
+* Architectural decisions
+
+### 📥 Inputs
+
+* `data/pruned_structure.json`
+* `data/stack_meta.json`
+
+### 📤 Outputs
+
+* `specs/global_description.md`
+
+This becomes the authoritative architecture document.
+
+---
+
+## 🔹 Step 4 — Global Blueprint YAML
+
+### 🔍 Description
+
+Converts the architectural description into a strict, machine-validated YAML specification.
+
+This defines:
+
+* Project metadata
+* Architecture pattern
+* Entry points
+* Components
+* Infrastructure
+* Dependencies
+
+Structured and validated via Pydantic.
+
+### 📥 Inputs
+
+* `specs/global_description.md`
+* `data/stack_meta.json`
+
+### 📤 Outputs
+
+* `specs/project_blueprint.yaml`
+
+This file becomes the structured "single source of truth" for the overall system.
+
+---
+
+## 🔹 Step 5 — Node-Level Documentation
+
+### 🔍 Description
+
+Generates detailed documentation for every file and folder in the pruned structure.
+
+Each node receives structured Markdown documentation including:
+
+* Purpose
+* Responsibilities
+* Key Functions (conceptual)
+* Interactions
+* Extensibility considerations
+
+This ensures consistency with global architecture.
+
+### 📥 Inputs
+
+* `data/pruned_structure.json`
+* `data/stack_meta.json`
+* `specs/global_description.md`
+
+### 📤 Outputs
+
+* `specs/node_descriptions/`
+
+  * One `.md` file per file/folder in the project
+
+---
+
+## 🔹 Step 6 — Function Specification YAML
+
+### 🔍 Description
+
+Converts structured node documentation into strict YAML specifications for each file.
+
+Defines:
+
+* Module metadata
+* Variables
+* Function names
+* Parameters
+* Return types
+* Intended responsibilities
+
+These are deterministic and schema-validated.
+
+### 📥 Inputs
+
+* `specs/node_descriptions/`
+
+### 📤 Outputs
+
+* `specs/function_specs/`
+
+  * One `.yaml` file per file
+
+---
+
+# 📂 Final Project Structure (After Pipeline)
+
+```
+data/
+├── stack_meta.json
+├── pruned_structure.json
+
+outputs/
+├── langgraph_output.png
+├── pruned_structure_graph.png
+
+specs/
+├── final_prompt.txt
+├── global_description.md
+├── project_blueprint.yaml
+├── node_descriptions/
+└── function_specs/
 ```
 
-Dependencies include:
-
-- requests (for remote API calls)
-
-- graphviz (for rendering)
-
-- llama-cpp-python (optional, for local LLaMA models)
-
-- python-dotenv (optional, for environment variables)
-
 ---
 
-## Setup
-1. Prepare your JSON tree.
+# 🧠 Architectural Philosophy
 
-The tree can have arbitrary structure. Example:
+The system is designed as:
 
-```bash
-{
-  "Core Application & Web Stacks": {
-    "Backend": ["Node.js", "Python"],
-    "Frontend": ["React", "Vue"]
-  }
-}
 ```
-2. LLM Setup Options
-
-- Remote Gemini API
-
-```bash
-export GEMINI_API_URL="https://api.example.com"
-export GEMINI_API_KEY="your_api_key"
+User Requirement
+        ↓
+Stack Decision
+        ↓
+Structure Pruning
+        ↓
+Architecture Description
+        ↓
+Structured Blueprint YAML
+        ↓
+Per-Node Documentation
+        ↓
+Function Specifications
 ```
 
-- Local LLaMA model (via llama-cpp-python)
+Key principles:
 
-```bash
-export LOCAL_LLM_MODEL_PATH="/path/to/llama2-model.bin"
+* Strict schema validation (Pydantic)
+* Deterministic outputs after YAML stage
+* Modular, restartable pipeline
+* Phase-controlled execution
+* Separation of architecture vs implementation
+
+---
+
+# ▶️ Running the Pipeline
+
+Run full pipeline:
+
+```
+run_full_pipeline.bat
 ```
 
-- Ollama
-Install Ollama, download llama2 model:
+Start from a specific phase:
 
-```bash
-ollama list
-ollama run llama2
 ```
-3. Optional dry-run fallback
-No setup required. Deterministic heuristic will be used if no LLM is available.
-
----
-
-## Usage
-```bash
-python main_runner.py --json-file Web_Dev_Only.json --start-node "Core Application & Web Stacks" --initial-prompt "Build a clothing e-commerce website."
+run_full_pipeline.bat prune
+run_full_pipeline.bat global
+run_full_pipeline.bat blueprint
+run_full_pipeline.bat functions
 ```
 
-### Command-line arguments
-Argument	Description
---json-file	Path to the JSON tree file
---start-node	Name of the node to start traversal from
---initial-prompt	Seed prompt for the LLM
---output-image	Filename for the traversal graph (PNG)
---output-meta	Filename for metadata JSON file
---max-choices	Max number of choices LLM may return per node (controls branching)
+---
+
+# 🔮 Future Extensions (Optional)
+
+Potential future stages:
+
+* Code skeleton generation
+* Test generation
+* CI/CD config generation
+* Infrastructure-as-code templates
+* API contract validation
 
 ---
 
-## Output
-1. Graph Image
-A visual representation of the traversal: nodes, edges, and prompts.
+# 📌 Current Scope
 
-2. Metadata JSON
-Contains:
+The pipeline currently generates:
 
-- Completed paths
-- Node prompts
-- Leaf node flags
-- Edge prompts
+* Tech stack selection
+* Pruned project structure
+* Global architecture documentation
+* Blueprint YAML specification
+* Per-file function specifications
 
----
-
-## Example Workflow
-1. JSON tree describes all possible tasks (backend, frontend, UI, etc.)
-2. Engine starts at "Core Application & Web Stacks".
-3. LLM chooses among child nodes based on prompt.
-4. If multiple options are returned, branches are created.
-5. Traversal continues until leaf nodes.
-6. Graph and metadata files are generated for inspection.
-
----
-
-## Notes
-- Local Ollama/llama-cpp models run on CPU by default. GPU acceleration may require specialized builds or frameworks (currently Ollama does not support --gpu flag).
-- Branching is handled automatically when LLM returns multiple choices.
-- Prompts are recorded for each node and edge for reproducibility and visual analysis.
-
----
-
-## Example Output
-Graph PNG: langgraph_output.png
-Metadata JSON: langgraph_meta.json
-
-```bash
-{
-  "completed_branches": [
-    ["Core Application & Web Stacks", "Backend", "Node.js"],
-    ["Core Application & Web Stacks", "Frontend", "React"]
-  ],
-  "nodes": {
-    "Core Application & Web Stacks": {"prompts": ["Build a clothing e-commerce website backend."], "is_leaf": false},
-    "Backend": {"prompts": ["..."], "is_leaf": false}
-  },
-  "edges": [
-    {"from": "Core Application & Web Stacks", "to": "Backend", "prompt": "..."}
-  ]
-}
-```
----
-## License
-MIT License
-
----
-
-## Author
-Ayush
+It does NOT generate implementation code at this stage.

@@ -1,0 +1,30 @@
+file: project_blueprint\frontend
+functions:
+- name: startApp
+  parameters: []
+  return_type: React.ComponentType<{}>
+  description: Initializes and renders the main entry point of the frontend application.
+- name: createComponent
+  parameters:
+  - name: componentName
+    type: string
+  return_type: React.ComponentType<{}>
+  description: Generates a template for a new custom React component.
+- name: createService
+  parameters:
+  - name: serviceName
+    type: string
+  return_type: any
+  description: Generates a template for a new custom service.
+- name: createUtility
+  parameters:
+  - name: utilityName
+    type: string
+  return_type: any
+  description: Generates a template for a new custom utility.
+- name: createContext
+  parameters:
+  - name: contextName
+    type: string
+  return_type: any
+  description: Generates a template for a new custom context.

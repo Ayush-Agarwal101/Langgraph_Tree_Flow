@@ -1,3 +1,5 @@
+# pruning/pruning_pipeline.py
+
 import copy
 from .structure_utils import (
     find_shallowest_terminal_folder_depth,

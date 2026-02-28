@@ -69,6 +69,39 @@
                   "children": []
                 }
               ]
+            },
+            {
+              "type": "folder",
+              "name": "src",
+              "extension": "NA",
+              "mandatory": "no",
+              "description": "React application source code",
+              "full_path": "project_blueprint/frontend/react_vite/src",
+              "children_names": [
+                "assets",
+                "components",
+                "pages",
+                "hooks",
+                "services",
+                "context",
+                "utils",
+                "App",
+                "main"
+              ],
+              "is_leaf": false,
+              "children": [
+                {
+                  "type": "file",
+                  "name": "main",
+                  "extension": ".tsx",
+                  "mandatory": "no",
+                  "description": "React entry point",
+                  "full_path": "project_blueprint/frontend/react_vite/src/main.tsx",
+                  "children_names": [],
+                  "is_leaf": true,
+                  "children": []
+                }
+              ]
             }
           ]
         }

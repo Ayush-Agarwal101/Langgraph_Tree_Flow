@@ -8,24 +8,24 @@ build a backend for online bakery shop
 ### 1. Web Development
 
 ### 2. Backend
-**Why chosen:** To build a backend for online bakery shop
-**Purpose:** Enables creation of server-side logic and API
+**Why chosen:** Since the user requirement is to build a backend for an online bakery shop, the Backend option is necessary.
+**Purpose:** This option enables the development of server-side logic, database management, and API creation.
 
 ### 3. REST
-**Why chosen:** most widely adopted and easy to implement
-**Purpose:** enables building a scalable and maintainable API
+**Why chosen:** REST is a well-established and widely-adopted standard for APIs, making it easier to integrate with other systems and services.
+**Purpose:** Enables communication between the backend and various frontend applications using HTTP requests
 
-### 4. JavaScript/TypeScript
-**Why chosen:** Modern and popular choice for building scalable and maintainable RESTful APIs
-**Purpose:** Enables building a fast, secure, and efficient backend for the online bakery shop
+### 4. Java
+**Why chosen:** Java is widely used for building large-scale, enterprise-grade applications, which makes it suitable for this online bakery shop backend.
+**Purpose:** Java enables development of robust, scalable and secure backends.
 
-### 5. NestJS
-**Why chosen:** Robust, scalable, and maintainable framework with strong typing
-**Purpose:** Enables building a robust and scalable backend for the online bakery shop
+### 5. Spring Boot
+**Why chosen:** Popularity, extensive community support, and a wide range of pre-built solutions make it an ideal choice for beginners.
+**Purpose:** Enables fast and easy development of RESTful services in Java.
 
-### 6. NGINX
-**Why chosen:** NGINX is a popular and widely-used web server that can efficiently handle high traffic and is well-suited for a production environment.
-**Purpose:** To serve as a reverse proxy and handle incoming HTTP requests
+### 6. Tomcat
+**Why chosen:** Tomcat is widely used and well-documented with Spring Boot, making it a stable option for this project.
+**Purpose:** Enables the deployment of the Spring Boot backend application.
 
 ## Technology Stack Summary
-Web Development → Backend → REST → JavaScript/TypeScript → NestJS → NGINX
+Web Development → Backend → REST → Java → Spring Boot → Tomcat

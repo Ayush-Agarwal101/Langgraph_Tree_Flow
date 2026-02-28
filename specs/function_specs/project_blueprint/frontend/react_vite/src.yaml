@@ -1,0 +1,63 @@
+file: project_blueprint\frontend\react_vite\src
+functions:
+- name: App
+  parameters: []
+  return_type: JSX.Element
+  description: Initializes components, services, and state management libraries, and
+    renders the primary layout structure.
+- name: Layout
+  parameters: []
+  return_type: JSX.Element
+  description: Defines the common layout structure across all pages in the application.
+- name: Header
+  parameters: []
+  return_type: JSX.Element
+  description: Provides navigation links and user account information in a visually
+    appealing manner.
+- name: Navigation
+  parameters: []
+  return_type: JSX.Element
+  description: Organizes the application into clear sections and provides a user-friendly
+    navigational experience.
+- name: Footer
+  parameters: []
+  return_type: JSX.Element
+  description: Provides essential information about the bakery shop and promotes engagement
+    through various channels.
+- name: ProductsList
+  parameters:
+  - name: products
+    type: '[object]'
+  return_type: JSX.Element
+  description: Presents users with an overview of available bakery products to browse
+    and purchase.
+- name: ProductDetail
+  parameters:
+  - name: product
+    type: object
+  return_type: JSX.Element
+  description: Offers users an in-depth look at a specific bakery product, helping
+    them make informed purchasing decisions.
+- name: ShoppingCart
+  parameters:
+  - name: cartItems
+    type: '[object]'
+  return_type: JSX.Element
+  description: Allows users to view their selected products, adjust quantities, and
+    proceed to checkout when ready.
+- name: Checkout
+  parameters:
+  - name: cartItems
+    type: '[object]'
+  - name: user
+    type: object
+  return_type: JSX.Element
+  description: Collects necessary order details, such as shipping address and payment
+    information, to complete the transaction.
+- name: Orders
+  parameters:
+  - name: orders
+    type: '[object]'
+  return_type: JSX.Element
+  description: Provides users with a history of their past purchases for easy reference
+    and potential reordering.

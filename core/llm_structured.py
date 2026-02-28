@@ -1,9 +1,13 @@
 # core/llm_structured.py
 
-import os
+import re
 import json
 from typing import Type, TypeVar
 from pydantic import BaseModel, ValidationError
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from llm.local_llama_client import call_llm
 from langsmith import traceable
 from dotenv import load_dotenv
@@ -27,23 +31,51 @@ class StructuredLLM:
                 self.model = os.getenv("OLLAMA_DEFAULT_MODEL", "mistral")
 
     @traceable(name="Structured LLM Call")
-    def call(self, prompt: str, schema: Type[T], max_retries: int = 2) -> T:
-        system_prompt = """
-        You must respond ONLY with valid JSON.
-        Do NOT include explanation.
-        Do NOT include markdown.
-        Do NOT include the schema.
-        Only output the final JSON object.
+    def call(
+            self,
+            prompt: str,
+            schema: Type[T],
+            *,
+            system_context: str | None = None,
+            max_retries: int = 2
+    ) -> T:
+        """
+        Structured LLM call that enforces strict JSON output
+        and parses it into the provided schema.
         """
 
-        full_prompt = system_prompt + "\n\n" + prompt
+        json_enforcer = """
+    You must respond ONLY with valid JSON.
+    Do NOT include explanation.
+    Do NOT include markdown.
+    Do NOT include the schema.
+    Only output the final JSON object.
+    """
 
+        # Build full prompt
+        if system_context:
+            full_prompt = (
+                f"{system_context}\n\n"
+                f"{json_enforcer}\n\n"
+                f"{prompt}"
+            )
+        else:
+            full_prompt = f"{json_enforcer}\n\n{prompt}"
+
+        # Retry loop
         for attempt in range(max_retries + 1):
-            print("DEBUG MODEL USED:", self.model)
             raw_output = call_llm(full_prompt, model=self.model)
 
             try:
-                parsed = json.loads(raw_output)
+                # Extract first JSON object from response
+                json_match = re.search(r"\{.*\}", raw_output, re.DOTALL)
+
+                if not json_match:
+                    raise ValueError("No JSON object found in LLM output.")
+
+                json_str = json_match.group(0)
+
+                parsed = json.loads(json_str)
                 return schema(**parsed)
 
             except Exception as e:

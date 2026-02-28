@@ -1,4 +1,4 @@
-# core/folder_graph_builder.py
+# core/folder_graph_builder_pruned.py
 # command to run: python core/folder_graph_builder.py --json-file pruned_structure.json --output specs/pruned_structure_graph
 
 import json

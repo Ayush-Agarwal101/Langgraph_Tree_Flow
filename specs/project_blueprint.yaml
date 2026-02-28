@@ -1,0 +1,54 @@
+project_meta:
+  name: Online Bakery Shop
+  version: 1.0.0
+  language: Java, TypeScript, SQL
+  type: Backend Application
+  description: A web-based application for facilitating the buying and selling of
+    bakery products online.
+architecture:
+  pattern: Client-Server Architecture
+  entry_points:
+  - name: Frontend
+    type: Web Application
+    description: React application with Vite as the build tool and TypeScript for
+      type safety.
+  - name: Backend
+    type: RESTful API
+    description: Java Spring Boot application running on Tomcat web server.
+  components:
+  - name: Frontend
+    responsibility: Handling user interface logic, state management, API requests,
+      user input, events, and navigation.
+  - name: Backend
+    responsibility: Defining RESTful API endpoints, implementing business logic, communicating
+      with the database, ensuring secure data transmission, providing error handling
+      and logging capabilities.
+  data_flow_summary: The frontend sends requests to the backend for data retrieval
+    and submission. The backend communicates with the database to retrieve, store,
+    and update data as necessary.
+infrastructure:
+  external_services:
+  - name: Database (MySQL/PostgreSQL)
+    role: Data storage
+    purpose: Storing and persistently retrieving data for the application.
+dependencies:
+  internal:
+  - name: React (Frontend)
+    version: null
+    purpose: User interface library.
+  - name: Spring Boot (Backend)
+    version: null
+    purpose: Java web application framework.
+  - name: Tomcat
+    version: null
+    purpose: Web server for the backend application.
+  external:
+  - name: Vite
+    version: 2.x
+    purpose: Build tool for the frontend application.
+  - name: TypeScript
+    version: 4.x
+    purpose: Type safety for the frontend application.
+  - name: MySQL/PostgreSQL
+    version: 8.x/13.x
+    purpose: Relational database management system for data storage.

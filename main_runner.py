@@ -280,8 +280,8 @@ if __name__ == "__main__":
     parser.add_argument("--json-file", required=True)
     parser.add_argument("--start-node", required=True)
     parser.add_argument("--initial-prompt", required=True)
-    parser.add_argument("--output-image", default="langgraph_output")
-    parser.add_argument("--output-meta", default="langgraph_meta.json")
+    parser.add_argument("--output-image", default="outputs/langgraph_output")
+    parser.add_argument("--output-meta", default="data/stack_meta.json")
     args = parser.parse_args()
 
     tree = load_tree_from_file(args.json_file)
@@ -293,6 +293,10 @@ if __name__ == "__main__":
         llm,
         args.initial_prompt
     )
+
+    image_dir = os.path.dirname(args.output_image)
+    if image_dir:
+        os.makedirs(image_dir, exist_ok=True)
 
     outpath = recorder.render(args.output_image)
 
@@ -331,7 +335,9 @@ if __name__ == "__main__":
         "edges": recorder.edges
     }
 
-    with open("data/stack_meta.json", "w", encoding="utf-8") as f:
+    os.makedirs(os.path.dirname(args.output_meta), exist_ok=True)
+
+    with open(args.output_meta, "w", encoding="utf-8") as f:
         json.dump(meta, f, indent=2)
 
     print("\nFINAL PROMPT SAVED TO specs/final_prompt.txt")
