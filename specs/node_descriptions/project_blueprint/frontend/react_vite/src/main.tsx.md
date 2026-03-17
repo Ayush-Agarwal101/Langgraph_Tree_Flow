@@ -2,30 +2,31 @@
 
 ## Purpose
 
-This file serves as the entry point for the React application built using Vite.
+The `main.tsx` file serves as the entry point for React applications built using Vite in this project blueprint. It sets up the root component and initializes the React application.
 
 ## Responsibilities
 
-1. Initializes the React application and mounts it to the specified DOM node (document.getElementById('root')).
-2. Provides an entry point for external packages, allowing them to be imported and used throughout the application.
-3. Enables hot module replacement during development, allowing changes to components to update in real-time without requiring a full page reload.
+- Initialize the React application with the specified configuration.
+- Render the root App component as the main content of the application.
 
 ## Key Functions (Conceptual)
 
-### createRoot
-- **Parameters:** None
-- **Return Value:** A React Root instance that can be used to render a single React tree.
-- **Description:** Creates a new React root instance for mounting the application's main component.
+### `createRoot`
 
-### render
-- **Parameters:** root (React Root instance), container (DOM node where the app should be mounted).
-- **Return Value:** Nothing. The React app is rendered to the specified DOM node.
-- **Description:** Mounts the application's main component to the specified container, using the provided React Root instance.
+- **Parameters:** None
+- **Return Value:** Root React instance
+- **Description:** Creates a new React root instance, which is responsible for updating the DOM with the rendered content.
+
+### `renderApp`
+
+- **Parameters:** The root React instance and a JSX element representing the App component.
+- **Return Value:** void
+- **Description:** Renders the provided App component using the created React root instance.
 
 ## Interactions
 
-The `main.tsx` file interacts with external packages and the React ecosystem to initialize and mount the application. It also communicates with the frontend's underlying DOM structure (specifically the 'root' node) for rendering purposes.
+The `main.tsx` file interacts with other components and libraries within the project, such as Vite configurations, React, and custom application components (e.g., App).
 
 ## Future Extensibility
 
-This entry point file can be easily extended by adding additional setup logic, such as loading external data or configuring middleware, before the React app is mounted. It can also serve as a central location for importing third-party libraries and custom utilities that are used throughout the application.
+To extend the functionality of this entry point, developers can add new features or dependencies to the Vite configuration or modify the behavior of the `createRoot` and `renderApp` functions if needed. However, any changes should be made while adhering to the existing architecture and tech stack guidelines.

@@ -6,8 +6,12 @@ from typing import Type, TypeVar
 from pydantic import BaseModel, ValidationError
 import sys
 import os
+# Add the parent project directory to Python's module search path so imports from sibling folders work.
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
 from llm.local_llama_client import call_llm
 from langsmith import traceable
 from dotenv import load_dotenv
@@ -76,7 +80,10 @@ class StructuredLLM:
                 json_str = json_match.group(0)
 
                 parsed = json.loads(json_str)
-                return schema(**parsed)
+                if "reason" not in parsed:
+                    parsed["reason"] = "No reason provided by model."
+
+                return schema(**parsed)     # ** is used for dictionary unpacking
 
             except Exception as e:
                 print(f"[StructuredLLM] Attempt {attempt} failed")

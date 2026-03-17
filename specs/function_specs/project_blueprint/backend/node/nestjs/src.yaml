@@ -1,0 +1,23 @@
+file: project_blueprint\backend\node\nestjs\src
+functions:
+- name: initializeAppModule
+  parameters: []
+  return_type: AppModule
+  description: Initializes the main application module for our online bakery shop
+    backend system, setting up global modules and configurations.
+- name: createBakeryController
+  parameters: []
+  return_type: BakeryController
+  description: Defines the API endpoints for managing different aspects of our online
+    bakery shop, such as retrieving available goods, placing orders, and updating
+    user accounts.
+- name: userService
+  parameters: []
+  return_type: UserService
+  description: Handles user-related operations like authentication, registration,
+    and user profile management for our online bakery shop.
+- name: orderService
+  parameters: []
+  return_type: OrderService
+  description: Manages order creation, processing, delivery, and tracking for our
+    online bakery shop.

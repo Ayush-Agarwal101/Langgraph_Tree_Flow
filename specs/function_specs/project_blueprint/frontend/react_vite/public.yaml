@@ -1,15 +1,20 @@
-file: project_blueprint\frontend\react_vite\public
+file: project_blueprint/frontend/react_vite/public/serve-static.js
 functions:
-- name: serveStaticAssets
+- name: serveStaticFile
   parameters:
-  - name: assetName
+  - name: filePath
     type: string
-  return_type: string
-  description: Retrieves a static asset from within the public folder and serves it
-    to the client. This function may also perform any necessary transformations (such
-    as compressing images) before serving them.
-- name: serveIndexHtml
-  parameters: []
-  return_type: string
-  description: Serves the main HTML file (usually index.html) responsible for bootstrapping
-    and rendering the React application.
+  - name: rootDir
+    type: string
+  return_type: StaticFileResponse
+  description: Retrieves a static file from the given file path within the rootDir
+    and serves it as a response.
+- name: serveIndexFile
+  parameters:
+  - name: indexFileName
+    type: string
+  - name: rootDir
+    type: string
+  return_type: IndexFileResponse
+  description: Serves an index file specified by indexFileName located within the
+    given rootDir. If no index file is found, it serves a default one (e.g., index.html).

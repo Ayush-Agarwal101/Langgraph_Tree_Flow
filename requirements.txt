@@ -4,3 +4,4 @@ graphviz
 langsmith
 ollama
 langchain-nvidia-ai-endpoints
+pyyaml

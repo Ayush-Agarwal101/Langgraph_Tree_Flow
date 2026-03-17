@@ -1,0 +1,32 @@
+file: project_blueprint\backend\node\nestjs\src\modules\user
+functions:
+- name: LoginUser
+  parameters:
+  - name: username
+    type: string
+  - name: password
+    type: string
+  return_type: JWTToken
+  description: Validates user credentials against the database, generates a JSON Web
+    Token, and returns it to the client for authentication purposes.
+- name: RegisterUser
+  parameters:
+  - name: username
+    type: string
+  - name: password
+    type: string
+  - name: email
+    type: string
+  return_type: UserResponse
+  description: Validates input data, creates a new user in the database, and returns
+    detailed user information including an access token for immediate use.
+- name: UpdateUserProfile
+  parameters:
+  - name: userID
+    type: string
+  - name: updatedData
+    type: object
+  return_type: UserResponse
+  description: Retrieves the user with the given ID, applies updates to the user's
+    data, and saves changes in the database. The function returns the updated user
+    information, including an access token for immediate use.

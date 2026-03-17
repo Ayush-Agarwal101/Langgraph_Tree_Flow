@@ -1,21 +1,18 @@
-file: project_blueprint/frontend/react_vite/scripts.js
+file: project_blueprint/frontend/react_vite
 functions:
-- name: createProject
+- name: initReactApp
   parameters:
   - name: projectName
     type: string
-  return_type: None
-  description: Initializes a new React project using Vite and TypeScript within the
-    specified directory structure.
-- name: addComponent
-  parameters:
-  - name: componentName
+  - name: template
     type: string
-  return_type: None
-  description: Creates a new React component within the src/components folder. The
-    component includes basic file structure, imports, and exports.
-- name: buildApp
-  parameters: []
-  return_type: None
-  description: Compiles the entire application using Vite's development server for
-    hot reloading during development.
+  return_type: string
+  description: Creates a new React project using the selected template and initializes
+    it with Vite and TypeScript.
+- name: buildFrontend
+  parameters:
+  - name: productionMode
+    type: boolean
+  return_type: string
+  description: Compiles the source code of the React application using Vite, optionally
+    in production mode to optimize output.

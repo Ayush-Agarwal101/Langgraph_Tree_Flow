@@ -1,0 +1,26 @@
+file: project_blueprint\backend\node\express\package.json
+functions:
+- name: install
+  parameters: []
+  return_type: '[string]'
+  description: Install the required dependencies specified in the package.json file.
+- name: update
+  parameters: []
+  return_type: '{ string : [string] }'
+  description: Update all the dependencies listed in the package.json file to their
+    latest versions.
+- name: devDependencies.add
+  parameters:
+  - name: packageName
+    type: string
+  return_type: None
+  description: Add a new development dependency to the project.
+- name: scripts.add
+  parameters:
+  - name: command
+    type: string
+  - name: function
+    type: string
+  return_type: None
+  description: Define or update a custom script for use within the project's build,
+    test, or development lifecycle.

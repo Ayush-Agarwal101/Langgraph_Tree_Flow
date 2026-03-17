@@ -1,0 +1,28 @@
+file: project_blueprint\backend\node\nestjs\src\modules\user\user.controller.ts
+functions:
+- name: login
+  parameters:
+  - name: requestData
+    type: LoginRequest
+  return_type: JWT token
+  description: Handles the user login process.
+- name: register
+  parameters:
+  - name: registrationData
+    type: RegistrationRequest
+  return_type: JWT token
+  description: Manages the user registration process.
+- name: updateProfile
+  parameters:
+  - name: userId
+    type: UserId
+  - name: profileData
+    type: ProfileUpdateRequest
+  return_type: success response or error response
+  description: Allows users to update their profile information.
+- name: resetPassword
+  parameters:
+  - name: resetPasswordRequest
+    type: ResetPasswordRequest
+  return_type: success response or error response
+  description: Implements the password reset feature for forgotten password scenarios.

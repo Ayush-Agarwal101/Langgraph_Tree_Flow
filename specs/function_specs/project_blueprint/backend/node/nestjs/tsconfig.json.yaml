@@ -1,0 +1,21 @@
+file: project_blueprint\backend\node\nestjs\tsconfig.json
+functions:
+- name: compile
+  parameters:
+  - name: inputFiles
+    type: '[string]'
+  return_type: '[string]'
+  description: Transforms TypeScript codebase into JavaScript for execution by the
+    Node.js runtime.
+- name: watch
+  parameters:
+  - name: inputFiles
+    type: '[string]'
+  return_type: void
+  description: Monitors specified TypeScript files for changes and updates the compiled
+    JavaScript output accordingly.
+- name: clean
+  parameters: []
+  return_type: void
+  description: Removes previously generated JavaScript and type definition files to
+    prepare for a new build or clean up the project directory.

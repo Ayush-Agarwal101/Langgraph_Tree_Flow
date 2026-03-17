@@ -55,6 +55,7 @@ class LLMClient:
         Do NOT return a list.
         """
 
+        # response is a NodeDecision object returned by this function
         response: NodeDecision = self.structured.call(
             prompt=formatted_prompt,
             schema=NodeDecision
@@ -136,12 +137,12 @@ def extract_children_from_value(value: Any) -> List[Tuple[str, Any]]:
 # TRAVERSAL
 # ============================================================
 
-@dataclass
+@dataclass         # This class is mainly used to store data, so automatically create useful methods like init, repr, eq for it So you don’t need to write them manually.
 class BranchState:
-    path: List[str]
-    node_name: str
-    node_value: Any
-    prompt: str
+    path: List[str]         # technology stack selected so far
+    node_name: str          # current node name in the decision tree
+    node_value: Any         # The subtree under the current node
+    prompt: str             # original user prompt
 
 @traceable(name="Decision Traversal")
 def traverse(tree: Any, start_node_name: str, llm: LLMClient, base_prompt: str):
@@ -150,7 +151,7 @@ def traverse(tree: Any, start_node_name: str, llm: LLMClient, base_prompt: str):
     if not found:
         raise ValueError(f"Start node '{start_node_name}' not found.")
 
-    start_name, start_value = found
+    start_name, start_value = found         # tuple unpacking
 
     recorder = LangGraphRecorder()
 
@@ -276,13 +277,15 @@ def build_clean_final_prompt(initial_prompt, tech_stack, recorder):
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser()      # creates an argument parser object
     parser.add_argument("--json-file", required=True)
     parser.add_argument("--start-node", required=True)
-    parser.add_argument("--initial-prompt", required=True)
+    parser.add_argument("--initial-prompt")
     parser.add_argument("--output-image", default="outputs/langgraph_output")
     parser.add_argument("--output-meta", default="data/stack_meta.json")
-    args = parser.parse_args()
+    args = parser.parse_args()          # reads the command line input
+    if not args.initial_prompt or not args.initial_prompt.strip():
+        args.initial_prompt = input("Enter initial prompt: ").strip()
 
     tree = load_tree_from_file(args.json_file)
     llm = LLMClient()
@@ -294,8 +297,8 @@ if __name__ == "__main__":
         args.initial_prompt
     )
 
-    image_dir = os.path.dirname(args.output_image)
-    if image_dir:
+    image_dir = os.path.dirname(args.output_image)      # extracts the directory part of a path
+    if image_dir:           # checks whether the directory string is not empty (the path is just a filename with no folder)
         os.makedirs(image_dir, exist_ok=True)
 
     outpath = recorder.render(args.output_image)
@@ -328,7 +331,7 @@ if __name__ == "__main__":
         "nodes": {
             n: {
                 "is_leaf": recorder.nodes[n].is_leaf,
-                "choices": recorder.node_choices.get(n, [])
+                "choices": recorder.node_choices.get(n, [])     # Get the choices for node n. If the node does not exist, return an empty list [].
             }
             for n in recorder.nodes
         },

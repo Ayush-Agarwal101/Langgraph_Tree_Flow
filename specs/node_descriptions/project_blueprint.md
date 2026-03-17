@@ -1,48 +1,57 @@
- # Online Bakery Shop Project Blueprint - Backend
+ # project_blueprint/Online_Bakery_Shop_Backend
 
 ## Purpose
 
-The purpose of this document is to detail the backend component of our online bakery shop project, outlining its responsibilities, key functions, interactions, and future extensibility within the global architecture.
+A subfolder within the `project_blueprint` containing the blueprint for building an online bakery shop backend system using the selected technology stack: **Web Development → Backend → REST → JavaScript/TypeScript → NestJS**. This blueprint follows the global architecture and is modular, scalable, and maintainable.
 
 ## Responsibilities
 
-1. Define RESTful API endpoints for frontend consumption.
-2. Implement business logic for features like product management, order processing, and authentication.
-3. Communicate with the database to retrieve, store, and update data.
-4. Ensure secure data transmission through encryption and proper authorization mechanisms.
-5. Provide error handling and logging capabilities.
+- Contains a complete backend system for an online bakery shop, including RESTful APIs and data persistence.
+- Implements user authentication, product catalog management, order processing, and delivery tracking features.
 
 ## Key Functions (Conceptual)
 
-### 1. Authentication Service
-- Function Name: validateUserCredentials
-  - Conceptual Parameters: username, password
-  - Conceptual Return Value: User object (or null if invalid credentials)
-  - Description: Validates user credentials against the database and returns a corresponding User object if valid; otherwise returns null.
+### Authentication Controller
 
-### 2. Product Service
-- Function Name: getAllProducts
-  - Conceptual Parameters: none
-  - Conceptual Return Value: List of Product objects
-  - Description: Retrieves all products from the database and returns them as a list.
+- Function: `login`
+  - Parameters: `username`, `password`
+  - Return Value: `access_token`, `refresh_token`
+  - Description: Handles user login and returns access and refresh tokens for secure authentication.
 
-### 3. Order Service
-- Function Name: createOrder
-  - Conceptual Parameters: User, Cart (list of product IDs)
-  - Conceptual Return Value: Order object
-  - Description: Creates a new order for the specified user using the products in their cart and saves it to the database.
+### Refresh Token Controller
+
+- Function: `refreshTokens`
+  - Parameters: `refresh_token`
+  - Return Value: `new access_token`, `new refresh_token`
+  - Description: Refreshes the access and refresh tokens upon user request or expiration.
+
+### Product Catalog Service
+
+- Function: `getProducts`
+  - Parameters: None
+  - Return Value: Array of products with product details
+  - Description: Retrieves a list of all available baked goods in the shop's catalog.
+
+### Order Service
+
+- Function: `createOrder`
+  - Parameters: `order_details` (includes customer, products, delivery information)
+  - Return Value: `order_id`
+  - Description: Creates a new order based on provided details and saves it in the database.
+
+### Delivery Service
+
+- Function: `trackOrder`
+  - Parameters: `order_id`
+  - Return Value: Order status updates (e.g., picked up, in transit, delivered)
+  - Description: Retrieves current order status based on its unique identifier.
 
 ## Interactions
 
-The backend interacts with the frontend via RESTful API calls, as well as the database (MySQL or PostgreSQL) to store and retrieve data persistently. It may also communicate with third-party services like payment gateways for handling transactions.
+The Online Bakery Shop Backend interacts with the frontend for user requests and data exchange via RESTful APIs. Additionally, it communicates with the database to store and retrieve necessary bakery shop data.
 
 ## Future Extensibility
 
-To ensure future extensibility, the backend should adhere to best practices for modular design, code organization, documentation, testing, and security. This includes:
-
-1. Organizing the backend codebase into smaller, reusable modules or components.
-2. Implementing proper version control using a tool like Git.
-3. Documenting all significant functionality and maintaining clear comments throughout the code.
-4. Writing automated tests to ensure quality and reliability as new features are added.
-5. Keeping up with security best practices, such as using secure coding techniques and regularly updating dependencies.
-6. Monitoring and logging application performance to identify potential bottlenecks or issues that may need addressing in the future.
+1. **Scalability**: The modular design of NestJS enables easy addition or modification of features without affecting other parts of the system.
+2. **Maintainability**: Clear separation of concerns, well-documented code, and a modular architecture promote an easy-to-understand and maintain system.
+3. **Extensibility**: The project blueprint allows for easy extension of new features or technologies as needed. Developers can simply add new modules to the existing `Online_Bakery_Shop_Backend` folder or extend the existing ones.

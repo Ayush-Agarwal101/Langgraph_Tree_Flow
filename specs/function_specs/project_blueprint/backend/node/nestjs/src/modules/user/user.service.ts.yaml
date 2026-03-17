@@ -1,0 +1,33 @@
+file: project_blueprint\backend\node\nestjs\src\modules\user\user.service.ts
+functions:
+- name: loginUser
+  parameters:
+  - name: username
+    type: string
+  - name: password
+    type: string
+  return_type: string
+  description: Verifies a user's credentials and returns an authentication token upon
+    successful login.
+- name: registerUser
+  parameters:
+  - name: userData
+    type: UserCreateDto
+  return_type: User
+  description: Creates a new user account with the provided data, including the user's
+    name, email, password, and role (if specified).
+- name: updateUser
+  parameters:
+  - name: userId
+    type: string
+  - name: updatedUserData
+    type: UserUpdateDto
+  return_type: User
+  description: Updates an existing user's information with the provided data.
+- name: deleteUser
+  parameters:
+  - name: userId
+    type: string
+  return_type: boolean
+  description: Removes an existing user account from the database by their unique
+    identifier.

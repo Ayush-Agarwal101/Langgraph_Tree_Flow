@@ -10,36 +10,25 @@ class PruningSession:
         self.system_context = system_context
         self.llm = StructuredLLM(model=model)
 
-    def evaluate_leaf(self, leaf_meta):
-        prompt = f"""
-    You are a strict pruning decision engine.
+    def evaluate_leaf(self, leaf_meta, previous_decisions=None):
+        prompt = "Leaf Node Metadata\n\n"
 
-    Return ONLY a JSON object in this exact format:
+        if previous_decisions:
+            prompt += "Previous pruning decisions:\n"
 
-    {{
-      "decision": "KEEP or PRUNE",
-      "reason": "short explanation"
-    }}
+            for path, d in previous_decisions.items():
+                prompt += f"- {path} → {d['decision']}\n"
 
-    Rules:
-    - If Mandatory is "yes" → decision MUST be KEEP.
-    - You MUST ALWAYS include a short reason field.
-    - If Mandatory is "yes", explain that it is mandatory.
-    - If Mandatory is "no", decide intelligently.
-    - Do NOT output folder structure.
-    - Do NOT output extra fields.
-    - Do NOT output markdown.
-    - Do NOT output explanation outside JSON.
+            prompt += "\n"
 
-    Leaf Node:
+        prompt += f"""
+        Name: {leaf_meta.name}
+        Description: {leaf_meta.description}
+        Full Path: {leaf_meta.full_path}
+        Mandatory: {leaf_meta.mandatory}
 
-    Name: {leaf_meta.name}
-    Description: {leaf_meta.description}
-    Full Path: {leaf_meta.full_path}
-    Mandatory: {leaf_meta.mandatory}
-
-    Parent Hierarchy:
-    """
+        Parent Hierarchy:
+        """
 
         for p in leaf_meta.parents:
             prompt += f"- {p.name}: {p.description}\n"

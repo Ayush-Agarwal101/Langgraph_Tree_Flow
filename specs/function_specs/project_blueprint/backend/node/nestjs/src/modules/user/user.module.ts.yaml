@@ -1,0 +1,25 @@
+file: project_blueprint\backend\node\nestjs\src\modules\user\user.module.ts
+functions:
+- name: registerUser
+  parameters:
+  - name: userData
+    type: UserInput
+  return_type: string
+  description: Validates and saves the provided user data in the database, generating
+    a unique user ID and authentication token.
+- name: loginUser
+  parameters:
+  - name: userData
+    type: LoginInput
+  return_type: object
+  description: Validates user credentials, checks if the user exists in the database,
+    and generates an authentication token for secure access to protected resources.
+- name: updateProfile
+  parameters:
+  - name: userId
+    type: string
+  - name: profileData
+    type: ProfileInput
+  return_type: string
+  description: Validates and saves the provided profile data for the specified user
+    in the database.

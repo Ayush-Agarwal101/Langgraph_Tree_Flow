@@ -1,0 +1,25 @@
+file: project_blueprint\backend\node\express
+functions:
+- name: defineRoutes
+  parameters:
+  - name: app
+    type: Object
+  - name: routesArray
+    type: Array
+  return_type: None
+  description: Defines and registers routes in the Express.js app. Each route should
+    correspond to a specific API endpoint.
+- name: handleRequest
+  parameters:
+  - name: req
+    type: Object
+  - name: res
+    type: Object
+  return_type: Response Object (JSON)
+  description: Handles incoming requests from the frontend, processes data, and sends
+    responses back as JSON objects.
+- name: getDatabaseConnection
+  parameters: []
+  return_type: Database Connection Object
+  description: Establishes a connection with the database using appropriate configurations
+    defined in the project blueprint's global architecture.

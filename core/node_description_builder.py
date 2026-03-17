@@ -9,10 +9,7 @@ from llm.local_llama_client import call_llm
 
 load_dotenv()
 
-
-# ------------------------------------------------------------
 # Helper: Extract all nodes (folders + files)
-# ------------------------------------------------------------
 
 def extract_all_nodes(tree, parents=None):
     if parents is None:
@@ -43,9 +40,7 @@ def extract_all_nodes(tree, parents=None):
     return results
 
 
-# ------------------------------------------------------------
 # Main Builder
-# ------------------------------------------------------------
 
 def build_node_descriptions(
     pruned_structure_path: str,
@@ -164,10 +159,7 @@ Important:
 
     print("\nAll node descriptions generated successfully.")
 
-
-# ------------------------------------------------------------
 # CLI
-# ------------------------------------------------------------
 
 if __name__ == "__main__":
     import argparse

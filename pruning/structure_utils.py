@@ -3,17 +3,15 @@
 from .models import LeafMeta, ParentMeta
 
 
-# ============================================================
-# 1️⃣ Find shallowest terminal folder depth
-# ============================================================
+# Find the shallowest terminal folder depth
 
 def find_shallowest_terminal_folder_depth(tree):
 
-    min_depth = float("inf")
+    min_depth = float("inf")            # sets the minimum depth to infinity initially
 
     def dfs(node, depth):
 
-        nonlocal min_depth
+        nonlocal min_depth              # Use the min_depth variable from the outer function.
 
         if node.get("type") != "folder":
             return
@@ -38,39 +36,39 @@ def find_shallowest_terminal_folder_depth(tree):
     return min_depth
 
 
-# ============================================================
-# 2️⃣ Trim tree to certain depth
-# ============================================================
+# Trim tree to certain depth
 
 def trim_tree_to_depth(node, max_depth, current_depth=0):
     """
-    Keep tree only until max_depth.
-    Remove deeper children.
-    Files are ignored in trimming logic.
+    Keep everything exactly as it is until depth max_depth.
+    If a folder is deeper than max_depth, remove it and everything under it.
+    Files are always preserved if they are within the allowed depth.
     """
 
-    if current_depth >= max_depth:
-        node["children"] = []
-        return node
+    if current_depth > max_depth:
+        return None
 
     trimmed_children = []
 
     for child in node.get("children", []):
+
+        child_type = child.get("type")
+
         if child.get("type") == "folder":
-            trimmed_children.append(
-                trim_tree_to_depth(child, max_depth, current_depth + 1)
-            )
+            trimmed = trim_tree_to_depth(child, max_depth, current_depth + 1)
+
+            if trimmed is not None:
+                trimmed_children.append(trimmed)
+
         else:
-            # ignore files in trimming
-            continue
+            if current_depth + 1 <= max_depth:
+                trimmed_children.append(child)
 
     node["children"] = trimmed_children
     return node
 
 
-# ============================================================
-# 3️⃣ Extract prunable nodes (files + terminal folders)
-# ============================================================
+# Extract prunable nodes (files + terminal folders)
 
 def extract_prunable_nodes(tree):
     """
@@ -140,16 +138,14 @@ def extract_prunable_nodes(tree):
 
     return results
 
-# ============================================================
-# 4️⃣ Build System Context
-# ============================================================
+# Build System Context
 
-def build_system_context(user_requirement,
-                         tech_stack_summary,
-                         trimmed_tree_json):
+def build_system_context(user_requirement, tech_stack_summary, trimmed_tree_json):
 
     return f"""
-You are a strict project structure pruning engine.
+You are an AI architecture pruning engine.
+
+You will receive leaf node metadata one by one and must decide whether the node should remain in the project structure.
 
 USER REQUIREMENT:
 {user_requirement}
@@ -157,19 +153,22 @@ USER REQUIREMENT:
 TECH STACK:
 {tech_stack_summary}
 
-COMMON FOLDER STRUCTURE CONTEXT:
+BASE PROJECT STRUCTURE (COMMON CONTEXT):
 {trimmed_tree_json}
 
 Rules:
-1. If mandatory == "yes" → decision MUST be KEEP.
-2. If mandatory == "no" → decide intelligently.
-3. Return ONLY valid JSON:
-   {{
-     "decision": "KEEP or PRUNE",
-     "reason": "short explanation"
-   }}
-4. Do NOT output folder structure.
-5. Do NOT output markdown.
-6. Do NOT output extra text.
-"""
+1. The base structure above represents the common architecture.
+2. Leaf nodes provided later extend this structure.
+3. If mandatory == "yes" → decision MUST be KEEP.
+4. If mandatory == "no" → decide intelligently.
 
+Return ONLY valid JSON:
+
+{{
+  "decision": "KEEP or PRUNE",
+  "reason": "short explanation"
+}}
+
+Do NOT output markdown.
+Do NOT output explanations outside JSON.
+"""

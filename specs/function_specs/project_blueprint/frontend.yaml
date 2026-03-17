@@ -1,30 +1,25 @@
-file: project_blueprint\frontend
+file: project_blueprint/frontend/utils.js
 functions:
-- name: startApp
-  parameters: []
-  return_type: React.ComponentType<{}>
-  description: Initializes and renders the main entry point of the frontend application.
-- name: createComponent
+- name: addFrontendTemplate
   parameters:
-  - name: componentName
+  - name: technologyName
     type: string
-  return_type: React.ComponentType<{}>
-  description: Generates a template for a new custom React component.
-- name: createService
+  return_type: string
+  description: Responsible for creating a new subfolder within the project_blueprint/frontend
+    containing all necessary files and configurations for a given frontend technology.
+- name: removeFrontendTemplate
   parameters:
-  - name: serviceName
+  - name: technologyName
     type: string
-  return_type: any
-  description: Generates a template for a new custom service.
-- name: createUtility
+  return_type: string
+  description: Deletes a given frontend template subfolder, if needed, from within
+    the project_blueprint/frontend folder.
+- name: updateFrontendTemplate
   parameters:
-  - name: utilityName
+  - name: technologyName
     type: string
-  return_type: any
-  description: Generates a template for a new custom utility.
-- name: createContext
-  parameters:
-  - name: contextName
-    type: string
-  return_type: any
-  description: Generates a template for a new custom context.
+  - name: newVersionOrUpdateDetails
+    type: object
+  return_type: string
+  description: Updates an existing subfolder within the project_blueprint/frontend
+    folder to reflect the latest version or changes in a given frontend technology.

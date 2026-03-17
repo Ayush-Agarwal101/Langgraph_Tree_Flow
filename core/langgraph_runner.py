@@ -14,13 +14,12 @@ class LangGraphRecorder:
     def __init__(self):
         self.nodes: Dict[str, TraversalNode] = {}
         self.edges: List[Tuple[str, str]] = []
-        self.edge_prompts: Dict[Tuple[str, str], List[str]] = {}
+        self.edge_prompts: Dict[Tuple[str, str], List[str]] = {}        # dictionary: key → (from_node, to_node) (tuple for immutability) & value → list of prompts
         self.choice_rationales: Dict[Tuple[str, str], Dict[str, str]] = {}
         self.node_choices = {}
         # {(parent_node, choice): {"rationale": "...", "purpose": "..."}}
 
-    def add_choice_rationale(self, parent_node: str, choice: str,
-                             rationale: str, purpose: str):
+    def add_choice_rationale(self, parent_node: str, choice: str, rationale: str, purpose: str):
         key = (parent_node, choice)
         self.choice_rationales[key] = {
             "rationale": rationale,

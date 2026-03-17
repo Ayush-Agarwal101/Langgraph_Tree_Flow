@@ -1,0 +1,18 @@
+file: project_blueprint\backend\node\nestjs\src\functions.ts
+functions:
+- name: init
+  parameters: []
+  return_type: void
+  description: Initializes the project by creating necessary files and folders, and
+    installing required packages based on the listed dependencies in this file.
+- name: install
+  parameters:
+  - name: packageName
+    type: string
+  return_type: void
+  description: Installs the specified package and its dependencies using npm.
+- name: update
+  parameters: []
+  return_type: void
+  description: Updates all installed packages in the project to their latest versions,
+    according to the specified versions in the package.json file.

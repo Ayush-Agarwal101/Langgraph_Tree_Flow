@@ -1,0 +1,25 @@
+file: project_blueprint\backend\node\nestjs\src\modules
+functions:
+- name: defineModule
+  parameters:
+  - name: moduleName
+    type: string
+  - name: imports
+    type: '[string]'
+  - name: controllers
+    type: '[object]'
+  - name: providers
+    type: '[object]'
+  - name: exports
+    type: '[string]'
+  return_type: Module
+  description: Creates a new module with the provided name, imports, controllers,
+    providers, and exports. The returned module can be imported and used in other
+    modules or the application root.
+- name: initializeModule
+  parameters:
+  - name: module
+    type: Module
+  return_type: void
+  description: Initializes a new module by registering its controllers, providers,
+    and exports with the NestJS application instance.

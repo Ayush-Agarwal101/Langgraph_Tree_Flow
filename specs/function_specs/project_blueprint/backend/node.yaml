@@ -1,0 +1,21 @@
+file: project_blueprint\backend\node\create_new_backend_project.js
+functions:
+- name: createNewBackendProject
+  parameters: []
+  return_type: string
+  description: Creates a new backend project with essential files and configurations
+    needed to start developing RESTful APIs using NestJS
+- name: bootstrapBackend
+  parameters:
+  - name: projectPath
+    type: string
+  return_type: object
+  description: Sets up the specified Node.js NestJS backend project by initializing
+    dependencies, configuring the environment, and launching the application server
+- name: startBackend
+  parameters:
+  - name: projectPath
+    type: string
+  return_type: object
+  description: Begins running the specified Node.js NestJS backend project, making
+    it accessible via the specified port or host

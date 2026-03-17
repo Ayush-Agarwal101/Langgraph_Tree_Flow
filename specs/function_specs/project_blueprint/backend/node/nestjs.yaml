@@ -1,0 +1,35 @@
+file: project_blueprint\backend\node\nestjs
+functions:
+- name: CreateBakeryGood
+  parameters:
+  - name: BakeryGoodData
+    type: object
+  return_type: BakeryGood
+  description: Validates and saves a new bakery good to the database.
+- name: UpdateBakeryGood
+  parameters:
+  - name: BakeryGoodId
+    type: string
+  - name: UpdatedBakeryGoodData
+    type: object
+  return_type: BakeryGood
+  description: Retrieves a bakery good by ID and updates it with the provided data.
+- name: GetBakeryGoodById
+  parameters:
+  - name: BakeryGoodId
+    type: string
+  return_type: BakeryGood
+  description: Fetches a bakery good by its unique ID from the database.
+- name: CreateOrder
+  parameters:
+  - name: OrderData
+    type: object
+  return_type: Order
+  description: Validates and saves an order to the database, associating it with a
+    customer and their chosen bakery goods.
+- name: GetOrderById
+  parameters:
+  - name: OrderId
+    type: string
+  return_type: Order
+  description: Retrieves an order by its unique ID from the database.

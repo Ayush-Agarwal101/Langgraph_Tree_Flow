@@ -2,43 +2,35 @@
 
 ## Purpose
 
-The `react_vite` folder contains a template for a React application using Vite as the build tool and TypeScript for type safety, which can be used within our Online Bakery Shop project.
+The `react_vite` folder is a React template that utilizes Vite for development, TypeScript for type checking, and provides a foundation to build the frontend portion of our online bakery shop application.
 
 ## Responsibilities
 
-- Contains the base structure for a React application built with Vite and TypeScript.
-- Provides a starting point for frontend developers to create components, pages, hooks, services, context, utilities, and more.
+- Provides a boilerplate setup for building the frontend using React, Vite, and TypeScript
+- Ensures optimized development experience with fast build times due to Vite's hybrid dev server and ESBuild
+- Facilitates type checking and autocompletion with TypeScript
 
 ## Key Functions (Conceptual)
 
-### `createProject`
+### Initialize React App
 
-- Parameter: projectName (string)
-- Return value: None
-- Responsibility: Initializes a new React project using Vite and TypeScript within the specified directory structure.
+- Function: `initReactApp`
+  - Parameters: projectName, template
+  - Return Value: A newly initialized React application using the specified template
+  - Description: Creates a new React project using the selected template and initializes it with Vite and TypeScript.
 
-### `addComponent`
+### Build Frontend
 
-- Parameter: componentName (string)
-- Return value: None
-- Responsibility: Creates a new React component within the `src/components` folder. The component includes basic file structure, imports, and exports.
-
-### `buildApp`
-
-- Parameter: None
-- Return value: None
-- Responsibility: Compiles the entire application using Vite's development server for hot reloading during development.
+- Function: `buildFrontend`
+  - Parameters: productionMode (optional)
+  - Return Value: Built frontend files ready for deployment
+  - Description: Compiles the source code of the React application using Vite, optionally in production mode to optimize output.
 
 ## Interactions
 
-The `react_vite` folder interacts with other parts of our project blueprint, particularly the frontend folder and its contents. It is meant to be a starting point for developers to create their own React components and pages that will eventually integrate with the rest of the application.
+- Communicates with the backend API layer through RESTful APIs.
+- Utilizes TypeScript for type checking and autocompletion.
 
 ## Future Extensibility
 
-The `react_vite` template can be easily extended by adding new functions or utilities as needed, such as:
-
-- A function to generate a new page.
-- A utility for linting and formatting code within the project.
-- A custom hook for state management.
-
-It is also possible to modify the existing functions to cater to specific use cases or requirements within our Online Bakery Shop project.
+- The `react_vite` folder can be extended by adding new components, pages, hooks, or services to meet the specific requirements of the online bakery shop application.

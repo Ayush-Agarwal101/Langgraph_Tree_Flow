@@ -1,24 +1,33 @@
 file: project_blueprint
 functions:
-- name: validateUserCredentials
+- name: login
   parameters:
   - name: username
     type: string
   - name: password
     type: string
-  return_type: User object or null
-  description: Validates user credentials against the database and returns a corresponding
-    User object if valid; otherwise returns null.
-- name: getAllProducts
+  return_type: '["access_token", "refresh_token"]'
+  description: Handles user login and returns access and refresh tokens for secure
+    authentication.
+- name: refreshTokens
+  parameters:
+  - name: refresh_token
+    type: string
+  return_type: '["new access_token", "new refresh_token"]'
+  description: Refreshes the access and refresh tokens upon user request or expiration.
+- name: getProducts
   parameters: []
-  return_type: List of Product objects
-  description: Retrieves all products from the database and returns them as a list.
+  return_type: '[object]'
+  description: Retrieves a list of all available baked goods in the shop's catalog.
 - name: createOrder
   parameters:
-  - name: User
-    type: object
-  - name: Cart
-    type: '[string]'
-  return_type: Order object
-  description: Creates a new order for the specified user using the products in their
-    cart and saves it to the database.
+  - name: order_details
+    type: '["customer", "products", "delivery information"]'
+  return_type: string
+  description: Creates a new order based on provided details and saves it in the database.
+- name: trackOrder
+  parameters:
+  - name: order_id
+    type: string
+  return_type: '["order status updates", e.g., "picked up", "in transit", "delivered"]'
+  description: Retrieves current order status based on its unique identifier.

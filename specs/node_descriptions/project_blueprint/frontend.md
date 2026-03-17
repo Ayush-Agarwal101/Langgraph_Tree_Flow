@@ -2,60 +2,34 @@
 
 ## Purpose
 
-The `project_blueprint/frontend` folder contains the frontend templates for our online bakery shop application, including React components, pages, hooks, services, context, utilities, and the main entry point file. It serves as a foundation for implementing the user interface logic and interactions of the application.
+The `project_blueprint/frontend` folder serves as a container for various frontend framework templates, allowing developers to choose and quickly set up their preferred user interface technology when working on the online bakery shop application.
 
 ## Responsibilities
 
-- Housing the source code for the frontend React application.
-- Providing templates for the various components, pages, hooks, services, context, utilities, and other files needed to create the desired user experience.
-- Acting as a starting point for development, ensuring consistency in structure and naming conventions across the project.
+- Provide multiple frontend template options such as React, Next.js, Vue, Angular, etc.
+- Facilitate rapid development of the user interface by providing essential files and configurations for each framework.
 
 ## Key Functions (Conceptual)
 
-### Entry Point (`main.tsx`)
+### AddFrontendTemplate
+- **Parameters:** Frontend technology name (e.g., React, Next.js, Vue, Angular)
+- **Return value:** A new subfolder with the specified frontend template configuration and files.
+- **Description:** Responsible for creating a new subfolder within the `project_blueprint/frontend` containing all necessary files and configurations for a given frontend technology.
 
-- **Function Name**: `startApp`
-- **Parameters**: None
-- **Return Value**: Root React component instance
-- **Description**: Initializes and renders the main entry point of the frontend application. This function sets up necessary configurations, bootstraps the React app, and mounts it to the DOM.
+### RemoveFrontendTemplate
+- **Parameters:** Frontend technology name (e.g., React, Next.js, Vue, Angular)
+- **Return value:** Removed subfolder of the specified frontend template from `project_blueprint/frontend`.
+- **Description:** Deletes a given frontend template subfolder, if needed, from within the `project_blueprint/frontend` folder.
 
-### Component Template (`template.tsx`)
-
-- **Function Name**: `createComponent`
-- **Parameters**: `componentName`: string (name of the desired component)
-- **Return Value**: Base template for creating a new React component
-- **Description**: Generates a template for a new custom React component, including necessary imports and boilerplate code. This function can be used to quickly create new components based on a consistent structure and naming conventions.
-
-### Service Template (`template.service.ts`)
-
-- **Function Name**: `createService`
-- **Parameters**: `serviceName`: string (name of the desired service)
-- **Return Value**: Base template for creating a new service
-- **Description**: Generates a template for a new custom service, including necessary imports and boilerplate code. This function can be used to quickly create new services based on a consistent structure and naming conventions.
-
-### Utility Template (`template.util.ts`)
-
-- **Function Name**: `createUtility`
-- **Parameters**: `utilityName`: string (name of the desired utility)
-- **Return Value**: Base template for creating a new utility
-- **Description**: Generates a template for a new custom utility, including necessary imports and boilerplate code. This function can be used to quickly create new utilities based on a consistent structure and naming conventions.
-
-### Context Template (`template.context.ts`)
-
-- **Function Name**: `createContext`
-- **Parameters**: `contextName`: string (name of the desired context)
-- **Return Value**: Base template for creating a new custom context
-- **Description**: Generates a template for a new custom context, including necessary imports and boilerplate code. This function can be used to quickly create new contexts based on a consistent structure and naming conventions.
+### UpdateFrontendTemplate
+- **Parameters:** Frontend technology name (e.g., React, Next.js, Vue, Angular), new version or update details
+- **Return value:** Updated subfolder of the specified frontend template with the latest configuration and files.
+- **Description:** Updates an existing subfolder within the `project_blueprint/frontend` folder to reflect the latest version or changes in a given frontend technology.
 
 ## Interactions
 
-The `project_blueprint/frontend` folder interacts with other parts of the project through:
-
-1. Exporting React components, services, utilities, and context for import and usage by other frontend files.
-2. Communicating with the backend via API requests (using libraries like Axios or Fetch) to retrieve data and submit user actions.
-3. Utilizing Redux or other state management solutions to handle complex state management needs across multiple components.
-4. Routing between different pages using a library like React Router.
+The `project_blueprint/frontend` interacts mainly with developers, who use it to set up their preferred frontend technology for building the online bakery shop's user interface. It does not have direct interactions with other components of the global architecture, such as the backend or database layers.
 
 ## Future Extensibility
 
-To ensure future extensibility, the `project_blueprint/frontend` folder can be extended by adding new files, folders, or templates as needed to accommodate additional components, services, utilities, or contexts for the online bakery shop application. Additionally, updating and refactoring existing templates can help maintain consistency across the project while adapting to evolving requirements or technology trends.
+The `project_blueprint/frontend` is designed to be easily extensible by adding support for new frontend technologies or updating existing ones when necessary. As new frameworks emerge or current ones receive updates, developers can easily incorporate them into the project blueprint by adding or modifying the relevant subfolders within this folder.

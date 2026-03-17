@@ -1,20 +1,13 @@
 # pruning/pruning_pipeline.py
 
 import copy
-from .structure_utils import (
-    find_shallowest_terminal_folder_depth,
-    trim_tree_to_depth,
-    extract_prunable_nodes,
-    build_system_context
-)
+from .structure_utils import (find_shallowest_terminal_folder_depth, trim_tree_to_depth, extract_prunable_nodes, build_system_context)
 from .pruning_session import PruningSession
 from .decision_tracker import DecisionTracker
 from .tree_pruner import prune_tree
 
 
-def run_pruning_pipeline(tree,
-                         user_requirement,
-                         tech_stack):
+def run_pruning_pipeline(tree, user_requirement, tech_stack):
 
     tree_copy = copy.deepcopy(tree)
 
@@ -22,19 +15,13 @@ def run_pruning_pipeline(tree,
     min_depth = find_shallowest_terminal_folder_depth(tree_copy)
 
     # STEP 2 — trim common structure
-    trimmed_tree = trim_tree_to_depth(
-        copy.deepcopy(tree_copy),
-        min_depth - 1
-    )
+    trimmed_tree = trim_tree_to_depth(copy.deepcopy(tree_copy), min_depth - 1)
 
     # STEP 3 — extract all prunable nodes
     prunable_nodes = extract_prunable_nodes(tree_copy)
+    prunable_nodes.sort(key=lambda x: x.depth)
 
-    system_context = build_system_context(
-        user_requirement,
-        tech_stack,
-        trimmed_tree
-    )
+    system_context = build_system_context(user_requirement, tech_stack, trimmed_tree)
 
     session = PruningSession(system_context)
     tracker = DecisionTracker()
@@ -42,19 +29,14 @@ def run_pruning_pipeline(tree,
     # STEP 5 — evaluate one by one
     for node in prunable_nodes:
 
-        decision = session.evaluate_leaf(node)
+        decision = session.evaluate_leaf(node, tracker.all())
 
         if node.mandatory.lower() == "yes":
             final_decision = "KEEP"
         else:
             final_decision = decision.decision
 
-        tracker.add(
-            node.full_path,
-            final_decision,
-            decision.reason,
-            node.mandatory
-        )
+        tracker.add(node.full_path, final_decision, decision.reason, node.mandatory)
 
     # STEP 6 — prune
     pruned_tree = prune_tree(tree_copy, tracker.all())

@@ -1,0 +1,27 @@
+file: project_blueprint\frontend\react_vite\tsconfig.json
+functions:
+- name: compile
+  parameters:
+  - name: files
+    type: '[string]'
+  - name: rootDir
+    type: string
+  return_type: string
+  description: Compiles the specified TypeScript files and directories into JavaScript
+    files.
+- name: typeCheck
+  parameters:
+  - name: files
+    type: '[string]'
+  - name: rootDir
+    type: string
+  return_type: object
+  description: Performs type checking on the specified TypeScript files and directories.
+- name: emitDecoratorMetadata
+  parameters: []
+  return_type: string
+  description: Emits metadata for decorators used in TypeScript classes and functions.
+- name: removeComments
+  parameters: []
+  return_type: string
+  description: Removes comments from the compiled JavaScript files.

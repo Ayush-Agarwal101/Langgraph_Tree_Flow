@@ -1,0 +1,28 @@
+file: project_blueprint\backend\node\nestjs\src\main.ts
+functions:
+- name: createApplication
+  parameters:
+  - name: ApplicationOptionsInterface
+    type: object
+  return_type: ApplicationInstance
+  description: Initializes a new instance of the NestJS Application class using the
+    provided configuration settings.
+- name: initializeModules
+  parameters: []
+  return_type: void
+  description: Registers and initializes all specified modules in the correct order
+    to ensure proper bootstrapping sequence.
+- name: createHttpServer
+  parameters:
+  - name: HttpAdapterInterface
+    type: object
+  - name: ServerOptions
+    type: object
+  return_type: Server
+  description: Sets up the specified HTTP server with required configurations such
+    as routes and listeners for incoming requests.
+- name: start
+  parameters: []
+  return_type: void
+  description: Starts the created HTTP server by listening to a specified port and
+    initializing the application.

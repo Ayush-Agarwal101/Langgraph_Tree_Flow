@@ -4,35 +4,35 @@
     "Web Development",
     "Backend",
     "REST",
-    "Java",
-    "Spring Boot",
-    "Tomcat"
+    "JavaScript/TypeScript",
+    "NestJS",
+    "NGINX"
   ],
-  "tech_stack_summary": "Web Development \u2192 Backend \u2192 REST \u2192 Java \u2192 Spring Boot \u2192 Tomcat",
+  "tech_stack_summary": "Web Development \u2192 Backend \u2192 REST \u2192 JavaScript/TypeScript \u2192 NestJS \u2192 NGINX",
   "technology_choices": {
     "Core Application & Web Stacks -> Web Development": {
-      "rationale": "Chosen for building user interfaces and handling HTTP requests for an online bakery shop.",
-      "purpose": "Enables creation of a functional backend that can handle interactions with users, manage orders, inventory and more."
+      "rationale": "This choice is suitable for building the backend for an online bakery shop as it provides the necessary tools to create dynamic web pages and handle server-side logic.",
+      "purpose": "Enables creation of a backend infrastructure to manage the online bakery shop's functionality, such as product management, inventory tracking, order processing, and customer interactions."
     },
     "Web Development -> Backend": {
-      "rationale": "Since the user requirement is to build a backend for an online bakery shop, the Backend option is necessary.",
-      "purpose": "This option enables the development of server-side logic, database management, and API creation."
+      "rationale": "The Backend is required to manage and process data related to the online bakery shop such as orders, inventory, user authentication etc.",
+      "purpose": "This option enables managing and processing of data for the backend functionality"
     },
     "Backend -> REST": {
-      "rationale": "REST is a well-established and widely-adopted standard for APIs, making it easier to integrate with other systems and services.",
-      "purpose": "Enables communication between the backend and various frontend applications using HTTP requests"
+      "rationale": "REST (Representational State Transfer) is a well-established and widely-used API design pattern, making it easier for developers to understand and implement the backend for an online bakery shop.",
+      "purpose": "Enables easy communication between the frontend and backend using standard HTTP methods such as GET, POST, PUT, DELETE."
     },
-    "REST -> Java": {
-      "rationale": "Java is widely used for building large-scale, enterprise-grade applications, which makes it suitable for this online bakery shop backend.",
-      "purpose": "Java enables development of robust, scalable and secure backends."
+    "REST -> JavaScript/TypeScript": {
+      "rationale": "For simplicity, quick development and easy integration with frontend (if using React or Angular), JavaScript/TypeScript is chosen.",
+      "purpose": "Enables efficient server-side logic implementation for the online bakery shop."
     },
-    "Java -> Spring Boot": {
-      "rationale": "Popularity, extensive community support, and a wide range of pre-built solutions make it an ideal choice for beginners.",
-      "purpose": "Enables fast and easy development of RESTful services in Java."
+    "JavaScript/TypeScript -> NestJS": {
+      "rationale": "NestJS is built on top of Express and provides additional features like modularity, DI (Dependency Injection), and TypeScript support making it suitable for large-scale projects.",
+      "purpose": "Enables the development of a scalable backend for an online bakery shop."
     },
-    "Spring Boot -> Tomcat": {
-      "rationale": "Tomcat is widely used and well-documented with Spring Boot, making it a stable option for this project.",
-      "purpose": "Enables the deployment of the Spring Boot backend application."
+    "NestJS -> NGINX": {
+      "rationale": "Popular choice for handling high traffic applications and reverse proxying in Node.js projects",
+      "purpose": "Enables efficient routing and management of requests to the NestJS application"
     }
   },
   "nodes": {
@@ -57,22 +57,22 @@
     "REST": {
       "is_leaf": false,
       "choices": [
-        "Java"
+        "JavaScript/TypeScript"
       ]
     },
-    "Java": {
+    "JavaScript/TypeScript": {
       "is_leaf": false,
       "choices": [
-        "Spring Boot"
+        "NestJS"
       ]
     },
-    "Spring Boot": {
+    "NestJS": {
       "is_leaf": false,
       "choices": [
-        "Tomcat"
+        "NGINX"
       ]
     },
-    "Tomcat": {
+    "NGINX": {
       "is_leaf": true,
       "choices": []
     }
@@ -92,15 +92,15 @@
     ],
     [
       "REST",
-      "Java"
+      "JavaScript/TypeScript"
     ],
     [
-      "Java",
-      "Spring Boot"
+      "JavaScript/TypeScript",
+      "NestJS"
     ],
     [
-      "Spring Boot",
-      "Tomcat"
+      "NestJS",
+      "NGINX"
     ]
   ]
 }
